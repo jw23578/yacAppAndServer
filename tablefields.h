@@ -51,6 +51,7 @@ public:
     MACRO_ConstString(verified);
     MACRO_ConstString(searching_fuzzy_allowed);
     MACRO_ConstString(searching_exactly_allowed);
+    MACRO_ConstString(login_token_valid_until);
 
     TableFields() noexcept;
 };
