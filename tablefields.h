@@ -1,17 +1,7 @@
 #ifndef TABLEFIELDS_H
 #define TABLEFIELDS_H
 
-#ifdef YACAPPServer
-#include <string>
-#define MACRO_ConstString(nameValue) \
-    const std::string nameValue{#nameValue}
-#endif
-#ifdef YACAPPApp
-#include <QString>
-#define MACRO_ConstString(nameValue) \
-    const QString nameValue{#nameValue}
-#endif
-
+#include "yacappandservermacros.h"
 
 class TableFields
 {
