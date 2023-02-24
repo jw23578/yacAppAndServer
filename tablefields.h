@@ -56,6 +56,7 @@ public:
     MACRO_ConstString(default_duration_in_minutes);
     MACRO_ConstString(color);
     MACRO_ConstString(appointment_id);
+    MACRO_ConstString(owner_id);
 
     TableFields() noexcept;
 };
