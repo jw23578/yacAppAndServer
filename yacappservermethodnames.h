@@ -14,7 +14,10 @@ public:
     MACRO_ConstString(fetchMyProfile);
     MACRO_ConstString(insertAppointmentTemplate);
     MACRO_ConstString(updateAppointmentTemplate);
+    MACRO_ConstString(deleteAppointmentTemplate);
     MACRO_ConstString(fetchAppointmentTemplates);
+    MACRO_ConstString(insertAppointment);
+    MACRO_ConstString(fetchAppointments);
     YACAPPServerMethodNames();
 };
 
