@@ -47,6 +47,13 @@ public:
     MACRO_ConstString(color);
     MACRO_ConstString(appointment_id);
     MACRO_ConstString(owner_id);
+    MACRO_ConstString(element_id);
+    MACRO_ConstString(caption);
+    MACRO_ConstString(decription);
+    MACRO_ConstString(start_datetime);
+    MACRO_ConstString(end_datetime);
+    MACRO_ConstString(deleted_datetime);
+    MACRO_ConstString(history_datetime);
 
     TableFields() noexcept;
 };
