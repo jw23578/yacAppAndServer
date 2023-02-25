@@ -54,6 +54,8 @@ public:
     MACRO_ConstString(end_datetime);
     MACRO_ConstString(deleted_datetime);
     MACRO_ConstString(history_datetime);
+    MACRO_ConstString(appointment_group_id);
+    MACRO_ConstString(appointment_template_id);
 
     TableFields() noexcept;
 };
