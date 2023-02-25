@@ -56,6 +56,10 @@ public:
     MACRO_ConstString(history_datetime);
     MACRO_ConstString(appointment_group_id);
     MACRO_ConstString(appointment_template_id);
+    MACRO_ConstString(max_bookable_count);
+    MACRO_ConstString(bookable_since_datetime);
+    MACRO_ConstString(bookable_until_datetime);
+    MACRO_ConstString(booking_credits);
 
     TableFields() noexcept;
 };
