@@ -60,6 +60,7 @@ public:
     MACRO_ConstString(bookable_since_datetime);
     MACRO_ConstString(bookable_until_datetime);
     MACRO_ConstString(booking_credits);
+    MACRO_ConstString(visible_for_everybody);
 
     TableFields() noexcept {};
 };
