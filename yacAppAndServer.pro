@@ -9,9 +9,7 @@ CONFIG -= app_bundle
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += \
-        tablefields.cpp \
-        yacappservermethodnames.cpp
+SOURCES +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

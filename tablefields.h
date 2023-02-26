@@ -61,7 +61,7 @@ public:
     MACRO_ConstString(bookable_until_datetime);
     MACRO_ConstString(booking_credits);
 
-    TableFields() noexcept;
+    TableFields() noexcept {};
 };
 
 #endif // TABLEFIELDS_H

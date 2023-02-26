@@ -17,8 +17,9 @@ public:
     MACRO_ConstString(deleteAppointmentTemplate);
     MACRO_ConstString(fetchAppointmentTemplates);
     MACRO_ConstString(insertAppointment);
+    MACRO_ConstString(deleteAppointment);
     MACRO_ConstString(fetchAppointments);
-    YACAPPServerMethodNames();
+    YACAPPServerMethodNames() {}
 };
 
 #endif // YACAPPSERVERMETHODNAMES_H
