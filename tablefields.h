@@ -61,6 +61,8 @@ public:
     MACRO_ConstString(bookable_until_datetime);
     MACRO_ConstString(booking_credits);
     MACRO_ConstString(visible_for_everybody);
+    MACRO_ConstString(right_group_id);
+    MACRO_ConstString(space_id);
 
     TableFields() noexcept {};
 };
