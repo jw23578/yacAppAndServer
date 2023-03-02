@@ -11,7 +11,8 @@
 
 namespace Rights
 {
-    extern std::set<int> allRightNumbers;
+extern const std::string Administrator;
+extern std::set<int> allRightNumbers;
 }
 
 class RightNumber
@@ -38,11 +39,11 @@ public:
 
 namespace Rights
 {
-    extern const RightNumber RN_addRightNumberToGroup;
-    extern const RightNumber RN_deleteRightNumberToGroup;
-    extern const RightNumber RN_insertRightGroup;
-    extern const RightNumber RN_updateRightGroup;
-    extern const RightNumber RN_deleteRightGroup;
+extern const RightNumber RN_addRightNumberToGroup;
+extern const RightNumber RN_deleteRightNumberToGroup;
+extern const RightNumber RN_insertRightGroup;
+extern const RightNumber RN_updateRightGroup;
+extern const RightNumber RN_deleteRightGroup;
 };
 
 #endif // RIGHTNUMBERS_H
