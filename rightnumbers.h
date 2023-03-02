@@ -1,6 +1,7 @@
 #ifndef RIGHTNUMBERS_H
 #define RIGHTNUMBERS_H
 
+#include <set>
 #ifdef YACAPPServer
 #include <string>
 #endif
@@ -8,6 +9,10 @@
 #include <QString>
 #endif
 
+namespace Rights
+{
+    extern std::set<int> allRightNumbers;
+}
 
 class RightNumber
 {
@@ -16,21 +21,28 @@ public:
 
 #ifdef YACAPPServer
     std::string meaning;
-    RightNumber(int number, const std::string &meaning):number(number), meaning(meaning) {}
+    RightNumber(int number, const std::string &meaning):number(number), meaning(meaning)
+    {
+        Rights::allRightNumbers.insert(number);
+    }
 #endif
 #ifdef YACAPPApp
     QString meaning;
-    RightNumber(int number, const QString &meaning):number(number), meaning(meaning) {}
+    RightNumber(int number, const QString &meaning):number(number), meaning(meaning)
+    {
+        Rights::allRightNumbers.insert(number);
+    }
+
 #endif
 };
 
-class Rights
+namespace Rights
 {
-    const RightNumber RN_addRightNumberToGroup{1, "Add a Right to a Rightgroup"};
-    const RightNumber RN_deleteRightNumberToGroup{2, "Delete a Right from a Rightgroup"};
-    const RightNumber RN_insertRightGroup{3, "Add a Rightgroup"};
-    const RightNumber RN_updateRightGroup{4, "Change a Rightgroup"};
-    const RightNumber RN_deleteRightGroup{5, "Delete a Rightgroup"};
+    extern const RightNumber RN_addRightNumberToGroup;
+    extern const RightNumber RN_deleteRightNumberToGroup;
+    extern const RightNumber RN_insertRightGroup;
+    extern const RightNumber RN_updateRightGroup;
+    extern const RightNumber RN_deleteRightGroup;
 };
 
 #endif // RIGHTNUMBERS_H
