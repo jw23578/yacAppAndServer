@@ -4,15 +4,20 @@
 #include <set>
 #ifdef YACAPPServer
 #include <string>
+#include <map>
 #endif
 #ifdef YACAPPApp
+#include <map>
 #include <QString>
 #endif
+
+class RightNumber;
 
 namespace Rights
 {
 extern const std::string Administrator;
 extern std::set<int> allRightNumbers;
+extern std::map<int, RightNumber*> allRightNumberObjects;
 }
 
 class RightNumber
@@ -25,6 +30,7 @@ public:
     RightNumber(int number, const std::string &meaning):number(number), meaning(meaning)
     {
         Rights::allRightNumbers.insert(number);
+        Rights::allRightNumberObjects[number] = this;
     }
 #endif
 #ifdef YACAPPApp
@@ -32,6 +38,7 @@ public:
     RightNumber(int number, const QString &meaning):number(number), meaning(meaning)
     {
         Rights::allRightNumbers.insert(number);
+        Rights::allRightNumberObjects[number] = this;
     }
 
 #endif
