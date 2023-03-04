@@ -24,9 +24,21 @@ public:
     MACRO_ConstString(insertRightGroup);
     MACRO_ConstString(updateRightGroup);
     MACRO_ConstString(deleteRightGroup);
+    MACRO_ConstString(fetchRightGroup);
 
-    MACRO_ConstString(insertRight);
-    MACRO_ConstString(deleteRight);
+    MACRO_ConstString(setRightGroupRights);
+    MACRO_ConstString(insertRightGroupMember);
+    MACRO_ConstString(deleteRightGroupMember);
+
+    MACRO_ConstString(fetchSpaces);
+    MACRO_ConstString(insertSpace);
+    MACRO_ConstString(updateSpace);
+    MACRO_ConstString(deleteSpace);
+    MACRO_ConstString(fetchSpace);
+
+    MACRO_ConstString(insertSpaceMember);
+    MACRO_ConstString(deleteSpaceMember);
+
     YACAPPServerMethodNames() {}
 };
 
