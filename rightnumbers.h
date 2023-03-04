@@ -46,11 +46,8 @@ public:
 
 namespace Rights
 {
-extern const RightNumber RN_addRightNumberToGroup;
-extern const RightNumber RN_deleteRightNumberToGroup;
-extern const RightNumber RN_insertRightGroup;
-extern const RightNumber RN_updateRightGroup;
-extern const RightNumber RN_deleteRightGroup;
+extern const RightNumber RN_changeRightsGroups;
+extern const RightNumber RN_changeSpaces;
 };
 
 #endif // RIGHTNUMBERS_H
