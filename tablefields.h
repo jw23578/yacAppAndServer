@@ -66,6 +66,8 @@ public:
     MACRO_ConstString(right_number);
     MACRO_ConstString(space_id);
     MACRO_ConstString(automatic);
+    MACRO_ConstString(access_code);
+    MACRO_ConstString(no_space);
 
     TableFields() noexcept {};
 };
