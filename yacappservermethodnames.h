@@ -36,8 +36,10 @@ public:
     MACRO_ConstString(deleteSpace);
     MACRO_ConstString(fetchSpace);
 
-    MACRO_ConstString(insertSpaceMember);
-    MACRO_ConstString(deleteSpaceMember);
+    MACRO_ConstString(requestSpaceAccess);
+    MACRO_ConstString(fetchSpaceRequests);
+    MACRO_ConstString(approveSpaceAccess);
+    MACRO_ConstString(denySpaceAccess);
 
     YACAPPServerMethodNames() {}
 };

@@ -68,6 +68,11 @@ public:
     MACRO_ConstString(automatic);
     MACRO_ConstString(access_code);
     MACRO_ConstString(no_space);
+    MACRO_ConstString(requested_datetime);
+    MACRO_ConstString(approved_datetime);
+    MACRO_ConstString(approved_appuser_id);
+    MACRO_ConstString(denied_datetime);
+    MACRO_ConstString(denied_appuser_id);
 
     TableFields() noexcept {};
 };
