@@ -41,6 +41,9 @@ public:
     MACRO_ConstString(approveSpaceAccess);
     MACRO_ConstString(denySpaceAccess);
 
+    MACRO_ConstString(getWorktimeState);
+    MACRO_ConstString(fetchWorktimes);
+
     YACAPPServerMethodNames() {}
 };
 
