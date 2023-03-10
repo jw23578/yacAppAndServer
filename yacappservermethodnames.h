@@ -43,6 +43,8 @@ public:
 
     MACRO_ConstString(getWorktimeState);
     MACRO_ConstString(fetchWorktimes);
+    MACRO_ConstString(insertWorktime);
+    MACRO_ConstString(insertWorktimeBeginEnd);
 
     YACAPPServerMethodNames() {}
 };
