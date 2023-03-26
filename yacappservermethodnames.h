@@ -25,6 +25,7 @@ public:
     MACRO_ConstString(updateRightGroup);
     MACRO_ConstString(deleteRightGroup);
     MACRO_ConstString(fetchRightGroup);
+    MACRO_ConstString(rightGroupRequestResultSeen);
 
     MACRO_ConstString(setRightGroupRights);
     MACRO_ConstString(insertRightGroupMember);
@@ -40,6 +41,7 @@ public:
     MACRO_ConstString(fetchSpaceRequests);
     MACRO_ConstString(approveSpaceAccess);
     MACRO_ConstString(denySpaceAccess);
+    MACRO_ConstString(spaceRequestResultSeen);
 
     MACRO_ConstString(getWorktimeState);
     MACRO_ConstString(fetchWorktimes);
