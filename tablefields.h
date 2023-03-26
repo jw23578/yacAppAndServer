@@ -73,6 +73,8 @@ public:
     MACRO_ConstString(approved_appuser_id);
     MACRO_ConstString(denied_datetime);
     MACRO_ConstString(denied_appuser_id);
+    MACRO_ConstString(result_seen);
+    MACRO_ConstString(request_allowed);
 
     TableFields() noexcept {};
 };
