@@ -75,6 +75,7 @@ public:
     MACRO_ConstString(denied_appuser_id);
     MACRO_ConstString(result_seen);
     MACRO_ConstString(request_allowed);
+    MACRO_ConstString(visible_for_non_members);
 
     TableFields() noexcept {};
 };
