@@ -15,8 +15,12 @@ SOURCES += \
   orm/ormobjectinterface.cpp \
   orm/ormpropertyinterface.cpp \
   orm/ormpropertysizet.cpp \
+  orm/ormpropertystring.cpp \
+  orm/ormpropertyuuid.cpp \
   orm/ormtemplatedpropertyinterface.cpp \
-  rightnumbers.cpp
+  orm_implementions/t0026_appuser_tag.cpp \
+  rightnumbers.cpp \
+  sole/sole.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -28,8 +32,12 @@ HEADERS += \
   orm/ormobjectinterface.h \
   orm/ormpropertyinterface.h \
   orm/ormpropertysizet.h \
+  orm/ormpropertystring.h \
+  orm/ormpropertyuuid.h \
   orm/ormtemplatedpropertyinterface.h \
+  orm_implementions/t0026_appuser_tag.h \
   rightnumbers.h \
+  sole/sole.hpp \
   tablefields.h \
   yacappandservermacros.h \
   yacappservermethodnames.h

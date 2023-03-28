@@ -15,3 +15,11 @@ SOURCES += \
   $$PWD/orm/ormpropertysizet.cpp \
   $$PWD/orm/ormtemplatedpropertyinterface.cpp \
   $$PWD/rightnumbers.cpp
+
+contains(DEFINES, ORMCPPTypes){
+SOURCES += \
+  $$PWD/sole/sole.cpp
+
+HEADERS += \
+  $$PWD/sole/sole.hpp
+}
