@@ -1,3 +1,5 @@
+INCLUDEPATH += $$PWD
+
 HEADERS += \
   $$PWD/orm/ormdefinitions.h \
   $$PWD/orm/ormobjectinterface.h \
