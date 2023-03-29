@@ -30,7 +30,7 @@ public:
                                const ORMString &value);
 
 
-    void getPropertyNames(std::set<ORMString> &propertyNames);
+    void getPropertyNames(std::set<ORMString> &propertyNames) const;
 };
 
 #endif // ORMOBJECTINTERFACE_H

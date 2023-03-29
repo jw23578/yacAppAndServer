@@ -46,7 +46,7 @@ void ORMObjectInterface::setPropertyFromString(const ORMString &propertyName,
     it->second->fromString(value);
 }
 
-void ORMObjectInterface::getPropertyNames(std::set<ORMString> &propertyNames)
+void ORMObjectInterface::getPropertyNames(std::set<ORMString> &propertyNames) const
 {
     for (const auto &pn: properties)
     {
