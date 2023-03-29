@@ -12,6 +12,7 @@ public:
 
     void set(const T &value)
     {
+        setNull(false);
         this->value = value;
     }
 

@@ -10,7 +10,22 @@ ORMObjectInterface::ORMObjectInterface()
 
 }
 
-ORMString ORMObjectInterface::getValueToString(const ORMString &propertyName) const
+bool ORMObjectInterface::propertyExists(const ORMString &propertyName) const
+{
+    return properties.find(propertyName) != properties.end();
+}
+
+bool ORMObjectInterface::propertyIsNull(const ORMString &propertyName) const
+{
+    const auto it(properties.find(propertyName));
+    if (it == properties.end())
+    {
+        return true;
+    }
+    return it->second->isNull();
+}
+
+ORMString ORMObjectInterface::getPropertyToString(const ORMString &propertyName) const
 {
     const auto it(properties.find(propertyName));
     if (it == properties.end())
@@ -20,7 +35,7 @@ ORMString ORMObjectInterface::getValueToString(const ORMString &propertyName) co
     return it->second->asString();
 }
 
-void ORMObjectInterface::setValueFromString(const ORMString &propertyName,
+void ORMObjectInterface::setPropertyFromString(const ORMString &propertyName,
                                             const ORMString &value)
 {
     const auto it(properties.find(propertyName));

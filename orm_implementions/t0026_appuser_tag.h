@@ -5,11 +5,13 @@
 
 class t0026_appuser_tag : public ORMObjectInterface
 {
+    ORMPropertyUuid id;
     ORMPropertyString tag;
 public:
     t0026_appuser_tag():ORMObjectInterface()
     {
-        addProperty("tag", tag);
+        MACRO_addProperty(id);
+        MACRO_addProperty(tag);
     }
     const ORMString getORMName() const override
     {
