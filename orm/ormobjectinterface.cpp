@@ -25,6 +25,17 @@ bool ORMObjectInterface::propertyIsNull(const ORMString &propertyName) const
     return it->second->isNull();
 }
 
+void ORMObjectInterface::setPropertyNull(const ORMString &propertyName,
+                                         const bool n)
+{
+    const auto it(properties.find(propertyName));
+    if (it == properties.end())
+    {
+        return;
+    }
+    it->second->setNull(n);
+}
+
 ORMString ORMObjectInterface::getPropertyToString(const ORMString &propertyName) const
 {
     const auto it(properties.find(propertyName));

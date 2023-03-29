@@ -13,7 +13,6 @@ public:
     virtual void fromString(const ORMString &value) = 0;
 
     void setNull(const bool n);
-    void setNotNull();
     bool isNull() const;
 };
 

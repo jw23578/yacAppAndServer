@@ -24,6 +24,8 @@ public:
 
     bool propertyExists(const ORMString &propertyName) const;
     bool propertyIsNull(const ORMString &propertyName) const;
+    void setPropertyNull(const ORMString &propertyName,
+                         const bool n);
 
     ORMString getPropertyToString(const ORMString &propertyName) const;
     void setPropertyFromString(const ORMString &propertyName,
