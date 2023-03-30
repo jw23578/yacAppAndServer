@@ -8,6 +8,7 @@ class ORMPropertyInterface
     bool bNull;
 public:
     ORMPropertyInterface();
+    virtual ~ORMPropertyInterface() {}
 
     virtual ORMString asString() const = 0;
     virtual void fromString(const ORMString &value) = 0;

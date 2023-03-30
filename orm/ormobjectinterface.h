@@ -8,6 +8,7 @@
 #include "ormpropertysizet.h"
 #include "ormpropertyuuid.h"
 #include "ormpropertystring.h"
+#include "ormpropertydatetime.h"
 
 #define MACRO_addProperty(name) \
     addProperty(#name, name)
@@ -20,6 +21,7 @@ protected:
     void addProperty(ORMString propertyName, ORMPropertyInterface &property);
 public:
     ORMObjectInterface();
+    virtual ~ORMObjectInterface() {}
     virtual const ORMString getORMName() const = 0;
 
     bool propertyExists(const ORMString &propertyName) const;

@@ -1,6 +1,6 @@
 #include "ormpropertysizet.h"
 
-ORMPropertySizeT::ORMPropertySizeT()
+ORMPropertySizeT::ORMPropertySizeT():ORMTemplatedPropertyInterface<size_t>()
 {
 
 }

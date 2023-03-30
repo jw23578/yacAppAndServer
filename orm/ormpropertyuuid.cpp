@@ -1,6 +1,6 @@
 #include "ormpropertyuuid.h"
 
-ORMPropertyUuid::ORMPropertyUuid()
+ORMPropertyUuid::ORMPropertyUuid():ORMTemplatedPropertyInterface<ORMUuid>()
 {
 
 }

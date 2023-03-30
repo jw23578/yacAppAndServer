@@ -13,14 +13,17 @@ CONFIG -= app_bundle
 SOURCES += \
   main.cpp \
   orm/ormobjectinterface.cpp \
+  orm/ormpropertydatetime.cpp \
   orm/ormpropertyinterface.cpp \
   orm/ormpropertysizet.cpp \
   orm/ormpropertystring.cpp \
   orm/ormpropertyuuid.cpp \
   orm/ormtemplatedpropertyinterface.cpp \
+  orm_implementions/t0009_appuser_logintoken.cpp \
   orm_implementions/t0026_appuser_tag.cpp \
   rightnumbers.cpp \
-  sole/sole.cpp
+  sole/sole.cpp \
+  utils/extstring.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -30,15 +33,18 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
   orm/ormdefinitions.h \
   orm/ormobjectinterface.h \
+  orm/ormpropertydatetime.h \
   orm/ormpropertyinterface.h \
   orm/ormpropertysizet.h \
   orm/ormpropertystring.h \
   orm/ormpropertyuuid.h \
   orm/ormtemplatedpropertyinterface.h \
+  orm_implementions/t0009_appuser_logintoken.h \
   orm_implementions/t0026_appuser_tag.h \
   rightnumbers.h \
   sole/sole.hpp \
   tablefields.h \
+  utils/extstring.h \
   yacappandservermacros.h \
   yacappservermethodnames.h
 
