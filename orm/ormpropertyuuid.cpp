@@ -2,7 +2,16 @@
 
 ORMPropertyUuid::ORMPropertyUuid():ORMTemplatedPropertyInterface<ORMUuid>()
 {
+#ifdef ORMCPPTypes
+    sole::uuid u;
+    u.ab = 0;
+    u.cd = 0;
+    set(u);
+#endif
 
+#ifdef ORMQTTypes
+    // is correct initialized
+#endif
 }
 
 ORMString ORMPropertyUuid::asString() const
