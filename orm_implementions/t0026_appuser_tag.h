@@ -17,6 +17,11 @@ public:
     {
         return "t0026_appuser_tag";
     }
+    ORMObjectInterface *create() const override
+    {
+        return new t0026_appuser_tag;
+    }
+
 
 };
 

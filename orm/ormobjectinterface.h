@@ -23,6 +23,7 @@ public:
     ORMObjectInterface();
     virtual ~ORMObjectInterface() {}
     virtual const ORMString getORMName() const = 0;
+    virtual ORMObjectInterface *create() const = 0;
 
     bool propertyExists(const ORMString &propertyName) const;
     bool propertyIsNull(const ORMString &propertyName) const;
