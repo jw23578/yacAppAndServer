@@ -20,8 +20,10 @@ SOURCES += \
 
 contains(DEFINES, ORMCPPTypes){
 SOURCES += \
-  $$PWD/sole/sole.cpp
+  $$PWD/sole/sole.cpp \
+  $$PWD/utils/extstring.cpp
 
 HEADERS += \
-  $$PWD/sole/sole.hpp
+  $$PWD/sole/sole.hpp \
+  $$PWD/utils/extstring.h
 }
