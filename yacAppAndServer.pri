@@ -1,6 +1,8 @@
 INCLUDEPATH += $$PWD
 
 HEADERS += \
+  $$PWD/orm_implementions/t0009_appuser_logintoken.h \
+  $$PWD/orm_implementions/t0026_appuser_tag.h \
   $$PWD/orm/ormdefinitions.h \
   $$PWD/orm/ormobjectinterface.h \
   $$PWD/orm/ormpropertyinterface.h \
@@ -12,6 +14,8 @@ HEADERS += \
   $$PWD/yacappservermethodnames.h
 
 SOURCES += \
+  $$PWD/orm_implementions/t0009_appuser_logintoken.cpp \
+  $$PWD/orm_implementions/t0026_appuser_tag.cpp \
   $$PWD/orm/ormobjectinterface.cpp \
   $$PWD/orm/ormpropertyinterface.cpp \
   $$PWD/orm/ormpropertysizet.cpp \
