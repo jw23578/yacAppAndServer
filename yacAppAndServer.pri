@@ -7,6 +7,9 @@ HEADERS += \
   $$PWD/orm/ormobjectinterface.h \
   $$PWD/orm/ormpropertyinterface.h \
   $$PWD/orm/ormpropertysizet.h \
+  $$PWD/orm/ormpropertydatetime.h \
+  $$PWD/orm/ormpropertystring.h \
+  $$PWD/orm/ormpropertyuuid.h \
   $$PWD/orm/ormtemplatedpropertyinterface.h \
   $$PWD/rightnumbers.h \
   $$PWD/tablefields.h \
@@ -19,6 +22,9 @@ SOURCES += \
   $$PWD/orm/ormobjectinterface.cpp \
   $$PWD/orm/ormpropertyinterface.cpp \
   $$PWD/orm/ormpropertysizet.cpp \
+  $$PWD/orm/ormpropertydatetime.cpp \
+  $$PWD/orm/ormpropertystring.cpp \
+  $$PWD/orm/ormpropertyuuid.cpp \
   $$PWD/orm/ormtemplatedpropertyinterface.cpp \
   $$PWD/rightnumbers.cpp
 

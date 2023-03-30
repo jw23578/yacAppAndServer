@@ -13,9 +13,9 @@ CONFIG -= app_bundle
 SOURCES += \
   main.cpp \
   orm/ormobjectinterface.cpp \
-  orm/ormpropertydatetime.cpp \
   orm/ormpropertyinterface.cpp \
   orm/ormpropertysizet.cpp \
+  orm/ormpropertydatetime.cpp \
   orm/ormpropertystring.cpp \
   orm/ormpropertyuuid.cpp \
   orm/ormtemplatedpropertyinterface.cpp \
