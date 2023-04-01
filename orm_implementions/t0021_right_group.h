@@ -6,7 +6,6 @@
 class t0021_right_group : public ORMObjectInterface
 {
 public:
-    ORMPropertyUuid id;
     ORMPropertyUuid app_id;
     ORMPropertyString name;
     ORMPropertyUuid creater_id;
@@ -19,7 +18,6 @@ public:
 
     t0021_right_group()
     {
-        MACRO_addProperty(id);
         MACRO_addProperty(app_id);
         MACRO_addProperty(name);
         MACRO_addProperty(creater_id);

@@ -21,7 +21,11 @@ class ORMObjectInterface
 protected:
     void addProperty(ORMString propertyName, ORMPropertyInterface &property);
 public:
-    ORMObjectInterface();
+    ORMPropertyUuid id;
+    ORMObjectInterface()
+    {
+        MACRO_addProperty(id);
+    }
     virtual ~ORMObjectInterface() {}
     virtual const ORMString getORMName() const = 0;
     virtual ORMObjectInterface *create() const = 0;

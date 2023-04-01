@@ -6,12 +6,10 @@
 class t0026_appuser_tag : public ORMObjectInterface
 {
 public:
-    ORMPropertyUuid id;
     ORMPropertyString tag;
 
     t0026_appuser_tag():ORMObjectInterface()
     {
-        MACRO_addProperty(id);
         MACRO_addProperty(tag);
     }
     const ORMString getORMName() const override
