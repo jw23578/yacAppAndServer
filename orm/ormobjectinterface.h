@@ -81,6 +81,8 @@ class ORMObjectInterface: public QObject
     {
 #endif
 
+        static std::map<ORMString, std::set<ORMString>> allPropertySets;
+
         typedef std::map<ORMString, ORMPropertyInterface*> PropertyMap;
         PropertyMap properties;
     protected:
@@ -105,7 +107,7 @@ class ORMObjectInterface: public QObject
                                    const ORMString &value);
 
 
-        void getPropertyNames(std::set<ORMString> &propertyNames) const;
+        const std::set<ORMString> &propertyNames() const;
     };
 
 #endif // ORMOBJECTINTERFACE_H

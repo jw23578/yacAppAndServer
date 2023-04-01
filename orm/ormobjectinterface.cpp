@@ -1,5 +1,7 @@
 #include "ormobjectinterface.h"
 
+std::map<ORMString, std::set<ORMString>> ORMObjectInterface::allPropertySets;
+
 void ORMObjectInterface::addProperty(ORMString propertyName, ORMPropertyInterface &property)
 {
     properties[propertyName] = &property;
@@ -52,10 +54,16 @@ void ORMObjectInterface::setPropertyFromString(const ORMString &propertyName,
     it->second->fromString(value);
 }
 
-void ORMObjectInterface::getPropertyNames(std::set<ORMString> &propertyNames) const
+const std::set<ORMString> &ORMObjectInterface::propertyNames() const
 {
+    const auto it(allPropertySets.find(getORMName()));
+    if (it != allPropertySets.end())
+    {
+        return it->second;
+    }
     for (const auto &pn: properties)
     {
-        propertyNames.insert(pn.first);
+        allPropertySets[getORMName()].insert(pn.first);
     }
+    return allPropertySets[getORMName()];
 }
