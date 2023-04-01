@@ -6,7 +6,9 @@
 
 class YACBaseObject : public ORMObjectInterface
 {
+#ifdef ORMQTTypes
     Q_OBJECT
+#endif
 
     MACRO_UUID_PROPERTY(id);
 public:
