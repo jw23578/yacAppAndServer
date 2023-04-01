@@ -29,7 +29,7 @@ public:
     std::string meaning;
     RightNumber(int number, const std::string &meaning):number(number), meaning(meaning)
     {
-        if (number == -1)
+        if (number <= 0)
         {
             return;
         }

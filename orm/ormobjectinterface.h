@@ -48,29 +48,40 @@
 #define MACRO_ADD_PROPERTY(name) \
     addProperty(#name, name)
 
-class ORMObjectInterface
+#ifdef ORMQTTypes
+class ORMObjectInterface: public QObject
 {
-    typedef std::map<ORMString, ORMPropertyInterface*> PropertyMap;
-    PropertyMap properties;
-protected:
-    void addProperty(ORMString propertyName, ORMPropertyInterface &property);
-public:
-    ORMObjectInterface() {}
-    virtual ~ORMObjectInterface() {}
-    virtual const ORMString getORMName() const = 0;
-    virtual ORMObjectInterface *create() const = 0;
+#endif
+#ifdef ORMCPPTypes
+    class ORMObjectInterface
+    {
+#endif
 
-    bool propertyExists(const ORMString &propertyName) const;
-    bool propertyIsNull(const ORMString &propertyName) const;
-    void setPropertyNull(const ORMString &propertyName,
-                         const bool n);
+        typedef std::map<ORMString, ORMPropertyInterface*> PropertyMap;
+        PropertyMap properties;
+    protected:
+        void addProperty(ORMString propertyName, ORMPropertyInterface &property);
+    public:
+        ORMObjectInterface()
+#ifdef ORMQTTypes
+            :QObject()
+    #endif
+        {}
+        virtual ~ORMObjectInterface() {}
+        virtual const ORMString getORMName() const = 0;
+        virtual ORMObjectInterface *create() const = 0;
 
-    ORMString getPropertyToString(const ORMString &propertyName) const;
-    void setPropertyFromString(const ORMString &propertyName,
-                               const ORMString &value);
+        bool propertyExists(const ORMString &propertyName) const;
+        bool propertyIsNull(const ORMString &propertyName) const;
+        void setPropertyNull(const ORMString &propertyName,
+                             const bool n);
+
+        ORMString getPropertyToString(const ORMString &propertyName) const;
+        void setPropertyFromString(const ORMString &propertyName,
+                                   const ORMString &value);
 
 
-    void getPropertyNames(std::set<ORMString> &propertyNames) const;
-};
+        void getPropertyNames(std::set<ORMString> &propertyNames) const;
+    };
 
 #endif // ORMOBJECTINTERFACE_H

@@ -11,7 +11,7 @@ class t0021_right_group : public YACBaseObject
     MACRO_DATETIME_PROPERTY(deleted_datetime);
     MACRO_UUID_PROPERTY(deleted_appuser_id);
     MACRO_BOOL_PROPERTY(automatic);
-    MACRO_DATETIME_PROPERTY(access_code);
+    MACRO_STRING_PROPERTY(access_code);
     MACRO_BOOL_PROPERTY(request_allowed);
     MACRO_BOOL_PROPERTY(visible_for_non_members);
 

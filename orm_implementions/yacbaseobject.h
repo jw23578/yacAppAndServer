@@ -16,6 +16,8 @@ public:
     {
         MACRO_ADD_PROPERTY(id);
     }
+
+    void assign(const YACBaseObject &other);
 };
 
 #endif // YACBASEOBJECT_H
