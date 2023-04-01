@@ -19,7 +19,7 @@
 #ifdef ORMQTTypes
 #include <QObject>
 #define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
-    private: \
+    public: \
     ormtype name; \
     public: \
     Q_PROPERTY(type name READ get##name WRITE set##name NOTIFY name##Changed) \
