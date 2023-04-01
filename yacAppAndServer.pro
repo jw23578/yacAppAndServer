@@ -24,6 +24,7 @@ SOURCES += \
   orm_implementions/t0009_appuser_logintoken.cpp \
   orm_implementions/t0021_right_group.cpp \
   orm_implementions/t0026_appuser_tag.cpp \
+  orm_implementions/yacbaseobject.cpp \
   rightnumbers.cpp \
   sole/sole.cpp \
   utils/extstring.cpp
@@ -47,6 +48,7 @@ HEADERS += \
   orm_implementions/t0009_appuser_logintoken.h \
   orm_implementions/t0021_right_group.h \
   orm_implementions/t0026_appuser_tag.h \
+  orm_implementions/yacbaseobject.h \
   rightnumbers.h \
   sole/sole.hpp \
   tablefields.h \

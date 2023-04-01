@@ -4,7 +4,7 @@
 #include "t0021_right_group.h"
 
 
-void ORMFactory::addGhost(ORMObjectInterface *ghost)
+void ORMFactory::addGhost(YACBaseObject *ghost)
 {
     ormNames.insert(ghost->getORMName());
     name2ghost[ghost->getORMName()] = ghost;
@@ -22,12 +22,12 @@ const std::set<ORMString> &ORMFactory::getORMNames() const
     return ormNames;
 }
 
-ORMObjectInterface *ORMFactory::create(const ORMString &ORMName) const
+YACBaseObject *ORMFactory::create(const ORMString &ORMName) const
 {
     const auto it(name2ghost.find(ORMName));
     if (it == name2ghost.end())
     {
         return 0;
     }
-    return it->second->create();
+    return static_cast<YACBaseObject*>(it->second->create());
 }

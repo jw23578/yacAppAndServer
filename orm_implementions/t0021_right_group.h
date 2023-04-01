@@ -1,9 +1,9 @@
 #ifndef T0021_RIGHT_GROUP_H
 #define T0021_RIGHT_GROUP_H
 
-#include "orm/ormobjectinterface.h"
+#include "yacbaseobject.h"
 
-class t0021_right_group : public ORMObjectInterface
+class t0021_right_group : public YACBaseObject
 {
 public:
     ORMPropertyUuid app_id;
@@ -16,7 +16,7 @@ public:
     ORMPropertyBool request_allowed;
     ORMPropertyBool visible_for_non_members;
 
-    t0021_right_group():ORMObjectInterface(Rights::RN_changeRightsGroups)
+    t0021_right_group():YACBaseObject(Rights::RN_changeRightsGroups)
     {
         MACRO_addProperty(app_id);
         MACRO_addProperty(name);
@@ -33,7 +33,7 @@ public:
     {
         return "t0021_right_group";
     }
-    ORMObjectInterface *create() const override
+    YACBaseObject *create() const override
     {
         return new t0021_right_group;
     }

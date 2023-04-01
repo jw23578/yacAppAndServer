@@ -1,19 +1,19 @@
 #ifndef ORMFACTORY_H
 #define ORMFACTORY_H
 
-#include "orm/ormobjectinterface.h"
+#include "yacbaseobject.h"
 
 class ORMFactory
 {
     std::set<ORMString> ormNames;
-    std::map<ORMString, ORMObjectInterface*> name2ghost;
-    void addGhost(ORMObjectInterface *ghost);
+    std::map<ORMString, YACBaseObject*> name2ghost;
+    void addGhost(YACBaseObject *ghost);
 public:
     ORMFactory();
 
     const std::set<ORMString> &getORMNames() const;
 
-    ORMObjectInterface *create(const ORMString &ORMName) const;
+    YACBaseObject *create(const ORMString &ORMName) const;
 };
 
 #endif // ORMFACTORY_H

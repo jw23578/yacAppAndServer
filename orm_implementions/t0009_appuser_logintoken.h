@@ -1,16 +1,16 @@
 #ifndef T0009_APPUSER_LOGINTOKEN_H
 #define T0009_APPUSER_LOGINTOKEN_H
 
-#include "orm/ormobjectinterface.h"
+#include "yacbaseobject.h"
 
-class t0009_appuser_logintoken : public ORMObjectInterface
+class t0009_appuser_logintoken : public YACBaseObject
 {
 public:
     ORMPropertyUuid appuser_id;
     ORMPropertyString login_token;
     ORMPropertyDateTime login_token_valid_until;
 
-    t0009_appuser_logintoken():ORMObjectInterface(Rights::RN_noOne)
+    t0009_appuser_logintoken():YACBaseObject(Rights::RN_noOne)
     {
         MACRO_addProperty(appuser_id);
         MACRO_addProperty(login_token);

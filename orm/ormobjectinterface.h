@@ -10,7 +10,6 @@
 #include "ormpropertystring.h"
 #include "ormpropertydatetime.h"
 #include "ormpropertybool.h"
-#include "rightnumbers.h"
 
 #define MACRO_addProperty(name) \
     addProperty(#name, name)
@@ -22,13 +21,7 @@ class ORMObjectInterface
 protected:
     void addProperty(ORMString propertyName, ORMPropertyInterface &property);
 public:
-    const RightNumber changeRight;
-    ORMPropertyUuid id;
-    ORMObjectInterface(RightNumber changeRight):
-        changeRight(changeRight)
-    {
-        MACRO_addProperty(id);
-    }
+    ORMObjectInterface() {}
     virtual ~ORMObjectInterface() {}
     virtual const ORMString getORMName() const = 0;
     virtual ORMObjectInterface *create() const = 0;
