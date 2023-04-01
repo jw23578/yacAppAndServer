@@ -5,6 +5,7 @@
 
 class t0021_right_group : public ORMObjectInterface
 {
+public:
     ORMPropertyUuid id;
     ORMPropertyUuid app_id;
     ORMPropertyString name;
@@ -15,7 +16,7 @@ class t0021_right_group : public ORMObjectInterface
     ORMPropertyString access_code;
     ORMPropertyBool request_allowed;
     ORMPropertyBool visible_for_non_members;
-public:
+
     t0021_right_group()
     {
         MACRO_addProperty(id);

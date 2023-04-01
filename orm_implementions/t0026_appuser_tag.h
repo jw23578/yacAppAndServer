@@ -5,9 +5,10 @@
 
 class t0026_appuser_tag : public ORMObjectInterface
 {
+public:
     ORMPropertyUuid id;
     ORMPropertyString tag;
-public:
+
     t0026_appuser_tag():ORMObjectInterface()
     {
         MACRO_addProperty(id);
