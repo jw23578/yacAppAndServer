@@ -19,7 +19,6 @@
 #define MACRO_ADD_PROPERTY(name) \
     addProperty(#name, name)
 
-
 #define MACRO_BOOL_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertyBool, ignored, name)
 
@@ -66,9 +65,7 @@
 
 #define MACRO_SIZET_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertySizeT, size_t, name)
-
 #endif
-
 
 
 #ifdef ORMQTTypes
