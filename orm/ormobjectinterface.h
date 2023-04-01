@@ -9,6 +9,7 @@
 #include "ormpropertyuuid.h"
 #include "ormpropertystring.h"
 #include "ormpropertydatetime.h"
+#include "ormpropertybool.h"
 
 #define MACRO_addProperty(name) \
     addProperty(#name, name)
