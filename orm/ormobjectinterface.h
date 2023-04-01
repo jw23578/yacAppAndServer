@@ -19,6 +19,21 @@
 #define MACRO_ADD_PROPERTY(name) \
     addProperty(#name, name)
 
+#define MACRO_BOOL_PROPERTY(name) \
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyBool, ignored, name)
+
+#define MACRO_UUID_PROPERTY(name) \
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyUuid, ignored, name)
+
+#define MACRO_DATETIME_PROPERTY(name) \
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyDateTime, ignored, name)
+
+#define MACRO_STRING_PROPERTY(name) \
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyString, ignored, name)
+
+#define MACRO_SIZET_PROPERTY(name) \
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertySizeT, ignored, name)
+
 #endif
 #ifdef ORMQTTypes
 #include <QObject>
@@ -35,22 +50,23 @@
 
 #define MACRO_ADD_PROPERTY(name) \
     addProperty(#name, m_##name)
-#endif
 
 #define MACRO_BOOL_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertyBool, bool, name)
 
 #define MACRO_UUID_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyUuid, ORMUuid, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyUuid, QString, name)
 
 #define MACRO_DATETIME_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyDateTime, ORMDateTime, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyDateTime, QDateTime, name)
 
 #define MACRO_STRING_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyString, ORMString, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyString, QString, name)
 
 #define MACRO_SIZET_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertySizeT, size_t, name)
+#endif
+
 
 
 #ifdef ORMQTTypes
