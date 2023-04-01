@@ -20,11 +20,10 @@ public:
     {
         return "t0009_appuser_logintoken";
     }
-    ORMObjectInterface *create() const override
+    YACBaseObject *create() const override
     {
         return new t0009_appuser_logintoken;
     }
-
 };
 
 #endif // T0009_APPUSER_LOGINTOKEN_H

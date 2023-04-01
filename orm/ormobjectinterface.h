@@ -10,6 +10,7 @@
 #include "ormpropertystring.h"
 #include "ormpropertydatetime.h"
 #include "ormpropertybool.h"
+#include "ormpropertyint.h"
 
 #ifdef ORMCPPTypes
 #define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
@@ -34,6 +35,8 @@
 #define MACRO_SIZET_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertySizeT, ignored, name)
 
+#define MACRO_INT_PROPERTY(name) \
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyInt, ignored, name)
 #endif
 #ifdef ORMQTTypes
 #include <QObject>
@@ -65,8 +68,10 @@
 
 #define MACRO_SIZET_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertySizeT, size_t, name)
-#endif
 
+#define MACRO_INT_PROPERTY(name) \
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyInt, int, name)
+#endif
 
 #ifdef ORMQTTypes
 class ORMObjectInterface: public QObject

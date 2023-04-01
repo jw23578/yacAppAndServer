@@ -1,8 +1,8 @@
 QT -= gui
 
 DEFINES += YACAPPServer
-#DEFINES += ORMCPPTypes
-DEFINES += ORMQTTypes
+DEFINES += ORMCPPTypes
+#DEFINES += ORMQTTypes
 
 CONFIG += c++17 console
 CONFIG -= app_bundle
@@ -15,6 +15,7 @@ SOURCES += \
   main.cpp \
   orm/ormobjectinterface.cpp \
   orm/ormpropertybool.cpp \
+  orm/ormpropertyint.cpp \
   orm/ormpropertyinterface.cpp \
   orm/ormpropertysizet.cpp \
   orm/ormpropertydatetime.cpp \
@@ -24,6 +25,8 @@ SOURCES += \
   orm_implementions/ormfactory.cpp \
   orm_implementions/t0009_appuser_logintoken.cpp \
   orm_implementions/t0021_right_group.cpp \
+  orm_implementions/t0022_right_group2appuser.cpp \
+  orm_implementions/t0023_right2rightgroup.cpp \
   orm_implementions/t0026_appuser_tag.cpp \
   orm_implementions/yacbaseobject.cpp \
   rightnumbers.cpp \
@@ -40,6 +43,7 @@ HEADERS += \
   orm/ormobjectinterface.h \
   orm/ormpropertybool.h \
   orm/ormpropertydatetime.h \
+  orm/ormpropertyint.h \
   orm/ormpropertyinterface.h \
   orm/ormpropertysizet.h \
   orm/ormpropertystring.h \
@@ -48,6 +52,8 @@ HEADERS += \
   orm_implementions/ormfactory.h \
   orm_implementions/t0009_appuser_logintoken.h \
   orm_implementions/t0021_right_group.h \
+  orm_implementions/t0022_right_group2appuser.h \
+  orm_implementions/t0023_right2rightgroup.h \
   orm_implementions/t0026_appuser_tag.h \
   orm_implementions/yacbaseobject.h \
   rightnumbers.h \
