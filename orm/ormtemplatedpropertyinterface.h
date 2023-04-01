@@ -20,6 +20,11 @@ public:
     {
         return value;
     }
+
+    T operator()() const
+    {
+        return value;
+    }
 };
 
 #endif // ORMTEMPLATEDPROPERTYINTERFACE_H
