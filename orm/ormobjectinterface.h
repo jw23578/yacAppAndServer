@@ -21,7 +21,7 @@
 
 
 #define MACRO_BOOL_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyBool, bool, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyBool, ignored, name)
 
 #define MACRO_UUID_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertyUuid, ignored, name)
