@@ -1,8 +1,7 @@
 #ifndef ORMFACTORY_H
 #define ORMFACTORY_H
 
-#include "t0009_appuser_logintoken.h"
-#include "t0026_appuser_tag.h"
+#include "orm/ormobjectinterface.h"
 
 class ORMFactory
 {

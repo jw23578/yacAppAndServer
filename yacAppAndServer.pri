@@ -4,6 +4,7 @@ HEADERS += \
   $$PWD/orm_implementions/t0009_appuser_logintoken.h \
   $$PWD/orm_implementions/t0021_right_group.h \
   $$PWD/orm_implementions/t0026_appuser_tag.h \
+  $$PWD/orm_implementions/ormfactory.cpp \
   $$PWD/orm/ormdefinitions.h \
   $$PWD/orm/ormobjectinterface.h \
   $$PWD/orm/ormpropertyinterface.h \
@@ -22,6 +23,7 @@ SOURCES += \
   $$PWD/orm_implementions/t0009_appuser_logintoken.cpp \
   $$PWD/orm_implementions/t0021_right_group.cpp \
   $$PWD/orm_implementions/t0026_appuser_tag.cpp \
+  $$PWD/orm_implementions/ormfactory.cpp \
   $$PWD/orm/ormobjectinterface.cpp \
   $$PWD/orm/ormpropertyinterface.cpp \
   $$PWD/orm/ormpropertysizet.cpp \

@@ -1,4 +1,8 @@
 #include "ormfactory.h"
+#include "t0009_appuser_logintoken.h"
+#include "t0026_appuser_tag.h"
+#include "t0021_right_group.h"
+
 
 void ORMFactory::addGhost(ORMObjectInterface *ghost)
 {
@@ -8,6 +12,7 @@ void ORMFactory::addGhost(ORMObjectInterface *ghost)
 ORMFactory::ORMFactory()
 {
     addGhost(new t0009_appuser_logintoken);
+    addGhost(new t0021_right_group);
     addGhost(new t0026_appuser_tag);
 }
 
