@@ -56,6 +56,7 @@
 #ifdef ORMQTTypes
 class ORMObjectInterface: public QObject
 {
+    Q_OBJECT
 #endif
 #ifdef ORMCPPTypes
     class ORMObjectInterface
