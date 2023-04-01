@@ -2,7 +2,7 @@
 #define T0021_RIGHT_GROUP_H
 
 #include "yacbaseobject.h"
-#include <QObject>
+
 class t0021_right_group : public YACBaseObject
 {
 #ifdef ORMQTTypes
