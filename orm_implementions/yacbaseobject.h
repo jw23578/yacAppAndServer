@@ -6,6 +6,8 @@
 
 class YACBaseObject : public ORMObjectInterface
 {
+    Q_OBJECT
+
     MACRO_UUID_PROPERTY(id);
 public:
     const RightNumber changeRight;
