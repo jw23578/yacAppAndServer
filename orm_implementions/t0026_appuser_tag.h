@@ -8,7 +8,7 @@ class t0026_appuser_tag : public ORMObjectInterface
 public:
     ORMPropertyString tag;
 
-    t0026_appuser_tag():ORMObjectInterface()
+    t0026_appuser_tag():ORMObjectInterface(Rights::RN_everybody)
     {
         MACRO_addProperty(tag);
     }

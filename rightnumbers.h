@@ -29,6 +29,10 @@ public:
     std::string meaning;
     RightNumber(int number, const std::string &meaning):number(number), meaning(meaning)
     {
+        if (number == -1)
+        {
+            return;
+        }
         Rights::allRightNumbers.insert(number);
         Rights::allRightNumberObjects[number] = this;
     }
@@ -37,6 +41,10 @@ public:
     QString meaning;
     RightNumber(int number, const QString &meaning):number(number), meaning(meaning)
     {
+        if (number == -1)
+        {
+            return;
+        }
         Rights::allRightNumbers.insert(number);
         Rights::allRightNumberObjects[number] = this;
     }
@@ -46,6 +54,8 @@ public:
 
 namespace Rights
 {
+extern const RightNumber RN_noOne;
+extern const RightNumber RN_everybody;
 extern const RightNumber RN_changeRightsGroups;
 extern const RightNumber RN_changeSpaces;
 };

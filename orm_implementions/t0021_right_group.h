@@ -16,7 +16,7 @@ public:
     ORMPropertyBool request_allowed;
     ORMPropertyBool visible_for_non_members;
 
-    t0021_right_group()
+    t0021_right_group():ORMObjectInterface(Rights::RN_changeRightsGroups)
     {
         MACRO_addProperty(app_id);
         MACRO_addProperty(name);

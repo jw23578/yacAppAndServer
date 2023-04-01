@@ -10,7 +10,7 @@ public:
     ORMPropertyString login_token;
     ORMPropertyDateTime login_token_valid_until;
 
-    t0009_appuser_logintoken():ORMObjectInterface()
+    t0009_appuser_logintoken():ORMObjectInterface(Rights::RN_noOne)
     {
         MACRO_addProperty(appuser_id);
         MACRO_addProperty(login_token);
