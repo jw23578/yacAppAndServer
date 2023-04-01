@@ -5,11 +5,11 @@
 
 class t0009_appuser_logintoken : public YACBaseObject
 {
-public:
-    MACRO_DECLARE_PROPERTY(ORMPropertyUuid, appuser_id);
-    MACRO_DECLARE_PROPERTY(ORMPropertyString, login_token);
-    MACRO_DECLARE_PROPERTY(ORMPropertyDateTime, login_token_valid_until);
+    MACRO_UUID_PROPERTY(appuser_id);
+    MACRO_STRING_PROPERTY(login_token);
+    MACRO_DATETIME_PROPERTY(login_token_valid_until);
 
+public:
     t0009_appuser_logintoken():YACBaseObject(Rights::RN_noOne)
     {
         MACRO_ADD_PROPERTY(appuser_id);

@@ -5,9 +5,9 @@
 
 class t0026_appuser_tag : public YACBaseObject
 {
-public:
-    MACRO_DECLARE_PROPERTY(ORMPropertyString, tag);
+    MACRO_STRING_PROPERTY(tag);
 
+public:
     t0026_appuser_tag():YACBaseObject(Rights::RN_everybody)
     {
         MACRO_ADD_PROPERTY(tag);

@@ -6,9 +6,11 @@
 
 class YACBaseObject : public ORMObjectInterface
 {
+    MACRO_UUID_PROPERTY(id);
 public:
     const RightNumber changeRight;
-    MACRO_DECLARE_PROPERTY(ORMPropertyUuid, id);
+
+
     YACBaseObject(RightNumber changeRight):ORMObjectInterface(),
         changeRight(changeRight)
     {
