@@ -5,6 +5,7 @@
 
 class t0021_right_group : public YACBaseObject
 {
+    ORM_Q_OBJECT
     MACRO_UUID_PROPERTY(app_id);
     MACRO_STRING_PROPERTY(name);
     MACRO_UUID_PROPERTY(creater_id);

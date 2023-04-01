@@ -7,6 +7,7 @@
 typedef QString ORMString;
 typedef QDateTime ORMDateTime;
 typedef QString ORMUuid;
+#define ORM_Q_OBJECT Q_OBJECT
 #endif
 
 #ifdef ORMCPPTypes
@@ -16,6 +17,7 @@ typedef QString ORMUuid;
 typedef std::string ORMString;
 typedef std::chrono::system_clock::time_point ORMDateTime;
 typedef sole::uuid ORMUuid;
+#define ORM_Q_OBJECT
 #endif
 
 
