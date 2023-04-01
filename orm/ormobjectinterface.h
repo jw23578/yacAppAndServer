@@ -68,6 +68,9 @@
 #endif
 
 
+#endif
+
+
 
 #ifdef ORMQTTypes
 class ORMObjectInterface: public QObject
