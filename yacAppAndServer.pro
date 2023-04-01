@@ -2,6 +2,7 @@ QT -= gui
 
 DEFINES += YACAPPServer
 DEFINES += ORMCPPTypes
+#DEFINES += ORMQTTypes
 
 CONFIG += c++17 console
 CONFIG -= app_bundle

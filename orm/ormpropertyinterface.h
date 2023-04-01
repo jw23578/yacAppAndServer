@@ -5,7 +5,7 @@
 
 class ORMPropertyInterface
 {
-    bool bNull;
+    bool bNull{true};
 public:
     ORMPropertyInterface();
     virtual ~ORMPropertyInterface() {}

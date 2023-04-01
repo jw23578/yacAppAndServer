@@ -8,7 +8,7 @@ class ORMTemplatedPropertyInterface : public ORMPropertyInterface
 {
     T value;
 public:
-    ORMTemplatedPropertyInterface() {}
+    ORMTemplatedPropertyInterface(){}
 
     void set(const T &value)
     {

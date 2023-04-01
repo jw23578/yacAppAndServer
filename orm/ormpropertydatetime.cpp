@@ -15,6 +15,7 @@ ORMString ORMPropertyDateTime::asString() const
     return ExtString::timepointToISO(get());
 #endif
 #ifdef ORMQTTypes
+    return get().toTimeSpec(Qt::LocalTime).toString(Qt::ISODate);
 #endif
 }
 
@@ -24,5 +25,6 @@ void ORMPropertyDateTime::fromString(const ORMString &value)
     set(ExtString::toTimepoint(value));
 #endif
 #ifdef ORMQTTypes
+    set(QDateTime::fromString(value, Qt::DateFormat::ISODateWithMs));
 #endif
 }

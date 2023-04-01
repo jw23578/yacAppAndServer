@@ -6,15 +6,15 @@
 class t0009_appuser_logintoken : public YACBaseObject
 {
 public:
-    ORMPropertyUuid appuser_id;
-    ORMPropertyString login_token;
-    ORMPropertyDateTime login_token_valid_until;
+    MACRO_DECLARE_PROPERTY(ORMPropertyUuid, appuser_id);
+    MACRO_DECLARE_PROPERTY(ORMPropertyString, login_token);
+    MACRO_DECLARE_PROPERTY(ORMPropertyDateTime, login_token_valid_until);
 
     t0009_appuser_logintoken():YACBaseObject(Rights::RN_noOne)
     {
-        MACRO_addProperty(appuser_id);
-        MACRO_addProperty(login_token);
-        MACRO_addProperty(login_token_valid_until);
+        MACRO_ADD_PROPERTY(appuser_id);
+        MACRO_ADD_PROPERTY(login_token);
+        MACRO_ADD_PROPERTY(login_token_valid_until);
     }
     const ORMString getORMName() const override
     {

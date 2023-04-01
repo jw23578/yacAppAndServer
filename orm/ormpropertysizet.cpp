@@ -23,6 +23,6 @@ void ORMPropertySizeT::fromString(const ORMString &value)
 #endif
 
 #ifdef ORMQTTypes
-    set(value.ToInt());
+    set(value.toUInt());
 #endif
 }

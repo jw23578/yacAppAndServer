@@ -6,11 +6,11 @@
 class t0026_appuser_tag : public YACBaseObject
 {
 public:
-    ORMPropertyString tag;
+    MACRO_DECLARE_PROPERTY(ORMPropertyString, tag);
 
     t0026_appuser_tag():YACBaseObject(Rights::RN_everybody)
     {
-        MACRO_addProperty(tag);
+        MACRO_ADD_PROPERTY(tag);
     }
     const ORMString getORMName() const override
     {

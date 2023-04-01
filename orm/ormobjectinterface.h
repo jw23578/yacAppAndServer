@@ -11,7 +11,24 @@
 #include "ormpropertydatetime.h"
 #include "ormpropertybool.h"
 
-#define MACRO_addProperty(name) \
+#ifdef ORMCPPTypes
+#define MACRO_DECLARE_PROPERTY(type, name) \
+    type name;
+#endif
+#ifdef ORMQTTypes
+#define MACRO_DECLARE_PROPERTY(type, name) \
+    private: \
+    type m_##name; \
+    public: \
+    Q_PROPERTY(type name READ name WRITE set##name NOTIFY name##Changed) \
+    type name() const {return m_##name;} \
+    void set##name(type n){if (m_##name == n) return; m_##name = n; emit name##Changed();} \
+    Q_SIGNAL \
+    void name##Changed(); \
+    private:
+#endif
+
+#define MACRO_ADD_PROPERTY(name) \
     addProperty(#name, name)
 
 class ORMObjectInterface
