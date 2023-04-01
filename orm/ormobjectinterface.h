@@ -15,19 +15,26 @@
 #define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
     public: \
     ormtype name;
+
+#define MACRO_ADD_PROPERTY(name) \
+    addProperty(#name, name)
+
 #endif
 #ifdef ORMQTTypes
 #include <QObject>
 #define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
+    private: \
+    ormtype m_##name; \
     public: \
-    ormtype name; \
-    public: \
-    Q_PROPERTY(type name READ get##name WRITE set##name NOTIFY name##Changed) \
-    type get##name() const {return name.get();} \
-    void set##name(type n){if (name.get() == n) return; name.set(n); emit name##Changed();} \
+    Q_PROPERTY(type name READ name WRITE set##name NOTIFY name##Changed) \
+    type name() const {return m_##name.get();} \
+    void set##name(type n){if (m_##name.get() == n) return; m_##name.set(n); emit name##Changed();} \
     Q_SIGNAL \
     void name##Changed(); \
     private:
+
+#define MACRO_ADD_PROPERTY(name) \
+    addProperty(#name, m_##name)
 #endif
 
 #define MACRO_BOOL_PROPERTY(name) \
@@ -45,8 +52,6 @@
 #define MACRO_SIZET_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertySizeT, size_t, name)
 
-#define MACRO_ADD_PROPERTY(name) \
-    addProperty(#name, name)
 
 #ifdef ORMQTTypes
 class ORMObjectInterface: public QObject
