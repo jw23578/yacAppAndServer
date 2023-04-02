@@ -21,8 +21,8 @@ class t0022_right_group2appuser : public YACBaseObject
 public:
     t0022_right_group2appuser():YACBaseObject(Rights::RN_changeRightsGroups)
     {
-        MACRO_ADD_PROPERTY(right_group_id);
-        MACRO_ADD_PROPERTY(appuser_id);
+        MACRO_ADD_INDEX_PROPERTY(right_group_id);
+        MACRO_ADD_INDEX_PROPERTY(appuser_id);
         MACRO_ADD_PROPERTY(requested_datetime);
         MACRO_ADD_PROPERTY(approved_datetime);
         MACRO_ADD_PROPERTY(approved_appuser_id);

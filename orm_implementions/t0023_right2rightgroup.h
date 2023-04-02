@@ -14,7 +14,7 @@ public:
     t0023_right2rightgroup():YACBaseObject(Rights::RN_changeRightsGroups)
     {
         MACRO_ADD_PROPERTY(right_number);
-        MACRO_ADD_PROPERTY(right_group_id);
+        MACRO_ADD_INDEX_PROPERTY(right_group_id);
     }
 
     const ORMString getORMName() const override

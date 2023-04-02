@@ -22,9 +22,9 @@ class t0021_right_group : public YACBaseObject
 public:
     t0021_right_group():YACBaseObject(Rights::RN_changeRightsGroups)
     {
-        MACRO_ADD_PROPERTY(app_id);
+        MACRO_ADD_INDEX_PROPERTY(app_id);
         MACRO_ADD_PROPERTY(name);
-        MACRO_ADD_PROPERTY(creater_id);
+        MACRO_ADD_INDEX_PROPERTY(creater_id);
         MACRO_ADD_PROPERTY(deleted_datetime);
         MACRO_ADD_PROPERTY(deleted_appuser_id);
         MACRO_ADD_PROPERTY(automatic);

@@ -104,6 +104,13 @@ class ORMObjectInterface: public QObject
         void setPropertyNull(const ORMString &propertyName,
                              const bool n);
 
+        bool proptertyIsBool(const ORMString &propertyName) const;
+        bool proptertyIsUuid(const ORMString &propertyName) const;
+        bool proptertyIsInt(const ORMString &propertyName) const;
+        bool proptertyIsSizeT(const ORMString &propertyName) const;
+        bool proptertyIsDateTime(const ORMString &propertyName) const;
+        bool proptertyIsString(const ORMString &propertyName) const;
+
         ORMString getPropertyToString(const ORMString &propertyName) const;
         void setPropertyFromString(const ORMString &propertyName,
                                    const ORMString &value);
