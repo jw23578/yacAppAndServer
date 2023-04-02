@@ -13,6 +13,7 @@ CONFIG -= app_bundle
 
 SOURCES += \
   main.cpp \
+  orm/ormfactory.cpp \
   orm/ormobjectinterface.cpp \
   orm/ormpropertybool.cpp \
   orm/ormpropertyint.cpp \
@@ -22,13 +23,13 @@ SOURCES += \
   orm/ormpropertystring.cpp \
   orm/ormpropertyuuid.cpp \
   orm/ormtemplatedpropertyinterface.cpp \
-  orm_implementions/ormfactory.cpp \
   orm_implementions/t0009_appuser_logintoken.cpp \
   orm_implementions/t0021_right_group.cpp \
   orm_implementions/t0022_right_group2appuser.cpp \
   orm_implementions/t0023_right2rightgroup.cpp \
   orm_implementions/t0026_appuser_tag.cpp \
   orm_implementions/yacbaseobject.cpp \
+  orm_implementions/yacormfactory.cpp \
   rightnumbers.cpp \
   sole/sole.cpp \
   utils/extstring.cpp
@@ -40,6 +41,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
   orm/ormdefinitions.h \
+  orm/ormfactory.h \
   orm/ormobjectinterface.h \
   orm/ormpropertybool.h \
   orm/ormpropertydatetime.h \
@@ -49,13 +51,13 @@ HEADERS += \
   orm/ormpropertystring.h \
   orm/ormpropertyuuid.h \
   orm/ormtemplatedpropertyinterface.h \
-  orm_implementions/ormfactory.h \
   orm_implementions/t0009_appuser_logintoken.h \
   orm_implementions/t0021_right_group.h \
   orm_implementions/t0022_right_group2appuser.h \
   orm_implementions/t0023_right2rightgroup.h \
   orm_implementions/t0026_appuser_tag.h \
   orm_implementions/yacbaseobject.h \
+  orm_implementions/yacormfactory.h \
   rightnumbers.h \
   sole/sole.hpp \
   tablefields.h \
