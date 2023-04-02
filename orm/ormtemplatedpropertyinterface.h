@@ -20,11 +20,17 @@ public:
         this->value = value;
         callChangeCallback();
     }
+    T& operator=(const T& value)
+    {
+        set(value);
+        return *this;
+    }
 
     T get() const
     {
         return value;
     }
 };
+
 
 #endif // ORMTEMPLATEDPROPERTYINTERFACE_H
