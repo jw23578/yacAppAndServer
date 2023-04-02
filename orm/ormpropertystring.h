@@ -10,6 +10,11 @@ public:
 
     ORMString asString() const override;
     void fromString(const ORMString &value) override;
+
+    ORMPropertyString &operator=(const ORMString value)
+    {
+        set(value);
+    }
 };
 
 #endif // ORMPROPERTYSTRING_H

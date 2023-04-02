@@ -20,11 +20,6 @@ public:
         this->value = value;
         callChangeCallback();
     }
-    ORMTemplatedPropertyInterface<T>& operator=(const T &value)
-    {
-        set(value);
-        return *this;
-    }
 
     T get() const
     {

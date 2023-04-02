@@ -11,6 +11,12 @@ public:
 public:
     ORMString asString() const override;
     void fromString(const ORMString &value) override;
+
+    ORMPropertySizeT &operator=(const size_t value)
+    {
+        set(value);
+    }
+
 };
 
 #endif // ORMPROPERTYSIZET_H
