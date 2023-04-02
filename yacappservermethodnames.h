@@ -24,7 +24,6 @@ public:
     MACRO_ConstString(fetchRightGroup);
     MACRO_ConstString(rightGroupRequestResultSeen);
     MACRO_ConstString(fetchRightGroupMember);
-    MACRO_ConstString(insertOrUpdateRightGroup2AppUser);
 
     MACRO_ConstString(setRightGroupRights);
     MACRO_ConstString(insertRightGroupMember);

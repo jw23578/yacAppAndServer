@@ -1,11 +1,13 @@
 INCLUDEPATH += $$PWD
 
 HEADERS += \
+  $$PWD/orm_implementions/t0002_apps.h \
   $$PWD/orm_implementions/t0009_appuser_logintoken.h \
   $$PWD/orm_implementions/t0021_right_group.h \
   $$PWD/orm_implementions/t0022_right_group2appuser.h \
   $$PWD/orm_implementions/t0023_right2rightgroup.h \
   $$PWD/orm_implementions/t0026_appuser_tag.h \
+  $$PWD/orm_implementions/t0027_app_images.h \
   $$PWD/orm_implementions/yacormfactory.h \
   $$PWD/orm_implementions/yacbaseobject.h \
   $$PWD/orm/ormfactory.h \
@@ -26,12 +28,14 @@ HEADERS += \
 
 SOURCES += \
   $$PWD/orm_implementions/t0009_appuser_logintoken.cpp \
+  $$PWD/orm_implementions/t0002_apps.cpp \
   $$PWD/orm_implementions/t0021_right_group.cpp \
   $$PWD/orm_implementions/t0022_right_group2appuser.cpp \
   $$PWD/orm_implementions/t0023_right2rightgroup.cpp \
   $$PWD/orm_implementions/t0026_appuser_tag.cpp \
   $$PWD/orm_implementions/yacbaseobject.cpp \
   $$PWD/orm_implementions/yacormfactory.cpp \
+  $$PWD/orm_implementions/t0027_app_images.cpp \
   $$PWD/orm/ormfactory.cpp \
   $$PWD/orm/ormobjectinterface.cpp \
   $$PWD/orm/ormpropertyinterface.cpp \

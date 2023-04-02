@@ -75,7 +75,7 @@
 #endif
 
 #ifdef ORMQTTypes
-class ORMObjectInterface: public QObject
+class   ORMObjectInterface: public QObject
 {
     Q_OBJECT
 #endif
