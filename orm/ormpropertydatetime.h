@@ -10,6 +10,12 @@ public:
 
     ORMString asString() const;
     void fromString(const ORMString &value);
+
+    ORMPropertyDateTime &operator=(const ORMDateTime value)
+    {
+        set(value);
+    }
+
 };
 
 #endif // ORMPROPERTYDATETIME_H
