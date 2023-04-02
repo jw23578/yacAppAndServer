@@ -1,6 +1,6 @@
 #include "ormpropertybool.h"
 
-ORMPropertyBool::ORMPropertyBool():ORMTemplatedPropertyInterface<bool, ORMPropertyBool>()
+ORMPropertyBool::ORMPropertyBool():ORMTemplatedPropertyInterface<bool>()
 {
     set(false);
 }

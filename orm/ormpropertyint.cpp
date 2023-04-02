@@ -1,6 +1,6 @@
 #include "ormpropertyint.h"
 
-ORMPropertyInt::ORMPropertyInt():ORMTemplatedPropertyInterface<int, ORMPropertyInt>()
+ORMPropertyInt::ORMPropertyInt():ORMTemplatedPropertyInterface<int>()
 {
 }
 

@@ -1,6 +1,6 @@
 #include "ormpropertyuuid.h"
 
-ORMPropertyUuid::ORMPropertyUuid():ORMTemplatedPropertyInterface<ORMUuid, ORMPropertyUuid>()
+ORMPropertyUuid::ORMPropertyUuid():ORMTemplatedPropertyInterface<ORMUuid>()
 {
 #ifdef ORMCPPTypes
     sole::uuid u;

@@ -3,7 +3,7 @@
 
 #include "ormtemplatedpropertyinterface.h"
 
-class ORMPropertyInt : public ORMTemplatedPropertyInterface<int, ORMPropertyInt>
+class ORMPropertyInt : public ORMTemplatedPropertyInterface<int>
 {    
 public:
     ORMPropertyInt();

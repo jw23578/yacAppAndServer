@@ -3,7 +3,7 @@
 
 #include "ormpropertyinterface.h"
 
-template <class T, class PropertyClass>
+template <class T>
 class ORMTemplatedPropertyInterface : public ORMPropertyInterface
 {
     T value;
@@ -19,11 +19,6 @@ public:
         setNull(false);
         this->value = value;
         callChangeCallback();
-    }
-    PropertyClass &operator=(const T &value)
-    {
-        set(value);
-        return *this;
     }
 
     T get() const

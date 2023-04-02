@@ -1,6 +1,6 @@
 #include "ormpropertystring.h"
 
-ORMPropertyString::ORMPropertyString():ORMTemplatedPropertyInterface<ORMString, ORMPropertyString>()
+ORMPropertyString::ORMPropertyString():ORMTemplatedPropertyInterface<ORMString>()
 {
 
 }

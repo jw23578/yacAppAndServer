@@ -4,7 +4,7 @@
 #include "utils/extstring.h"
 #endif
 
-ORMPropertyDateTime::ORMPropertyDateTime():ORMTemplatedPropertyInterface<ORMDateTime, ORMPropertyDateTime>()
+ORMPropertyDateTime::ORMPropertyDateTime():ORMTemplatedPropertyInterface<ORMDateTime>()
 {
 
 }
