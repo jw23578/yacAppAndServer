@@ -20,7 +20,7 @@ public:
         this->value = value;
         callChangeCallback();
     }
-    T& operator=(const T& value)
+    ORMTemplatedPropertyInterface<T>& operator=(const T &value)
     {
         set(value);
         return *this;
