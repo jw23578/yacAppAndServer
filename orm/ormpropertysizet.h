@@ -3,7 +3,7 @@
 
 #include "ormtemplatedpropertyinterface.h"
 
-class ORMPropertySizeT : public ORMTemplatedPropertyInterface<size_t>
+class ORMPropertySizeT : public ORMTemplatedPropertyInterface<size_t, ORMPropertySizeT>
 {
 public:
     ORMPropertySizeT();

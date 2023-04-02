@@ -3,7 +3,7 @@
 
 #include "ormtemplatedpropertyinterface.h"
 
-class ORMPropertyUuid : public ORMTemplatedPropertyInterface<ORMUuid>
+class ORMPropertyUuid : public ORMTemplatedPropertyInterface<ORMUuid, ORMPropertyUuid>
 {
 public:
     ORMPropertyUuid();

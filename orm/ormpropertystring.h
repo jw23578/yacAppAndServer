@@ -3,13 +3,13 @@
 
 #include "ormtemplatedpropertyinterface.h"
 
-class ORMPropertyString: public ORMTemplatedPropertyInterface<ORMString>
+class ORMPropertyString: public ORMTemplatedPropertyInterface<ORMString, ORMPropertyString>
 {
 public:
     ORMPropertyString();
 
     ORMString asString() const override;
-    void fromString(const ORMString &value) override;
+    void fromString(const ORMString &value) override;    
 };
 
 #endif // ORMPROPERTYSTRING_H

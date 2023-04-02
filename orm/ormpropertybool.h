@@ -3,7 +3,7 @@
 
 #include "ormtemplatedpropertyinterface.h"
 
-class ORMPropertyBool : public ORMTemplatedPropertyInterface<bool>
+class ORMPropertyBool : public ORMTemplatedPropertyInterface<bool, ORMPropertyBool>
 {
 public:
     ORMPropertyBool();

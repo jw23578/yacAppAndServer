@@ -3,7 +3,7 @@
 
 #include "ormtemplatedpropertyinterface.h"
 
-class ORMPropertyDateTime : public ORMTemplatedPropertyInterface<ORMDateTime>
+class ORMPropertyDateTime : public ORMTemplatedPropertyInterface<ORMDateTime, ORMPropertyDateTime>
 {
 public:
     ORMPropertyDateTime();
