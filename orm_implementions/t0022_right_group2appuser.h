@@ -5,6 +5,10 @@
 
 class t0022_right_group2appuser : public YACBaseObject
 {
+#ifdef ORMQTTypes
+    Q_OBJECT
+#endif
+
     MACRO_UUID_PROPERTY(right_group_id);
     MACRO_UUID_PROPERTY(appuser_id);
     MACRO_DATETIME_PROPERTY(requested_datetime);

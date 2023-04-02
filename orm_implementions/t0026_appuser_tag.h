@@ -5,6 +5,10 @@
 
 class t0026_appuser_tag : public YACBaseObject
 {
+#ifdef ORMQTTypes
+    Q_OBJECT
+#endif
+
     MACRO_STRING_PROPERTY(tag);
 
 public:

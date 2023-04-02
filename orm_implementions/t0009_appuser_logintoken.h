@@ -5,6 +5,10 @@
 
 class t0009_appuser_logintoken : public YACBaseObject
 {
+#ifdef ORMQTTypes
+    Q_OBJECT
+#endif
+
     MACRO_UUID_PROPERTY(appuser_id);
     MACRO_STRING_PROPERTY(login_token);
     MACRO_DATETIME_PROPERTY(login_token_valid_until);
