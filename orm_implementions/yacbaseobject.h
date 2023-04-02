@@ -1,7 +1,7 @@
 #ifndef YACBASEOBJECT_H
 #define YACBASEOBJECT_H
 
-#include "orm/ormobjectinterface.h".h"
+#include "orm/ormobjectinterface.h"
 #include "rightnumbers.h"
 #include "tablefields.h"
 
@@ -14,7 +14,6 @@ class YACBaseObject : public ORMObjectInterface
 #ifdef ORMQTTypes
     Q_OBJECT
 #endif
-
 
     MACRO_UUID_PROPERTY(id);
 protected:

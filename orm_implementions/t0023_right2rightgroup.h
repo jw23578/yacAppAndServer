@@ -8,6 +8,7 @@ class t0023_right2rightgroup : public YACBaseObject
 #ifdef ORMQTTypes
     Q_OBJECT
 #endif
+
     MACRO_INT_PROPERTY(right_number);
     MACRO_UUID_PROPERTY(right_group_id);
 public:
