@@ -14,3 +14,17 @@ bool ORMPropertyInterface::isNull() const
 {
     return bNull;
 }
+
+void ORMPropertyInterface::callChangeCallback()
+{
+    if (!changeCallback)
+    {
+        return;
+    }
+    changeCallback();
+}
+
+void ORMPropertyInterface::setChangeCallback(std::function<void ()> cb)
+{
+    changeCallback = cb;
+}

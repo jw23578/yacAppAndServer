@@ -20,9 +20,6 @@ public:
     MACRO_ConstString(deleteAppointment);
     MACRO_ConstString(fetchAppointments);
 
-    MACRO_ConstString(fetchRightGroups);
-    MACRO_ConstString(insertRightGroup);
-    MACRO_ConstString(updateRightGroup);
     MACRO_ConstString(deleteRightGroup);
     MACRO_ConstString(fetchRightGroup);
     MACRO_ConstString(rightGroupRequestResultSeen);

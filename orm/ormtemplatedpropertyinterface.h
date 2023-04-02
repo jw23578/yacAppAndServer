@@ -12,8 +12,13 @@ public:
 
     void set(const T &value)
     {
+        if (!isNull() && this->value == value)
+        {
+            return;
+        }
         setNull(false);
         this->value = value;
+        callChangeCallback();
     }
 
     T get() const

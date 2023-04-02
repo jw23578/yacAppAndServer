@@ -52,7 +52,8 @@
     private:
 
 #define MACRO_ADD_PROPERTY(name) \
-    addProperty(#name, m_##name)
+    addProperty(#name, m_##name); \
+    m_##name.setChangeCallback([this]{emit name##Changed();})
 
 #define MACRO_BOOL_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertyBool, bool, name)

@@ -6,6 +6,9 @@
 class ORMPropertyInterface
 {
     bool bNull{true};
+    std::function<void()> changeCallback{0};
+protected:
+    void callChangeCallback();
 public:
     ORMPropertyInterface();
     virtual ~ORMPropertyInterface() {}
@@ -15,6 +18,8 @@ public:
 
     void setNull(const bool n);
     bool isNull() const;
+
+    void setChangeCallback(std::function<void()> cb);
 };
 
 #endif // ORMPROPERTYINTERFACE_H
