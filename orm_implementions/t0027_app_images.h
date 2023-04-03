@@ -12,12 +12,14 @@ class t0027_app_images : public YACBaseObject
     MACRO_UUID_PROPERTY(app_id);
     MACRO_SIZET_PROPERTY(image_oid);
     MACRO_STRING_PROPERTY(hash_value);
+    MACRO_INT_PROPERTY(position);
 public:
     t0027_app_images():YACBaseObject(Rights::RN_everybody)
     {
         MACRO_ADD_INDEX_PROPERTY(app_id);
         MACRO_ADD_PROPERTY(image_oid);
         MACRO_ADD_PROPERTY(hash_value);
+        MACRO_ADD_PROPERTY(position);
     }
     const ORMString getORMName() const override
     {
