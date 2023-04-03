@@ -18,6 +18,8 @@ class t0002_apps : public YACBaseObject
     MACRO_STRING_PROPERTY(json_yacapp);
     MACRO_SIZET_PROPERTY(yacpck_base64);
     MACRO_STRING_PROPERTY(app_info_url);
+
+    MACRO_STRING_PROPERTY(transfer_yacpck_base64);
 public:
     t0002_apps():YACBaseObject(Rights::RN_everybody)
     {
@@ -30,6 +32,8 @@ public:
         MACRO_ADD_PROPERTY(json_yacapp);
         MACRO_ADD_PROPERTY(yacpck_base64);
         MACRO_ADD_PROPERTY(app_info_url);
+
+        MACRO_ADD_TRANSFER_PROPERTY(transfer_yacpck_base64);
     }
     const ORMString getORMName() const override
     {

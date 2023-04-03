@@ -9,6 +9,10 @@
     MACRO_ADD_PROPERTY(name); \
     propertyNamesToHaveAnIndex.insert(#name);
 
+#define MACRO_ADD_TRANSFER_PROPERTY(name) \
+    MACRO_ADD_PROPERTY(name); \
+    transferProperties.insert(#name);
+
 class YACBaseObject : public ORMObjectInterface
 {
 #ifdef ORMQTTypes
@@ -18,6 +22,7 @@ class YACBaseObject : public ORMObjectInterface
     MACRO_UUID_PROPERTY(id);
 protected:
     std::set<ORMString> propertyNamesToHaveAnIndex;
+    std::set<ORMString> transferProperties;
 public:
     const RightNumber changeRight;
 
@@ -28,6 +33,7 @@ public:
         MACRO_ADD_PROPERTY(id);
     }
     bool shouldBeIndexed(const ORMString &propertyName) const;
+    bool isTransferProperty(const ORMString &propertyName) const;
 
     void assign(const YACBaseObject &other);
 };
