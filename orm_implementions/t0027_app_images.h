@@ -10,7 +10,7 @@ class t0027_app_images : public YACBaseObject
 #endif
 
     MACRO_UUID_PROPERTY(app_id);
-    MACRO_SIZET_PROPERTY(image_oid);
+    MACRO_OID_PROPERTY(image_oid);
     MACRO_STRING_PROPERTY(hash_value);
     MACRO_INT_PROPERTY(position);
     MACRO_STRING_PROPERTY(transfer_image_base64);

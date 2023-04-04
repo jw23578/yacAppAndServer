@@ -79,7 +79,7 @@
     MACRO_DECLARE_ORMPROPERTY(ORMPropertyInt, int, name)
 
 #define MACRO_OID_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyOID, int, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyOID, size_t, name)
 
 #endif
 
