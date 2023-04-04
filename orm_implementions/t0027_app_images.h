@@ -13,6 +13,7 @@ class t0027_app_images : public YACBaseObject
     MACRO_SIZET_PROPERTY(image_oid);
     MACRO_STRING_PROPERTY(hash_value);
     MACRO_INT_PROPERTY(position);
+    MACRO_STRING_PROPERTY(transfer_image_base64);
 public:
     t0027_app_images():YACBaseObject(Rights::RN_everybody)
     {
@@ -20,6 +21,8 @@ public:
         MACRO_ADD_PROPERTY(image_oid);
         MACRO_ADD_PROPERTY(hash_value);
         MACRO_ADD_PROPERTY(position);
+
+        MACRO_ADD_TRANSFER_PROPERTY(transfer_image_base64);
     }
     const ORMString getORMName() const override
     {
