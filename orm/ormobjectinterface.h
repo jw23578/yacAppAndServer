@@ -38,6 +38,10 @@
 
 #define MACRO_INT_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertyInt, ignored, name)
+
+#define MACRO_OID_PROPERTY(name) \
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyOID, ignored, name)
+
 #endif
 #ifdef ORMQTTypes
 #include <QObject>
@@ -73,6 +77,10 @@
 
 #define MACRO_INT_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertyInt, int, name)
+
+#define MACRO_OID_PROPERTY(name) \
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyOID, int, name)
+
 #endif
 
 #ifdef ORMQTTypes
