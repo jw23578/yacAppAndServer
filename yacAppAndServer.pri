@@ -20,6 +20,7 @@ HEADERS += \
   $$PWD/orm/ormpropertyuuid.h \
   $$PWD/orm/ormpropertybool.h \
   $$PWD/orm/ormpropertyint.h \
+  $$PWD/orm/ormpropertyoid.h \
   $$PWD/orm/ormtemplatedpropertyinterface.h \
   $$PWD/rightnumbers.h \
   $$PWD/tablefields.h \
@@ -45,6 +46,7 @@ SOURCES += \
   $$PWD/orm/ormpropertyuuid.cpp \
   $$PWD/orm/ormpropertybool.cpp \
   $$PWD/orm/ormpropertyint.cpp \
+  $$PWD/orm/ormpropertyoid.cpp \
   $$PWD/orm/ormtemplatedpropertyinterface.cpp \
   $$PWD/rightnumbers.cpp
 

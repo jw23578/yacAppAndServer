@@ -19,6 +19,7 @@ SOURCES += \
   orm/ormpropertybool.cpp \
   orm/ormpropertyint.cpp \
   orm/ormpropertyinterface.cpp \
+  orm/ormpropertyoid.cpp \
   orm/ormpropertysizet.cpp \
   orm/ormpropertydatetime.cpp \
   orm/ormpropertystring.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
   orm/ormpropertydatetime.h \
   orm/ormpropertyint.h \
   orm/ormpropertyinterface.h \
+  orm/ormpropertyoid.h \
   orm/ormpropertysizet.h \
   orm/ormpropertystring.h \
   orm/ormpropertyuuid.h \

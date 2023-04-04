@@ -11,6 +11,7 @@
 #include "ormpropertydatetime.h"
 #include "ormpropertybool.h"
 #include "ormpropertyint.h"
+#include "ormpropertyoid.h"
 
 #ifdef ORMCPPTypes
 #define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \

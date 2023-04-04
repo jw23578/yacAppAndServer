@@ -15,6 +15,7 @@ public:
     ORMPropertySizeT &operator=(const size_t value)
     {
         set(value);
+        return *this;
     }
 
 };
