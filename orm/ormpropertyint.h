@@ -14,6 +14,7 @@ public:
     ORMPropertyInt &operator=(const int value)
     {
         set(value);
+        return *this;
     }
 
 };

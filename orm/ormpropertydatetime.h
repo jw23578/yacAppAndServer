@@ -14,6 +14,7 @@ public:
     ORMPropertyDateTime &operator=(const ORMDateTime value)
     {
         set(value);
+        return *this;
     }
 
 };

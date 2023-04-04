@@ -14,6 +14,7 @@ public:
     ORMPropertyUuid &operator=(const ORMUuid value)
     {
         set(value);
+        return *this;
     }
 };
 

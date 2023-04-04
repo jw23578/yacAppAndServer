@@ -14,6 +14,7 @@ public:
     ORMPropertyBool &operator=(const bool value)
     {
         set(value);
+        return *this;
     }
 };
 
