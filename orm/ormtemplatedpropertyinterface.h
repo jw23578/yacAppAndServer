@@ -25,6 +25,10 @@ public:
     {
         return value;
     }
+    operator T() const
+    {
+        return value;
+    }
 };
 
 
