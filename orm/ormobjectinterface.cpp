@@ -32,40 +32,46 @@ void ORMObjectInterface::setPropertyNull(const ORMString &propertyName,
     it->second->setNull(n);
 }
 
-bool ORMObjectInterface::proptertyIsBool(const ORMString &propertyName) const
+bool ORMObjectInterface::propertyIsBool(const ORMString &propertyName) const
 {
     MACRO_ConstPropertyIterator(propertyName, false);
     return dynamic_cast<ORMPropertyBool*>(it->second) != 0;
 }
 
-bool ORMObjectInterface::proptertyIsUuid(const ORMString &propertyName) const
+bool ORMObjectInterface::propertyIsUuid(const ORMString &propertyName) const
 {
     MACRO_ConstPropertyIterator(propertyName, false);
     return dynamic_cast<ORMPropertyUuid*>(it->second) != 0;
 }
 
-bool ORMObjectInterface::proptertyIsInt(const ORMString &propertyName) const
+bool ORMObjectInterface::propertyIsInt(const ORMString &propertyName) const
 {
     MACRO_ConstPropertyIterator(propertyName, false);
     return dynamic_cast<ORMPropertyInt*>(it->second) != 0;
 }
 
-bool ORMObjectInterface::proptertyIsSizeT(const ORMString &propertyName) const
+bool ORMObjectInterface::propertyIsSizeT(const ORMString &propertyName) const
 {
     MACRO_ConstPropertyIterator(propertyName, false);
     return dynamic_cast<ORMPropertySizeT*>(it->second) != 0;
 }
 
-bool ORMObjectInterface::proptertyIsDateTime(const ORMString &propertyName) const
+bool ORMObjectInterface::propertyIsDateTime(const ORMString &propertyName) const
 {
     MACRO_ConstPropertyIterator(propertyName, false);
     return dynamic_cast<ORMPropertyDateTime*>(it->second) != 0;
 }
 
-bool ORMObjectInterface::proptertyIsString(const ORMString &propertyName) const
+bool ORMObjectInterface::propertyIsString(const ORMString &propertyName) const
 {
     MACRO_ConstPropertyIterator(propertyName, false);
     return dynamic_cast<ORMPropertyString*>(it->second) != 0;
+}
+
+bool ORMObjectInterface::propertyIsOid(const ORMString &propertyName) const
+{
+    MACRO_ConstPropertyIterator(propertyName, false);
+    return dynamic_cast<ORMPropertyOID*>(it->second) != 0;
 }
 
 ORMString ORMObjectInterface::getPropertyToString(const ORMString &propertyName) const
