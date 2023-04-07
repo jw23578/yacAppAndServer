@@ -6,6 +6,9 @@
 class YACAPPServerMethodNames
 {
 public:
+    MACRO_ConstString(getAllAPPs);
+    MACRO_ConstString(getAPP);
+
     MACRO_ConstString(updateDeviceToken);
     MACRO_ConstString(updateAppUserProfile);
     MACRO_ConstString(requestVerifyToken);
