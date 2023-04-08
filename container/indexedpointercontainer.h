@@ -20,9 +20,14 @@ public:
     Type *getById(const IDType &id);
 
     void deleteByIndex(const size_t index);
-    void deleteById(const IDType &id);
+    size_t deleteById(const IDType &id);
+
+    void swap(const size_t indexA,
+              const size_t indexB);
 
     size_t size() const;
+
+    void clear();
 };
 
 #endif // INDEXEDPOINTERCONTAINER_H
