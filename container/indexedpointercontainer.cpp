@@ -36,7 +36,12 @@ Type *IndexedPointerContainer<Type, IDType>::getByIndex(const size_t index)
 template<typename Type, typename IDType>
 Type *IndexedPointerContainer<Type, IDType>::getById(const IDType &id)
 {
-    return id2Data[id];
+    auto it(id2Data.find(id));
+    if (it == id2Data.end())
+    {
+        return 0;
+    }
+    return it->second;
 }
 
 template<typename Type, typename IDType>
