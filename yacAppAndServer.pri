@@ -25,6 +25,7 @@ HEADERS += \
   $$PWD/rightnumbers.h \
   $$PWD/tablefields.h \
   $$PWD/yacappandservermacros.h \
+  $$PWD/container/indexedpointercontainer.h \
   $$PWD/yacappservermethodnames.h
 
 SOURCES += \
@@ -48,6 +49,7 @@ SOURCES += \
   $$PWD/orm/ormpropertyint.cpp \
   $$PWD/orm/ormpropertyoid.cpp \
   $$PWD/orm/ormtemplatedpropertyinterface.cpp \
+  $$PWD/container/indexedpointercontainer.cpp \
   $$PWD/rightnumbers.cpp
 
 contains(DEFINES, ORMCPPTypes){
