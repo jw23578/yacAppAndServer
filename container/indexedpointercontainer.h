@@ -16,8 +16,8 @@ public:
 
     void add(IDType const &id, Type *t);
 
-    Type *getByIndex(const size_t index);
-    Type *getById(const IDType &id);
+    Type *getByIndex(const size_t index) const;
+    Type *getById(const IDType &id) const;
 
     size_t indexById(const IDType &id) const;
 

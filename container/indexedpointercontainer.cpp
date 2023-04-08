@@ -22,13 +22,13 @@ void IndexedPointerContainer<Type, IDType>::add(const IDType &id, Type *t)
 }
 
 template<typename Type, typename IDType>
-Type *IndexedPointerContainer<Type, IDType>::getByIndex(const size_t index)
+Type *IndexedPointerContainer<Type, IDType>::getByIndex(const size_t index) const
 {
     return data[index];
 }
 
 template<typename Type, typename IDType>
-Type *IndexedPointerContainer<Type, IDType>::getById(const IDType &id)
+Type *IndexedPointerContainer<Type, IDType>::getById(const IDType &id) const
 {
     auto it(id2Data.find(id));
     if (it == id2Data.end())
