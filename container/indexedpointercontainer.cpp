@@ -69,3 +69,9 @@ void IndexedPointerContainer<Type, IDType>::deleteById(const IDType &id)
     }
     delete t;
 }
+
+template<typename Type, typename IDType>
+size_t IndexedPointerContainer<Type, IDType>::size() const
+{
+    return data.size();
+}

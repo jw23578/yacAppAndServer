@@ -21,6 +21,8 @@ public:
 
     void deleteByIndex(const size_t index);
     void deleteById(const IDType &id);
+
+    size_t size() const;
 };
 
 #endif // INDEXEDPOINTERCONTAINER_H
