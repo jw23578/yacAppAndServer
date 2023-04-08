@@ -41,10 +41,14 @@ Type *IndexedPointerContainer<Type, IDType>::getById(const IDType &id) const
 template<typename Type, typename IDType>
 size_t IndexedPointerContainer<Type, IDType>::indexById(const IDType &id) const
 {
-    Type *t(id2Data[id]);
+    auto it(id2Data.find(id));
+    if (it == id2Data.end())
+    {
+        return -1;
+    }
     for (size_t index(0); index < data.size(); ++index)
     {
-        if (data[index] == t)
+        if (data[index] == it->second)
         {
             return index;
         }
@@ -81,7 +85,7 @@ size_t IndexedPointerContainer<Type, IDType>::deleteById(const IDType &id)
     size_t index(indexById(id));
     if (index != -1)
     {
-        data.erase(index);
+        data.erase(data.begin() + index);
     }
     delete t;
     return index;
@@ -114,4 +118,28 @@ void IndexedPointerContainer<Type, IDType>::clear()
     }
     data.clear();
     id2Data.clear();
+}
+
+template<typename Type, typename IDType>
+typename IndexedPointerContainer<Type, IDType>::VecIterator IndexedPointerContainer<Type, IDType>::vecBegin()
+{
+    return data.begin();
+}
+
+template<typename Type, typename IDType>
+typename IndexedPointerContainer<Type, IDType>::VecIterator IndexedPointerContainer<Type, IDType>::vecEnd()
+{
+
+}
+
+template<typename Type, typename IDType>
+typename IndexedPointerContainer<Type, IDType>::MapIterator IndexedPointerContainer<Type, IDType>::mapBegin()
+{
+    return id2Data.begin();
+}
+
+template<typename Type, typename IDType>
+typename IndexedPointerContainer<Type, IDType>::MapIterator IndexedPointerContainer<Type, IDType>::mapEnd()
+{
+    return id2Data.end();
 }

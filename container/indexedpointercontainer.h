@@ -11,6 +11,9 @@ class IndexedPointerContainer
     std::map<IDType, Type*> id2Data;
     bool containerIsOwner;
 public:
+    typedef typename std::vector<Type*>::iterator VecIterator;
+    typedef typename std::map<IDType, Type*> MapIterator;
+
     IndexedPointerContainer(bool containerIsOwner);
     ~IndexedPointerContainer();
 
@@ -30,6 +33,12 @@ public:
     size_t size() const;
 
     void clear();
+
+    VecIterator vecBegin();
+    VecIterator vecEnd();
+
+    MapIterator mapBegin();
+    MapIterator mapEnd();
 };
 
 #include "indexedpointercontainer.cpp"
