@@ -13,6 +13,7 @@ CONFIG -= app_bundle
 
 
 SOURCES += \
+  container/indexedpointercontainer.cpp \
   main.cpp \
   orm/ormfactory.cpp \
   orm/ormobjectinterface.cpp \
@@ -44,6 +45,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+  container/indexedpointercontainer.h \
   orm/ormdefinitions.h \
   orm/ormfactory.h \
   orm/ormobjectinterface.h \
