@@ -59,15 +59,21 @@ size_t IndexedPointerContainer<Type, IDType>::indexById(const IDType &id) const
 template<typename Type, typename IDType>
 void IndexedPointerContainer<Type, IDType>::deleteByIndex(const size_t index)
 {
+    if (index >= size())
+    {
+        return;
+    }
     Type *t(data[index]);
-    data.erase(t);
-    for (auto it: id2Data)
+    data.erase(vecBegin() + index);
+    auto it(id2Data.begin());
+    while (it != id2Data.end())
     {
         if (it->second == t)
         {
             id2Data.erase(it);
             break;
         }
+        ++it;
     }
     delete t;
 }
