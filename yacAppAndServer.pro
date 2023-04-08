@@ -13,7 +13,6 @@ CONFIG -= app_bundle
 
 
 SOURCES += \
-  container/indexedpointercontainer.cpp \
   main.cpp \
   orm/ormfactory.cpp \
   orm/ormobjectinterface.cpp \

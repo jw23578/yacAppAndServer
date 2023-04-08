@@ -49,7 +49,6 @@ SOURCES += \
   $$PWD/orm/ormpropertyint.cpp \
   $$PWD/orm/ormpropertyoid.cpp \
   $$PWD/orm/ormtemplatedpropertyinterface.cpp \
-  $$PWD/container/indexedpointercontainer.cpp \
   $$PWD/rightnumbers.cpp
 
 contains(DEFINES, ORMCPPTypes){

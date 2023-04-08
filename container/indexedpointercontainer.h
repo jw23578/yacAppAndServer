@@ -32,4 +32,6 @@ public:
     void clear();
 };
 
+#include "indexedpointercontainer.cpp"
+
 #endif // INDEXEDPOINTERCONTAINER_H
