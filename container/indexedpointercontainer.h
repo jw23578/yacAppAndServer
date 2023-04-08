@@ -19,6 +19,8 @@ public:
     Type *getByIndex(const size_t index);
     Type *getById(const IDType &id);
 
+    size_t indexById(const IDType &id) const;
+
     void deleteByIndex(const size_t index);
     size_t deleteById(const IDType &id);
 

@@ -39,6 +39,20 @@ Type *IndexedPointerContainer<Type, IDType>::getById(const IDType &id)
 }
 
 template<typename Type, typename IDType>
+size_t IndexedPointerContainer<Type, IDType>::indexById(const IDType &id) const
+{
+    Type *t(id2Data[id]);
+    for (size_t index(0); index < data.size(); ++index)
+    {
+        if (data[index] == t)
+        {
+            return index;
+        }
+    }
+    return -1;
+}
+
+template<typename Type, typename IDType>
 void IndexedPointerContainer<Type, IDType>::deleteByIndex(const size_t index)
 {
     Type *t(data[index]);
@@ -64,16 +78,13 @@ size_t IndexedPointerContainer<Type, IDType>::deleteById(const IDType &id)
     }
     Type *t(it->second);
     id2Data.erase(it);
-    for (size_t index(0); index < data.size(); ++index)
+    size_t index(indexById(id));
+    if (index != -1)
     {
-        if (data[index] == t)
-        {
-            data.erase(index);
-            delete t;
-            return index;
-        }
+        data.erase(index);
     }
     delete t;
+    return index;
 }
 
 template<typename Type, typename IDType>
