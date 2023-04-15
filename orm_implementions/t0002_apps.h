@@ -20,7 +20,6 @@ class t0002_apps : public YACBaseObject
     MACRO_STRING_PROPERTY(app_info_url);
 
     MACRO_STRING_PROPERTY(transfer_yacpck_base64);
-    MACRO_INT_PROPERTY(position);
 public:
     t0002_apps():YACBaseObject(Rights::RN_everybody)
     {
@@ -35,7 +34,6 @@ public:
         MACRO_ADD_PROPERTY(app_info_url);
 
         MACRO_ADD_TRANSFER_PROPERTY(transfer_yacpck_base64);
-        MACRO_ADD_TRANSFER_PROPERTY(position);
     }
     const ORMString getORMName() const override
     {
