@@ -13,6 +13,10 @@
     MACRO_ADD_PROPERTY(name); \
     transferProperties.insert(#name);
 
+#define MACRO_ADD_NOTRANSFER_PROPERTY(name) \
+    MACRO_ADD_PROPERTY(name); \
+    noTransferProperties.insert(#name);
+
 class YACBaseObject : public ORMObjectInterface
 {
 #ifdef ORMQTTypes
@@ -23,6 +27,7 @@ class YACBaseObject : public ORMObjectInterface
 protected:
     std::set<ORMString> propertyNamesToHaveAnIndex;
     std::set<ORMString> transferProperties;
+    std::set<ORMString> noTransferProperties;
 public:
     const RightNumber changeRight;
 
