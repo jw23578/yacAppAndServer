@@ -7,6 +7,7 @@ ORMPropertyUuid::ORMPropertyUuid():ORMTemplatedPropertyInterface<ORMUuid>()
     u.ab = 0;
     u.cd = 0;
     set(u);
+    setNull(true);
 #endif
 
 #ifdef ORMQTTypes
