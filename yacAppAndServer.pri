@@ -8,6 +8,7 @@ HEADERS += \
   $$PWD/orm_implementions/t0023_right2rightgroup.h \
   $$PWD/orm_implementions/t0026_appuser_tag.h \
   $$PWD/orm_implementions/t0027_app_images.h \
+  $$PWD/orm_implementions/t0028_message_images.h \
   $$PWD/orm_implementions/yacormfactory.h \
   $$PWD/orm_implementions/yacbaseobject.h \
   $$PWD/orm/ormfactory.h \
@@ -38,6 +39,7 @@ SOURCES += \
   $$PWD/orm_implementions/yacbaseobject.cpp \
   $$PWD/orm_implementions/yacormfactory.cpp \
   $$PWD/orm_implementions/t0027_app_images.cpp \
+  $$PWD/orm_implementions/t0028_message_images.cpp \
   $$PWD/orm/ormfactory.cpp \
   $$PWD/orm/ormobjectinterface.cpp \
   $$PWD/orm/ormpropertyinterface.cpp \
