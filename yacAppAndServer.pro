@@ -32,6 +32,7 @@ SOURCES += \
   orm_implementions/t0023_right2rightgroup.cpp \
   orm_implementions/t0026_appuser_tag.cpp \
   orm_implementions/t0027_app_images.cpp \
+  orm_implementions/t0028_message_images.cpp \
   orm_implementions/yacbaseobject.cpp \
   orm_implementions/yacormfactory.cpp \
   rightnumbers.cpp \
@@ -64,6 +65,7 @@ HEADERS += \
   orm_implementions/t0023_right2rightgroup.h \
   orm_implementions/t0026_appuser_tag.h \
   orm_implementions/t0027_app_images.h \
+  orm_implementions/t0028_message_images.h \
   orm_implementions/yacbaseobject.h \
   orm_implementions/yacormfactory.h \
   rightnumbers.h \
