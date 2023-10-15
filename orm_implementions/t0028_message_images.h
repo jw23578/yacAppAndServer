@@ -12,7 +12,6 @@ class t0028_message_images : public YACBaseObject
     MACRO_UUID_PROPERTY(app_id);
     MACRO_OID_PROPERTY(image_oid);
     MACRO_UUID_PROPERTY(creater_id);
-    MACRO_UUID_PROPERTY(message_id);
     MACRO_STRING_PROPERTY(transfer_image_base64);
 public:
     t0028_message_images():YACBaseObject(Rights::RN_everybody)
@@ -20,7 +19,6 @@ public:
         MACRO_ADD_INDEX_PROPERTY(app_id);
         MACRO_ADD_PROPERTY(image_oid);
         MACRO_ADD_PROPERTY(creater_id);
-        MACRO_ADD_PROPERTY(message_id);
 
         MACRO_ADD_TRANSFER_PROPERTY(transfer_image_base64);
     }
