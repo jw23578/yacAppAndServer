@@ -6,6 +6,7 @@
 #include "t0023_right2rightgroup.h"
 #include "t0026_appuser_tag.h"
 #include "t0027_app_images.h"
+#include "t0028_message_images.h"
 
 YACORMFactory::YACORMFactory():ORMFactory<YACBaseObject>()
 {
@@ -16,4 +17,5 @@ YACORMFactory::YACORMFactory():ORMFactory<YACBaseObject>()
     addGhost(new t0023_right2rightgroup);
     addGhost(new t0026_appuser_tag);
     addGhost(new t0027_app_images);
+    addGhost(new t0028_message_images);
 }
