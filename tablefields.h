@@ -76,6 +76,7 @@ public:
     MACRO_ConstString(result_seen);
     MACRO_ConstString(request_allowed);
     MACRO_ConstString(visible_for_non_members);
+    MACRO_ConstString(image_oid);
 
     TableFields() noexcept {};
 };
