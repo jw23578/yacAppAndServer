@@ -71,6 +71,7 @@ HEADERS += \
   rightnumbers.h \
   sole/sole.hpp \
   tablefields.h \
+  tablenames.h \
   utils/extstring.h \
   yacappandservermacros.h \
   yacappservermethodnames.h

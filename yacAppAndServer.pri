@@ -25,6 +25,7 @@ HEADERS += \
   $$PWD/orm/ormtemplatedpropertyinterface.h \
   $$PWD/rightnumbers.h \
   $$PWD/tablefields.h \
+  $$PWD/tablenames.h \
   $$PWD/yacappandservermacros.h \
   $$PWD/container/indexedpointercontainer.h \
   $$PWD/yacappservermethodnames.h
