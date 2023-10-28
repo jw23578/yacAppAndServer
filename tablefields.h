@@ -77,6 +77,10 @@ public:
     MACRO_ConstString(request_allowed);
     MACRO_ConstString(visible_for_non_members);
     MACRO_ConstString(image_oid);
+    MACRO_ConstString(sender_id);
+    MACRO_ConstString(to_id);
+    MACRO_ConstString(sended_datetime);
+    MACRO_ConstString(content_base64);
 
     TableFields() noexcept {};
 };
