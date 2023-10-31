@@ -81,6 +81,9 @@ public:
     MACRO_ConstString(to_id);
     MACRO_ConstString(sended_datetime);
     MACRO_ConstString(content_base64);
+    MACRO_ConstString(user_id_string);
+    MACRO_ConstString(third_party_string);
+    MACRO_ConstString(image_id_string);
 
     TableFields() noexcept {};
 };

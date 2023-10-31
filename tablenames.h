@@ -23,6 +23,7 @@ public:
     MACRO_ConstString(t0015_appuser_devicetoken);
     MACRO_ConstString(t0016_appointment_templates);
     MACRO_ConstString(t0028_message_images);
+    MACRO_ConstString(t0029_third_party_user_data);
 
     // AppUers in the following Table are allowed to use the Element
     // Element can be an AppointmentTemplate for example
