@@ -33,6 +33,7 @@ SOURCES += \
   orm_implementions/t0026_appuser_tag.cpp \
   orm_implementions/t0027_app_images.cpp \
   orm_implementions/t0028_message_images.cpp \
+  orm_implementions/t0029_third_party_user_data.cpp \
   orm_implementions/yacbaseobject.cpp \
   orm_implementions/yacormfactory.cpp \
   rightnumbers.cpp \
@@ -66,6 +67,7 @@ HEADERS += \
   orm_implementions/t0026_appuser_tag.h \
   orm_implementions/t0027_app_images.h \
   orm_implementions/t0028_message_images.h \
+  orm_implementions/t0029_third_party_user_data.h \
   orm_implementions/yacbaseobject.h \
   orm_implementions/yacormfactory.h \
   rightnumbers.h \
