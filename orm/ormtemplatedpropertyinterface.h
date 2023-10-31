@@ -28,7 +28,7 @@ public:
     operator T() const
     {
         return value;
-    }
+    }        
 };
 
 

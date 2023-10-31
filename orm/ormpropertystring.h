@@ -18,4 +18,6 @@ public:
     }
 };
 
+bool operator==(const ORMPropertyString &a, const ORMString &b);
+
 #endif // ORMPROPERTYSTRING_H
