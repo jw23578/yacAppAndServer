@@ -2,6 +2,7 @@ INCLUDEPATH += $$PWD
 
 HEADERS += \
   $$PWD/orm_implementions/t0002_apps.h \
+  $$PWD/orm_implementions/t0003_appuser_profiles.h \
   $$PWD/orm_implementions/t0009_appuser_logintoken.h \
   $$PWD/orm_implementions/t0021_right_group.h \
   $$PWD/orm_implementions/t0022_right_group2appuser.h \
@@ -34,6 +35,7 @@ HEADERS += \
 SOURCES += \
   $$PWD/orm_implementions/t0009_appuser_logintoken.cpp \
   $$PWD/orm_implementions/t0002_apps.cpp \
+  $$PWD/orm_implementions/t0003_appuser_profiles.cpp \
   $$PWD/orm_implementions/t0021_right_group.cpp \
   $$PWD/orm_implementions/t0022_right_group2appuser.cpp \
   $$PWD/orm_implementions/t0023_right2rightgroup.cpp \

@@ -84,6 +84,8 @@ public:
     MACRO_ConstString(user_id_string);
     MACRO_ConstString(third_party_string);
     MACRO_ConstString(image_id_string);
+    MACRO_ConstString(update_password_token);
+    MACRO_ConstString(update_password_token_valid_until);
 
     TableFields() noexcept {};
 };
