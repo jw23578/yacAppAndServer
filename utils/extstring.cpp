@@ -515,3 +515,15 @@ bool ExtString::emailIsValid(const std::string &email)
     static const std::regex pattern("^[_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-z0-9-]+(\\.[a-z0-9-]+)*(\\.[a-z]{2,63})$");
     return (std::regex_match(email, pattern));
 }
+
+std::string ExtString::toHexString(const std::vector<unsigned char> &data, std::string prefix)
+{
+    const char *digits("0123456789ABCDEF");
+    std::string result(prefix);
+    for (auto &d: data)
+    {
+        result += (digits[(d >> 4) & 0xf]);
+        result += digits[d & 0xf];
+    }
+    return result;
+}

@@ -114,6 +114,8 @@ public:
     static std::string timepointToISO(const std::chrono::system_clock::time_point &tp);
     static std::chrono::system_clock::time_point toTimepoint(const std::string &s);
     static bool emailIsValid(const std::string &email);
+
+    static std::string toHexString(const std::vector<unsigned char> &data, std::string prefix = "0x");
 };
 
 #endif // EXTSTRING_H
