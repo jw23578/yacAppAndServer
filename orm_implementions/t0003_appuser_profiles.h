@@ -13,6 +13,7 @@ class t0003_appuser_profiles : public YACBaseObject
     MACRO_STRING_PROPERTY(fstname);
     MACRO_STRING_PROPERTY(surname);
     MACRO_STRING_PROPERTY(visible_name);
+    MACRO_STRING_PROPERTY(color);
     MACRO_STRING_PROPERTY(loginemail);
     MACRO_DATETIME_PROPERTY(verified);
     MACRO_STRING_PROPERTY(verify_token);
@@ -32,6 +33,7 @@ public:
         MACRO_ADD_PROPERTY(fstname);
         MACRO_ADD_PROPERTY(surname);
         MACRO_ADD_PROPERTY(visible_name);
+        MACRO_ADD_PROPERTY(color);
         MACRO_ADD_INDEX_PROPERTY(loginemail);
         MACRO_ADD_PROPERTY(verified);
         MACRO_ADD_PROPERTY(verify_token);
