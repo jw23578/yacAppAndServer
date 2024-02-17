@@ -45,6 +45,7 @@ public:
     MACRO_ConstString(login_token);
     MACRO_ConstString(default_duration_in_minutes);
     MACRO_ConstString(color);
+    MACRO_ConstString(message_font_color);
     MACRO_ConstString(appointment_id);
     MACRO_ConstString(owner_id);
     MACRO_ConstString(element_id);
