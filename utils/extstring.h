@@ -116,6 +116,8 @@ public:
     static bool emailIsValid(const std::string &email);
 
     static std::string toHexString(const std::vector<unsigned char> &data, std::string prefix = "0x");
+
+    static std::string extractFilePath(const std::string &filenameWidthPath);
 };
 
 #endif // EXTSTRING_H

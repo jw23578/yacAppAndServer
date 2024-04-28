@@ -527,3 +527,8 @@ std::string ExtString::toHexString(const std::vector<unsigned char> &data, std::
     }
     return result;
 }
+
+std::string ExtString::extractFilePath(const std::string &filenameWidthPath)
+{
+    return filenameWidthPath.substr(0, filenameWidthPath.find_last_of("/\\"));
+}

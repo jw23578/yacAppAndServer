@@ -4,8 +4,8 @@
 
 int main(int argc, char **argv)
 {
-    IndexedPointerContainer<QString, QString> container(true);
-    container.add("abc", new QString);
+    IndexedPointerContainer<ORMString, ORMString> container(true);
+    container.add("abc", new ORMString);
     container.deleteById("abc");
     container.deleteByIndex(0);
 
