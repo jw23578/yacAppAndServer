@@ -5,9 +5,7 @@
 
 class t0028_message_images : public YACBaseObject
 {
-#ifdef ORMQTTypes
-    Q_OBJECT
-#endif
+MACRO_CPP_OR_Q_OBJECT
 
     MACRO_UUID_PROPERTY(app_id);
     MACRO_OID_PROPERTY(image_oid);
@@ -26,14 +24,7 @@ public:
 
         MACRO_ADD_TRANSFER_PROPERTY(transfer_image_base64);
     }
-    const ORMString getORMName() const override
-    {
-        return "t0028_message_images";
-    }
-    YACBaseObject *create() const override
-    {
-        return new t0028_message_images;
-    }
+    MACRO_CREATE_AND_GETORMNAME(t0028_message_images)
 };
 
 #endif // T0028_MESSAGE_IMAGES_H

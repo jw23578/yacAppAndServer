@@ -35,6 +35,8 @@ SOURCES += \
   orm_implementions/t0027_app_images.cpp \
   orm_implementions/t0028_message_images.cpp \
   orm_implementions/t0029_third_party_user_data.cpp \
+  orm_implementions/t0030_documents.cpp \
+  orm_implementions/t0031_catchphrases.cpp \
   orm_implementions/yacbaseobject.cpp \
   orm_implementions/yacormfactory.cpp \
   rightnumbers.cpp \
@@ -70,6 +72,8 @@ HEADERS += \
   orm_implementions/t0027_app_images.h \
   orm_implementions/t0028_message_images.h \
   orm_implementions/t0029_third_party_user_data.h \
+  orm_implementions/t0030_documents.h \
+  orm_implementions/t0031_catchphrases.h \
   orm_implementions/yacbaseobject.h \
   orm_implementions/yacormfactory.h \
   rightnumbers.h \

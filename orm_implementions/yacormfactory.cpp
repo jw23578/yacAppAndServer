@@ -9,6 +9,8 @@
 #include "t0027_app_images.h"
 #include "t0028_message_images.h"
 #include "t0029_third_party_user_data.h"
+#include "t0030_documents.h"
+#include "t0031_catchphrases.h"
 
 YACORMFactory::YACORMFactory():ORMFactory<YACBaseObject>()
 {
@@ -22,4 +24,6 @@ YACORMFactory::YACORMFactory():ORMFactory<YACBaseObject>()
     addGhost(new t0027_app_images);
     addGhost(new t0028_message_images);
     addGhost(new t0029_third_party_user_data);
+    addGhost(new t0030_documents);
+    addGhost(new t0031_catchphrases);
 }

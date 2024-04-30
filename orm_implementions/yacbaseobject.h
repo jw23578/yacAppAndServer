@@ -17,11 +17,20 @@
     MACRO_ADD_PROPERTY(name); \
     noTransferProperties.insert(#name);
 
+#define MACRO_CREATE_AND_GETORMNAME(name) \
+const ORMString getORMName() const override \
+{ \
+return #name; \
+} \
+YACBaseObject *create() const override \
+{ \
+    return new name; \
+}
+
+
 class YACBaseObject : public ORMObjectInterface
 {
-#ifdef ORMQTTypes
-    Q_OBJECT
-#endif
+MACRO_CPP_OR_Q_OBJECT
 
     MACRO_UUID_PROPERTY(id);
 protected:

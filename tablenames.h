@@ -44,6 +44,12 @@ public:
     MACRO_ConstString(t0024_space);
     MACRO_ConstString(t0025_space2appuser);
 
+    MACRO_ConstString(t0030_documents);
+    MACRO_ConstString(t0031_catchphrases);
+    MACRO_ConstString(t0032_catchprase2document);
+    MACRO_ConstString(t0033_words);
+    MACRO_ConstString(t0034_word2document);
+
     TableNames() noexcept {};
 };
 

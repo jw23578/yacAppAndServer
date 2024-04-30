@@ -14,6 +14,8 @@
 #include "ormpropertyoid.h"
 
 #ifdef ORMCPPTypes
+#define MACRO_CPP_OR_Q_OBJECT
+
 #define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
     public: \
     ormtype name;
@@ -44,6 +46,8 @@
 
 #endif
 #ifdef ORMQTTypes
+#define MACRO_CPP_OR_Q_OBJECT Q_OBJECT
+
 #include <QObject>
 #define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
     private: \
