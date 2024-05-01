@@ -37,6 +37,9 @@ SOURCES += \
   orm_implementions/t0029_third_party_user_data.cpp \
   orm_implementions/t0030_documents.cpp \
   orm_implementions/t0031_catchphrases.cpp \
+  orm_implementions/t0032_catchprase2document.cpp \
+  orm_implementions/t0033_words.cpp \
+  orm_implementions/t0034_word2document.cpp \
   orm_implementions/yacbaseobject.cpp \
   orm_implementions/yacormfactory.cpp \
   rightnumbers.cpp \
@@ -74,6 +77,9 @@ HEADERS += \
   orm_implementions/t0029_third_party_user_data.h \
   orm_implementions/t0030_documents.h \
   orm_implementions/t0031_catchphrases.h \
+  orm_implementions/t0032_catchprase2document.h \
+  orm_implementions/t0033_words.h \
+  orm_implementions/t0034_word2document.h \
   orm_implementions/yacbaseobject.h \
   orm_implementions/yacormfactory.h \
   rightnumbers.h \

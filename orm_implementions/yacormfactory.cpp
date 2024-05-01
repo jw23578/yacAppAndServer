@@ -11,6 +11,9 @@
 #include "t0029_third_party_user_data.h"
 #include "t0030_documents.h"
 #include "t0031_catchphrases.h"
+#include "t0032_catchprase2document.h"
+#include "t0033_words.h"
+#include "t0034_word2document.h"
 
 YACORMFactory::YACORMFactory():ORMFactory<YACBaseObject>()
 {
@@ -26,4 +29,7 @@ YACORMFactory::YACORMFactory():ORMFactory<YACBaseObject>()
     addGhost(new t0029_third_party_user_data);
     addGhost(new t0030_documents);
     addGhost(new t0031_catchphrases);
+    addGhost(new t0032_catchprase2document);
+    addGhost(new t0034_word2document);
+    addGhost(new t0033_words);
 }

@@ -52,4 +52,15 @@ public:
     void assign(const YACBaseObject &other);
 };
 
+#define MACRO_BEGIN_APP_ORM_OBJECT(name) \
+class name : public YACBaseObject \
+{ \
+MACRO_CPP_OR_Q_OBJECT \
+MACRO_UUID_PROPERTY(app_id); \
+public: \
+MACRO_CREATE_AND_GETORMNAME(name) \
+private:
+
+
+
 #endif // YACBASEOBJECT_H
