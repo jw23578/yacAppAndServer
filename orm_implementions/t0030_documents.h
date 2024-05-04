@@ -16,6 +16,7 @@ MACRO_CPP_OR_Q_OBJECT
     MACRO_STRING_PROPERTY(document_type);
     MACRO_STRING_PROPERTY(document_description);
     MACRO_STRING_PROPERTY(transfer_document_base64);
+    MACRO_STRING_PROPERTY(transfer_comma_separated_catchphrases_base64);
 public:
     t0030_documents():YACBaseObject(Rights::RN_everybody)
     {
@@ -29,6 +30,7 @@ public:
         MACRO_ADD_PROPERTY(document_description);
 
         MACRO_ADD_TRANSFER_PROPERTY(transfer_document_base64);
+        MACRO_ADD_TRANSFER_PROPERTY(transfer_comma_separated_catchphrases_base64);
     }
     MACRO_CREATE_AND_GETORMNAME(t0030_documents)
 };
