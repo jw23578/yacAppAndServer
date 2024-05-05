@@ -29,6 +29,7 @@ SOURCES += \
   orm_implementions/t0003_appuser_profiles.cpp \
   orm_implementions/t0009_appuser_logintoken.cpp \
   orm_implementions/t0016_appointment_templates.cpp \
+  orm_implementions/t0018_appointment.cpp \
   orm_implementions/t0021_right_group.cpp \
   orm_implementions/t0022_right_group2appuser.cpp \
   orm_implementions/t0023_right2rightgroup.cpp \
@@ -70,6 +71,7 @@ HEADERS += \
   orm_implementions/t0003_appuser_profiles.h \
   orm_implementions/t0009_appuser_logintoken.h \
   orm_implementions/t0016_appointment_templates.h \
+  orm_implementions/t0018_appointment.h \
   orm_implementions/t0021_right_group.h \
   orm_implementions/t0022_right_group2appuser.h \
   orm_implementions/t0023_right2rightgroup.h \
