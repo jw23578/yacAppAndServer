@@ -124,6 +124,7 @@ class   ORMObjectInterface: public QObject
         bool propertyIsSizeT(const ORMString &propertyName) const;
         bool propertyIsDateTime(const ORMString &propertyName) const;
         bool propertyIsString(const ORMString &propertyName) const;
+        ORMString getString(const ORMString &propertyName) const;
         bool propertyIsOid(const ORMString &propertyName) const;
 
         ORMString getPropertyToString(const ORMString &propertyName) const;
@@ -133,5 +134,7 @@ class   ORMObjectInterface: public QObject
 
         const std::set<ORMString> &propertyNames() const;
     };
+
+    typedef ORMObjectInterface* ORMObjectInterfacePointer;
 
 #endif // ORMOBJECTINTERFACE_H

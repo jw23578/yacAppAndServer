@@ -68,6 +68,15 @@ bool ORMObjectInterface::propertyIsString(const ORMString &propertyName) const
     return dynamic_cast<ORMPropertyString*>(it->second) != 0;
 }
 
+ORMString ORMObjectInterface::getString(const ORMString &propertyName) const
+{
+    if (!propertyIsString(propertyName))
+    {
+        return "";
+    }
+    return properties.at(propertyName)->asString();
+}
+
 bool ORMObjectInterface::propertyIsOid(const ORMString &propertyName) const
 {
     MACRO_ConstPropertyIterator(propertyName, false);

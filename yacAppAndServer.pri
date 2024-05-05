@@ -21,6 +21,7 @@ HEADERS += \
   $$PWD/orm_implementions/yacormfactory.h \
   $$PWD/orm_implementions/yacbaseobject.h \
   $$PWD/orm/ormfactory.h \
+  $$PWD/orm/ormmap.h \
   $$PWD/orm/ormdefinitions.h \
   $$PWD/orm/ormobjectinterface.h \
   $$PWD/orm/ormpropertyinterface.h \
@@ -60,6 +61,7 @@ SOURCES += \
   $$PWD/orm_implementions/yacbaseobject.cpp \
   $$PWD/orm_implementions/yacormfactory.cpp \
   $$PWD/orm/ormfactory.cpp \
+  $$PWD/orm/ormmap.cpp \
   $$PWD/orm/ormobjectinterface.cpp \
   $$PWD/orm/ormpropertyinterface.cpp \
   $$PWD/orm/ormpropertysizet.cpp \

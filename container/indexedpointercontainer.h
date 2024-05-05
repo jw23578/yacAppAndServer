@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <map>
+#include <cstddef>
 
 template<typename Type, typename IDType>
 class IndexedPointerContainer

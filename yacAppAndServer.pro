@@ -15,6 +15,7 @@ CONFIG -= app_bundle
 SOURCES += \
   main.cpp \
   orm/ormfactory.cpp \
+  orm/ormmap.cpp \
   orm/ormobjectinterface.cpp \
   orm/ormpropertybool.cpp \
   orm/ormpropertyint.cpp \
@@ -57,6 +58,7 @@ HEADERS += \
   container/indexedpointercontainer.h \
   orm/ormdefinitions.h \
   orm/ormfactory.h \
+  orm/ormmap.h \
   orm/ormobjectinterface.h \
   orm/ormpropertybool.h \
   orm/ormpropertydatetime.h \
