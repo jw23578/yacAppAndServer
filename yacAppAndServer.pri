@@ -11,6 +11,11 @@ HEADERS += \
   $$PWD/orm_implementions/t0027_app_images.h \
   $$PWD/orm_implementions/t0028_message_images.h \
   $$PWD/orm_implementions/t0029_third_party_user_data.h \
+  $$PWD/orm_implementions/t0030_documents.h \
+  $$PWD/orm_implementions/t0031_catchphrases.h \
+  $$PWD/orm_implementions/t0032_catchphrase2document.h \
+  $$PWD/orm_implementions/t0033_words.h \
+  $$PWD/orm_implementions/t0034_word2document.h \
   $$PWD/orm_implementions/yacormfactory.h \
   $$PWD/orm_implementions/yacbaseobject.h \
   $$PWD/orm/ormfactory.h \
@@ -45,6 +50,11 @@ SOURCES += \
   $$PWD/orm_implementions/t0027_app_images.cpp \
   $$PWD/orm_implementions/t0028_message_images.cpp \
   $$PWD/orm_implementions/t0029_third_party_user_data.cpp \
+  $$PWD/orm_implementions/t0030_documents.cpp \
+  $$PWD/orm_implementions/t0031_catchphrases.cpp \
+  $$PWD/orm_implementions/t0032_catchphrase2document.cpp \
+  $$PWD/orm_implementions/t0033_words.cpp \
+  $$PWD/orm_implementions/t0034_word2document.cpp \
   $$PWD/orm/ormfactory.cpp \
   $$PWD/orm/ormobjectinterface.cpp \
   $$PWD/orm/ormpropertyinterface.cpp \
