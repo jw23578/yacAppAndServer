@@ -2,6 +2,7 @@
 #include "t0002_apps.h"
 #include "t0003_appuser_profiles.h"
 #include "t0009_appuser_logintoken.h"
+#include "t0016_appointment_templates.h"
 #include "t0021_right_group.h"
 #include "t0022_right_group2appuser.h"
 #include "t0023_right2rightgroup.h"
@@ -20,6 +21,7 @@ YACORMFactory::YACORMFactory():ORMFactory<YACBaseObject>()
     addGhost(new t0002_apps);
     addGhost(new t0003_appuser_profiles);
     addGhost(new t0009_appuser_logintoken);
+    addGhost(new t0016_appointment_templates);
     addGhost(new t0021_right_group);
     addGhost(new t0022_right_group2appuser);
     addGhost(new t0023_right2rightgroup);

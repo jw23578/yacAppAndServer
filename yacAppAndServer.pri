@@ -4,6 +4,7 @@ HEADERS += \
   $$PWD/orm_implementions/t0002_apps.h \
   $$PWD/orm_implementions/t0003_appuser_profiles.h \
   $$PWD/orm_implementions/t0009_appuser_logintoken.h \
+  $$PWD/orm_implementions/t0016_appointment_templates \
   $$PWD/orm_implementions/t0021_right_group.h \
   $$PWD/orm_implementions/t0022_right_group2appuser.h \
   $$PWD/orm_implementions/t0023_right2rightgroup.h \
@@ -41,12 +42,11 @@ SOURCES += \
   $$PWD/orm_implementions/t0009_appuser_logintoken.cpp \
   $$PWD/orm_implementions/t0002_apps.cpp \
   $$PWD/orm_implementions/t0003_appuser_profiles.cpp \
+  $$PWD/orm_implementions/t0016_appointment_templates \
   $$PWD/orm_implementions/t0021_right_group.cpp \
   $$PWD/orm_implementions/t0022_right_group2appuser.cpp \
   $$PWD/orm_implementions/t0023_right2rightgroup.cpp \
   $$PWD/orm_implementions/t0026_appuser_tag.cpp \
-  $$PWD/orm_implementions/yacbaseobject.cpp \
-  $$PWD/orm_implementions/yacormfactory.cpp \
   $$PWD/orm_implementions/t0027_app_images.cpp \
   $$PWD/orm_implementions/t0028_message_images.cpp \
   $$PWD/orm_implementions/t0029_third_party_user_data.cpp \
@@ -55,6 +55,8 @@ SOURCES += \
   $$PWD/orm_implementions/t0032_catchphrase2document.cpp \
   $$PWD/orm_implementions/t0033_words.cpp \
   $$PWD/orm_implementions/t0034_word2document.cpp \
+  $$PWD/orm_implementions/yacbaseobject.cpp \
+  $$PWD/orm_implementions/yacormfactory.cpp \
   $$PWD/orm/ormfactory.cpp \
   $$PWD/orm/ormobjectinterface.cpp \
   $$PWD/orm/ormpropertyinterface.cpp \
