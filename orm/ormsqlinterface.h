@@ -7,8 +7,9 @@
 class ORMSqlInterface
 {
     std::map<std::string, size_t> columnName2Index;
-    size_t currentRow = {0};
     void fillColumnNames();
+protected:
+    size_t currentRow = {0};
 public:
     ORMSqlInterface();
     virtual ~ORMSqlInterface() {}
