@@ -166,12 +166,12 @@ void SqlString::set(const std::string &param,
 void SqlString::set(std::string const &param,
                       std::chrono::system_clock::time_point const &tp)
 {
-    if (tp == TimePointSqlNull)
+    if (tp == TimePointPostgreSqlNull)
     {
         variable2Values[param] = "null";
         return;
     }
-    if (tp == TimePointSqlNow)
+    if (tp == TimePointPostgreSqlNow)
     {
         variable2Values[param] = "now()";
         return;

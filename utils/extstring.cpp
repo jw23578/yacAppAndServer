@@ -264,8 +264,8 @@ size_t ExtString::split(const std::string &orig,
             continue;
         }
         if (inQuote && orig.substr(p, quoteSign.size()) == quoteSign
-                && orig.substr(p - escapeSign.size(), escapeSign.size()) != escapeSign
-                && orig.substr(p + quoteSign.size(), escapeSign.size()) != escapeSign)
+            && orig.substr(p - escapeSign.size(), escapeSign.size()) != escapeSign
+            && orig.substr(p + quoteSign.size(), escapeSign.size()) != escapeSign)
         {
             inQuote = false;
             p += quoteSign.size();
@@ -404,7 +404,7 @@ std::string ExtString::unQuote(std::string text,
                                const std::string &escapeSign)
 {
     if (text.substr(0, quoteSign.size()) == quoteSign
-            && text.substr(text.size() - quoteSign.size(), quoteSign.size()) == quoteSign)
+        && text.substr(text.size() - quoteSign.size(), quoteSign.size()) == quoteSign)
     {
         text = text.substr(quoteSign.size(), text.size() - 2 * quoteSign.size());
     }
