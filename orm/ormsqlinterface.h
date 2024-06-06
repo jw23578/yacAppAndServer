@@ -18,7 +18,7 @@ public:
     virtual bool open(SqlString const &sql) = 0;
     virtual size_t size() = 0;
     virtual bool next() = 0;
-    virtual void goToRow(size_t r) = 0;
+    void goToRow(size_t r);
     size_t getCurrentRow();
     virtual size_t storeBlob(std::vector<char> const &data) = 0;
     virtual bool fetchBlob(size_t blobId, std::vector<char> &data) = 0;
