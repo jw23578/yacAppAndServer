@@ -14,6 +14,11 @@ void ORMSqlInterface::fillColumnNames()
 
 ORMSqlInterface::ORMSqlInterface() {}
 
+void ORMSqlInterface::goToRow(size_t r)
+{
+    currentRow = r;
+}
+
 size_t ORMSqlInterface::getCurrentRow()
 {
     return currentRow;
