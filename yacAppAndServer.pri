@@ -20,6 +20,7 @@ HEADERS += \
   $$PWD/orm_implementions/t0034_word2document.h \
   $$PWD/orm_implementions/yacormfactory.h \
   $$PWD/orm_implementions/yacbaseobject.h \
+  $$PWD/orm_implementions/sqlstring.h \
   $$PWD/orm/ormfactory.h \
   $$PWD/orm/ormmap.h \
   $$PWD/orm/ormdefinitions.h \
@@ -62,6 +63,7 @@ SOURCES += \
   $$PWD/orm_implementions/t0034_word2document.cpp \
   $$PWD/orm_implementions/yacbaseobject.cpp \
   $$PWD/orm_implementions/yacormfactory.cpp \
+  $$PWD/orm_implementions/sqlstring.cpp \
   $$PWD/orm/ormfactory.cpp \
   $$PWD/orm/ormmap.cpp \
   $$PWD/orm/ormsqlinterface.cpp \
