@@ -87,5 +87,6 @@ SOURCES += \
 
 HEADERS += \
   $$PWD/sole/sole.hpp \
-  $$PWD/utils/extstring.h
+  $$PWD/utils/extstring.h \
+  $$PWD/utils/definitions.h
 }
