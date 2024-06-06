@@ -14,6 +14,11 @@ void ORMSqlInterface::fillColumnNames()
 
 ORMSqlInterface::ORMSqlInterface() {}
 
+size_t ORMSqlInterface::getCurrentRow()
+{
+    return currentRow;
+}
+
 std::optional<std::string> ORMSqlInterface::value(const std::string &columnName)
 {
     fillColumnNames();

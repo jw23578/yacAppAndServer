@@ -7,15 +7,18 @@
 class ORMSqlInterface
 {
     std::map<std::string, size_t> columnName2Index;
+    size_t currentRow = {0};
     void fillColumnNames();
 public:
     ORMSqlInterface();
     virtual ~ORMSqlInterface() {}
 
     virtual bool execute(SqlString const &sql) = 0;
-    virtual bool open() = 0;
+    virtual bool open(SqlString const &sql) = 0;
     virtual size_t size() = 0;
     virtual bool next() = 0;
+    virtual void goToRow(size_t r) = 0;
+    size_t getCurrentRow();
     virtual size_t storeBlob(std::vector<char> const &data) = 0;
     virtual bool fetchBlob(size_t blobId, std::vector<char> &data) = 0;
 
