@@ -23,7 +23,9 @@ HEADERS += \
   $$PWD/orm/ormfactory.h \
   $$PWD/orm/ormmap.h \
   $$PWD/orm/ormdefinitions.h \
+  $$PWD/orm/ormsqlinterface.h \
   $$PWD/orm/ormobjectinterface.h \
+  $$PWD/orm/ormpersistenceinterface.cpp \
   $$PWD/orm/ormpropertyinterface.h \
   $$PWD/orm/ormpropertysizet.h \
   $$PWD/orm/ormpropertydatetime.h \
@@ -62,7 +64,9 @@ SOURCES += \
   $$PWD/orm_implementions/yacormfactory.cpp \
   $$PWD/orm/ormfactory.cpp \
   $$PWD/orm/ormmap.cpp \
+  $$PWD/orm/ormsqlinterface.cpp \
   $$PWD/orm/ormobjectinterface.cpp \
+  $$PWD/orm/ormpersistenceinterface.cpp \
   $$PWD/orm/ormpropertyinterface.cpp \
   $$PWD/orm/ormpropertysizet.cpp \
   $$PWD/orm/ormpropertydatetime.cpp \

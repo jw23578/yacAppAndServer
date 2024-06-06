@@ -17,6 +17,7 @@ SOURCES += \
   orm/ormfactory.cpp \
   orm/ormmap.cpp \
   orm/ormobjectinterface.cpp \
+  orm/ormpersistenceinterface.cpp \
   orm/ormpropertybool.cpp \
   orm/ormpropertyint.cpp \
   orm/ormpropertyinterface.cpp \
@@ -25,7 +26,9 @@ SOURCES += \
   orm/ormpropertydatetime.cpp \
   orm/ormpropertystring.cpp \
   orm/ormpropertyuuid.cpp \
+  orm/ormsqlinterface.cpp \
   orm/ormtemplatedpropertyinterface.cpp \
+  orm_implementions/sqlstring.cpp \
   orm_implementions/t0002_apps.cpp \
   orm_implementions/t0003_appuser_profiles.cpp \
   orm_implementions/t0009_appuser_logintoken.cpp \
@@ -60,6 +63,7 @@ HEADERS += \
   orm/ormfactory.h \
   orm/ormmap.h \
   orm/ormobjectinterface.h \
+  orm/ormpersistenceinterface.h \
   orm/ormpropertybool.h \
   orm/ormpropertydatetime.h \
   orm/ormpropertyint.h \
@@ -68,7 +72,9 @@ HEADERS += \
   orm/ormpropertysizet.h \
   orm/ormpropertystring.h \
   orm/ormpropertyuuid.h \
+  orm/ormsqlinterface.h \
   orm/ormtemplatedpropertyinterface.h \
+  orm_implementions/sqlstring.h \
   orm_implementions/t0002_apps.h \
   orm_implementions/t0003_appuser_profiles.h \
   orm_implementions/t0009_appuser_logintoken.h \
@@ -92,6 +98,7 @@ HEADERS += \
   sole/sole.hpp \
   tablefields.h \
   tablenames.h \
+  utils/definitions.h \
   utils/extstring.h \
   yacappandservermacros.h \
   yacappservermethodnames.h
