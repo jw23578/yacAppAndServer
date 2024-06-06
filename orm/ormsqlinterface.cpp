@@ -19,6 +19,12 @@ size_t ORMSqlInterface::getCurrentRow()
     return currentRow;
 }
 
+bool ORMSqlInterface::isNull(const std::string &columnName)
+{
+    fillColumnNames();
+    return isNull(columnName2Index[columnName]);
+}
+
 std::optional<std::string> ORMSqlInterface::value(const std::string &columnName)
 {
     fillColumnNames();

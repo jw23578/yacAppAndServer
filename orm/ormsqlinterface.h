@@ -26,10 +26,12 @@ public:
     virtual size_t columns() = 0;
     virtual std::string columnName(size_t index) = 0;
 
+    virtual bool isNull(size_t index) = 0;
     virtual std::optional<std::string> value(size_t index) = 0;
     virtual std::optional<int> intValue(size_t index) = 0;
     virtual std::optional<std::chrono::system_clock::time_point> timepointValue(size_t index) = 0;
 
+    virtual bool isNull(std::string const &columnName);
     virtual std::optional<std::string> value(std::string const &columnName);
     virtual std::optional<int> intValue(std::string const &columnName);
     virtual std::optional<std::chrono::system_clock::time_point> timepointValue(std::string const &columnName);
