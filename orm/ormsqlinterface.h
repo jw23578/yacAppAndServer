@@ -16,6 +16,8 @@ public:
     virtual bool open() = 0;
     virtual size_t size() = 0;
     virtual bool next() = 0;
+    virtual size_t storeBlob(std::vector<char> const &data) = 0;
+    virtual bool fetchBlob(size_t blobId, std::vector<char> &data) = 0;
 
     virtual size_t columns() = 0;
     virtual std::string columnName(size_t index) = 0;
