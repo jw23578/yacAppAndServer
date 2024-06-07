@@ -89,11 +89,12 @@ ORMString ORMObjectInterface::getPropertyToString(const ORMString &propertyName)
     return it->second->asString();
 }
 
-void ORMObjectInterface::setPropertyFromString(const ORMString &propertyName,
-                                            const ORMString &value)
+bool ORMObjectInterface::setPropertyFromString(const ORMString &propertyName,
+                                               const ORMString &value)
 {
-    MACRO_ConstPropertyIterator(propertyName, );
+    MACRO_ConstPropertyIterator(propertyName, false);
     it->second->fromString(value);
+    return true;
 }
 
 const std::set<ORMString> &ORMObjectInterface::propertyNames() const

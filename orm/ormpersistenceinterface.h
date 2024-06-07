@@ -11,9 +11,10 @@ class ORMPersistenceInterface
 public:
     ORMPersistenceInterface(ORMSqlInterface &sqlInterface);
 
-    void insertObject(ORMObjectInterface const &object);
+    bool insertObject(ORMObjectInterface const &object);
     bool selectObject(ORMPropertyUuid &id, ORMObjectInterface &target);
     bool updateObject(ORMObjectInterface const &object);
+    bool upsertObject(ORMObjectInterface &object);
 
     virtual ~ORMPersistenceInterface() {}
 };

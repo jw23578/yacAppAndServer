@@ -128,7 +128,7 @@ class   ORMObjectInterface: public QObject
         bool propertyIsOid(const ORMString &propertyName) const;
 
         ORMString getPropertyToString(const ORMString &propertyName) const;
-        void setPropertyFromString(const ORMString &propertyName,
+        bool setPropertyFromString(const ORMString &propertyName,
                                    const ORMString &value);
 
 

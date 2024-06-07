@@ -2,7 +2,7 @@
 
 ORMPersistenceInterface::ORMPersistenceInterface(ORMSqlInterface &sqlInterface):sqlInterface(sqlInterface) {}
 
-void ORMPersistenceInterface::insertObject(const ORMObjectInterface &object)
+bool ORMPersistenceInterface::insertObject(const ORMObjectInterface &object)
 {
     SqlString sql;
     sql.insert(object.getORMName());
@@ -11,5 +11,25 @@ void ORMPersistenceInterface::insertObject(const ORMObjectInterface &object)
     {
         sql.addInsert(n, object.getPropertyToString(n));
     }
-    sqlInterface.execute(sql);
+    return sqlInterface.execute(sql);
+}
+
+bool ORMPersistenceInterface::selectObject(ORMPropertyUuid &id, ORMObjectInterface &target)
+{
+
+}
+
+bool ORMPersistenceInterface::updateObject(const ORMObjectInterface &object)
+{
+
+}
+
+bool ORMPersistenceInterface::upsertObject(ORMObjectInterface &object)
+{
+    if (object.propertyIsNull("id"))
+    {
+        object.setPropertyFromString("id", uuidToString(generateUuid()));
+        return insertObject(object);
+    }
+    return updateObject(object);
 }
