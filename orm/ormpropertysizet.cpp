@@ -26,3 +26,8 @@ void ORMPropertySizeT::fromString(const ORMString &value)
     set(value.toUInt());
 #endif
 }
+
+ORMString ORMPropertySizeT::asJson() const
+{
+    return asString();
+}

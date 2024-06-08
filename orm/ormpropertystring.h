@@ -9,7 +9,8 @@ public:
     ORMPropertyString();
 
     ORMString asString() const override;
-    void fromString(const ORMString &value) override;    
+    void fromString(const ORMString &value) override;
+    ORMString asJson() const override;
 
     ORMPropertyString &operator=(const ORMString &value)
     {

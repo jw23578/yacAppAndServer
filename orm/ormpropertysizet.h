@@ -11,6 +11,7 @@ public:
 public:
     ORMString asString() const override;
     void fromString(const ORMString &value) override;
+    ORMString asJson() const override;
 
     ORMPropertySizeT &operator=(const size_t value)
     {

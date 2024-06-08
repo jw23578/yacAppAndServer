@@ -28,3 +28,8 @@ void ORMPropertyDateTime::fromString(const ORMString &value)
     set(QDateTime::fromString(value, Qt::DateFormat::ISODateWithMs));
 #endif
 }
+
+ORMString ORMPropertyDateTime::asJson() const
+{
+    return ExtString::quote(asString());
+}

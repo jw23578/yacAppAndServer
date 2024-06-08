@@ -10,6 +10,7 @@ public:
 
     ORMString asString() const override;
     void fromString(const ORMString &value) override;
+    ORMString asJson() const override;
 
     ORMPropertyUuid &operator=(const ORMUuid value)
     {

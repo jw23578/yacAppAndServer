@@ -20,8 +20,8 @@ public:
     virtual bool next() = 0;
     void goToRow(size_t r);
     size_t getCurrentRow();
-    virtual size_t storeBlob(std::vector<char> const &data) = 0;
-    virtual bool fetchBlob(size_t blobId, std::vector<char> &data) = 0;
+    virtual size_t storeBlob(std::basic_string<std::byte> const &data) = 0;
+    virtual bool fetchBlob(size_t blobId, std::basic_string<std::byte> &data) = 0;
 
     virtual size_t columns() = 0;
     virtual std::string columnName(size_t index) = 0;

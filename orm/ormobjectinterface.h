@@ -131,8 +131,13 @@ class   ORMObjectInterface: public QObject
         bool setPropertyFromString(const ORMString &propertyName,
                                    const ORMString &value);
 
+        bool setUuid(const ORMString &propertyName,
+                     const ORMUuid &uuid);
+
 
         const std::set<ORMString> &propertyNames() const;
+
+        ORMString toString() const;
     };
 
     typedef ORMObjectInterface* ORMObjectInterfacePointer;

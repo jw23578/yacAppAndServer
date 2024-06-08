@@ -1,4 +1,5 @@
 #include "ormobjectinterface.h"
+#include "utils/extstring.h"
 
 #define MACRO_ConstPropertyIterator(propertyName, returnValue) \
     const auto it(properties.find(propertyName)); \
@@ -97,6 +98,19 @@ bool ORMObjectInterface::setPropertyFromString(const ORMString &propertyName,
     return true;
 }
 
+bool ORMObjectInterface::setUuid(const ORMString &propertyName,
+                                 const ORMUuid &uuid)
+{
+    MACRO_ConstPropertyIterator(propertyName, false);
+    ORMPropertyUuid *uuidProperty(dynamic_cast<ORMPropertyUuid*>(it->second));
+    if (!uuidProperty)
+    {
+        return false;
+    }
+    uuidProperty->set(uuid);
+    return true;
+}
+
 const std::set<ORMString> &ORMObjectInterface::propertyNames() const
 {
     const auto it(allPropertySets.find(getORMName()));
@@ -109,4 +123,22 @@ const std::set<ORMString> &ORMObjectInterface::propertyNames() const
         allPropertySets[getORMName()].insert(pn.first);
     }
     return allPropertySets[getORMName()];
+}
+
+ORMString ORMObjectInterface::toString() const
+{
+    ORMString result;
+    bool first(true);
+    for (auto &p: properties)
+    {
+        if (!first)
+        {
+            result += ",";
+        }
+        first = false;
+        result += ExtString::quote(p.first);
+        result += ":";
+        result += p.second->asJson();
+    }
+    return result;
 }

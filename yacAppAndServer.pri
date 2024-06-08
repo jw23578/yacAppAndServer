@@ -39,6 +39,7 @@ HEADERS += \
   $$PWD/rightnumbers.h \
   $$PWD/tablefields.h \
   $$PWD/tablenames.h \
+  $$PWD/utils/extuuid.h \
   $$PWD/yacappandservermacros.h \
   $$PWD/container/indexedpointercontainer.h \
   $$PWD/yacappservermethodnames.h
@@ -78,7 +79,8 @@ SOURCES += \
   $$PWD/orm/ormpropertyint.cpp \
   $$PWD/orm/ormpropertyoid.cpp \
   $$PWD/orm/ormtemplatedpropertyinterface.cpp \
-  $$PWD/rightnumbers.cpp
+  $$PWD/rightnumbers.cpp \
+  $$PWD/utils/extuuid.cpp
 
 contains(DEFINES, ORMCPPTypes){
 SOURCES += \

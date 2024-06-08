@@ -10,6 +10,7 @@ public:
 
     ORMString asString() const override;
     void fromString(const ORMString &value) override;
+    ORMString asJson() const override;
 
     ORMPropertyInt &operator=(const int value)
     {

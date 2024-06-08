@@ -10,6 +10,7 @@ public:
 
     ORMString asString() const;
     void fromString(const ORMString &value);
+    ORMString asJson() const override;
 
     ORMPropertyDateTime &operator=(const ORMDateTime value)
     {

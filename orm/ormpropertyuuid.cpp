@@ -1,4 +1,5 @@
 #include "ormpropertyuuid.h"
+#include "utils/extstring.h"
 
 ORMPropertyUuid::ORMPropertyUuid():ORMTemplatedPropertyInterface<ORMUuid>()
 {
@@ -36,4 +37,9 @@ void ORMPropertyUuid::fromString(const ORMString &value)
     set(value);
 #endif
 
+}
+
+ORMString ORMPropertyUuid::asJson() const
+{
+    return ExtString::quote(asString());
 }

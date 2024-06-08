@@ -10,6 +10,7 @@ public:
 
     ORMString asString() const override;
     void fromString(const ORMString &value) override;
+    ORMString asJson() const override;
 
     ORMPropertyBool &operator=(const bool value)
     {

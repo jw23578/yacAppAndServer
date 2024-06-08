@@ -27,3 +27,8 @@ void ORMPropertyOID::fromString(const ORMString &value)
 #endif
 }
 
+ORMString ORMPropertyOID::asJson() const
+{
+    return asString();
+}
+

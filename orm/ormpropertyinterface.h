@@ -15,6 +15,7 @@ public:
 
     virtual ORMString asString() const = 0;
     virtual void fromString(const ORMString &value) = 0;
+    virtual ORMString asJson() const = 0;
 
     void setNull(const bool n);
     bool isNull() const;

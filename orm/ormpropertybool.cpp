@@ -15,3 +15,8 @@ void ORMPropertyBool::fromString(const ORMString &value)
     set(value == "true");
 }
 
+ORMString ORMPropertyBool::asJson() const
+{
+    return asString();
+}
+

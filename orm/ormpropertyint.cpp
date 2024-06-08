@@ -26,3 +26,8 @@ void ORMPropertyInt::fromString(const ORMString &value)
 #endif
 
 }
+
+ORMString ORMPropertyInt::asJson() const
+{
+    return asString();
+}
