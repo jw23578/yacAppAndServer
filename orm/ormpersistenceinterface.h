@@ -14,10 +14,14 @@ public:
     ORMPersistenceInterface(ORMSqlInterface &sqlInterface);
 
     bool insertObject(ORMObjectInterface const &object);
-    bool selectObject(ORMPropertyUuid &id, ORMObjectInterface &target);
+    bool selectObject(ORMUuid const &id, ORMObjectInterface &target);
     bool updateObject(ORMObjectInterface const &object);
     bool upsertObject(ORMObjectInterface &object);
     bool deleteObject(ORMObjectInterface &object);
+
+    ORMUuid storeBlob(std::basic_string<std::byte> const &data);
+    bool fetchBlob(const ORMUuid &blobUuid, std::basic_string<std::byte> &data);
+    bool deleteBlob(const ORMUuid &blobUuid);
 
     virtual ~ORMPersistenceInterface() {}
 };

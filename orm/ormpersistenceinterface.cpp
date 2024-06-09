@@ -1,5 +1,6 @@
 #include "ormpersistenceinterface.h"
 #include "utils/extuuid.h"
+#include "orm_implementions/t0035_blobs.h"
 
 ORMPersistenceInterface::ORMPersistenceInterface(ORMSqlInterface &sqlInterface):sqlInterface(sqlInterface) {}
 
@@ -15,7 +16,7 @@ bool ORMPersistenceInterface::insertObject(const ORMObjectInterface &object)
     return sqlInterface.execute(sql);
 }
 
-bool ORMPersistenceInterface::selectObject(ORMPropertyUuid &id, ORMObjectInterface &target)
+bool ORMPersistenceInterface::selectObject(const ORMUuid &id, ORMObjectInterface &target)
 {
     SqlString sql;
     sql.select(target.getORMName());
@@ -64,4 +65,36 @@ bool ORMPersistenceInterface::deleteObject(ORMObjectInterface &object)
     sql.delet(object.getORMName());
     sql.addCompare("where", tableFields.id, "=", object.getPropertyToString(tableFields.id));
     return sqlInterface.execute(sql);
+}
+
+ORMUuid ORMPersistenceInterface::storeBlob(const std::basic_string<std::byte> &data)
+{
+    t0035_blobs t0035;
+    t0035.id = ExtUuid::generateUuid();
+    t0035.blob_oid = sqlInterface.storeBlob(data);
+    insertObject(t0035);
+    return t0035.id;
+}
+
+bool ORMPersistenceInterface::fetchBlob(const ORMUuid &blobUuid, std::basic_string<std::byte> &data)
+{
+    t0035_blobs t0035;
+    if (!selectObject(blobUuid, t0035))
+    {
+        return false;
+    }
+    sqlInterface.fetchBlob(t0035.blob_oid, data);
+    return true;
+}
+
+bool ORMPersistenceInterface::deleteBlob(const ORMUuid &blobUuid)
+{
+    t0035_blobs t0035;
+    if (!selectObject(blobUuid, t0035))
+    {
+        return false;
+    }
+    deleteObject(t0035);
+    return true;
+
 }
