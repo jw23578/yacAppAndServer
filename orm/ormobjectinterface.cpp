@@ -15,6 +15,15 @@ void ORMObjectInterface::addProperty(ORMString propertyName, ORMPropertyInterfac
     properties[propertyName] = &property;
 }
 
+ORMPropertyInterface *ORMObjectInterface::getProperty(const ORMString &propertyName) const
+{
+    if (!propertyExists(propertyName))
+    {
+        return 0;
+    }
+    return properties.at(propertyName);
+}
+
 bool ORMObjectInterface::propertyExists(const ORMString &propertyName) const
 {
     return properties.find(propertyName) != properties.end();

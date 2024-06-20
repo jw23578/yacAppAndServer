@@ -10,12 +10,15 @@ class ORMSqlInterface
     void fillColumnNames();
 protected:
     size_t currentRow = {0};
+    virtual bool internalExecute(SqlString const &sql) = 0;
+    virtual bool internalOpen(SqlString const &sql) = 0;
 public:
     ORMSqlInterface();
     virtual ~ORMSqlInterface() {}
 
-    virtual bool execute(SqlString const &sql) = 0;
-    virtual bool open(SqlString const &sql) = 0;
+    bool execute(SqlString const &sql);
+    bool open(SqlString const &sql);
+
     virtual size_t size() = 0;
     virtual bool next() = 0;
     void goToRow(size_t r);

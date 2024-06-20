@@ -21,6 +21,11 @@ public:
         callChangeCallback();
     }
 
+    const T &getRef() const
+    {
+        return value;
+    }
+
     T get() const
     {
         return value;

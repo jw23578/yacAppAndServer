@@ -21,7 +21,12 @@ ORMString ORMPropertyString::asJson() const
     return ExtString::quote(asString());
 }
 
+size_t ORMPropertyString::size() const
+{
+    return getRef().size();
+}
+
 bool operator==(const ORMPropertyString &a, const ORMString &b)
 {
-    return a.get() == b;
+    return a.getRef() == b;
 }

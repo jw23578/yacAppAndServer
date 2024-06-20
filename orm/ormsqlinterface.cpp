@@ -14,6 +14,18 @@ void ORMSqlInterface::fillColumnNames()
 
 ORMSqlInterface::ORMSqlInterface() {}
 
+bool ORMSqlInterface::execute(const SqlString &sql)
+{
+    columnName2Index.clear();
+    return internalExecute(sql);
+}
+
+bool ORMSqlInterface::open(const SqlString &sql)
+{
+    columnName2Index.clear();
+    return internalOpen(sql);
+}
+
 void ORMSqlInterface::goToRow(size_t r)
 {
     currentRow = r;

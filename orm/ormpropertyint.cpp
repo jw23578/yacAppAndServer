@@ -18,7 +18,8 @@ ORMString ORMPropertyInt::asString() const
 void ORMPropertyInt::fromString(const ORMString &value)
 {
 #ifdef ORMCPPTypes
-    set(std::stoul(value));
+    char* end(nullptr);
+    set(std::strtoul(value.c_str(), &end, 10));
 #endif
 
 #ifdef ORMQTTypes

@@ -9,7 +9,7 @@ MACRO_CPP_OR_Q_OBJECT
 
     MACRO_UUID_PROPERTY(app_id);
     MACRO_UUID_PROPERTY(creater_id);
-    MACRO_OID_PROPERTY(document_oid);
+    MACRO_UUID_PROPERTY(document_blob_id);
     MACRO_UUID_PROPERTY(document_id);
     MACRO_INT_PROPERTY(document_version);
     MACRO_STRING_PROPERTY(document_name);
@@ -25,7 +25,7 @@ public:
     {
         MACRO_ADD_INDEX_PROPERTY(app_id);
         MACRO_ADD_PROPERTY(creater_id);
-        MACRO_ADD_PROPERTY(document_oid);
+        MACRO_ADD_PROPERTY(document_blob_id);
         MACRO_ADD_PROPERTY(document_id);
         MACRO_ADD_PROPERTY(document_version);
         MACRO_ADD_PROPERTY(document_name);

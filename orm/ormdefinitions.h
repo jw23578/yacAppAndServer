@@ -1,6 +1,16 @@
 #ifndef ORMDEFINITIONS_H
 #define ORMDEFINITIONS_H
 
+
+enum ORMPropertyDetails
+{
+    DetailDB,
+    DetailID,
+    DetailDBIndex,
+    DetailOnlyTransfer,
+    DetailDontTransfer
+};
+
 #ifdef ORMQTTypes
 #include <QString>
 #include <QDateTime>

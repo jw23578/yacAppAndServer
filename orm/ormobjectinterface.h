@@ -23,6 +23,21 @@
 #define MACRO_ADD_PROPERTY(name) \
     addProperty(#name, name)
 
+#define MACRO_ADD_INDEX_PROPERTY(name) \
+MACRO_ADD_PROPERTY(name); \
+    name.addDetail(DetailDBIndex);
+
+#define MACRO_ADD_TRANSFER_PROPERTY(name) \
+MACRO_ADD_PROPERTY(name); \
+    name.clearDetails(); \
+    name.addDetail(DetailOnlyTransfer);
+
+#define MACRO_ADD_NOTRANSFER_PROPERTY(name) \
+MACRO_ADD_PROPERTY(name); \
+    name.addDetail(DetailDontTransfer)
+
+
+
 #define MACRO_BOOL_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertyBool, ignored, name)
 
@@ -112,6 +127,8 @@ class   ORMObjectInterface: public QObject
         virtual ~ORMObjectInterface() {}
         virtual const ORMString getORMName() const = 0;
         virtual ORMObjectInterface *create() const = 0;
+
+        ORMPropertyInterface *getProperty(const ORMString &propertyName) const;
 
         bool propertyExists(const ORMString &propertyName) const;
         bool propertyIsNull(const ORMString &propertyName) const;

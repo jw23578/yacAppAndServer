@@ -17,6 +17,8 @@ public:
         set(value);
         return *this;
     }
+
+    size_t size() const;
 };
 
 bool operator==(const ORMPropertyString &a, const ORMString &b);

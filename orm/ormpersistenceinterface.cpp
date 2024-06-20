@@ -11,7 +11,18 @@ bool ORMPersistenceInterface::insertObject(const ORMObjectInterface &object)
     const std::set<ORMString> &propertyNames(object.propertyNames());
     for (auto &n: propertyNames)
     {
-        sql.addInsert(n, object.getPropertyToString(n));
+        ORMPropertyInterface *pi(object.getProperty(n));
+        if (pi->hasDetail(DetailDB))
+        {
+            if (pi->isNull())
+            {
+                sql.addInsertNull(n);
+            }
+            else
+            {
+                sql.addInsert(n, pi->asString());
+            }
+        }
     }
     return sqlInterface.execute(sql);
 }
@@ -28,7 +39,11 @@ bool ORMPersistenceInterface::selectObject(const ORMUuid &id, ORMObjectInterface
     const std::set<ORMString> &propertyNames(target.propertyNames());
     for (auto &n: propertyNames)
     {
-        target.setPropertyFromString(n, sqlInterface.value(n).value());
+        ORMPropertyInterface *pi(target.getProperty(n));
+        if (pi->hasDetail(DetailDB))
+        {
+            pi->fromString(sqlInterface.value(n).value_or(""));
+        }
     }
     return true;
 }
@@ -40,9 +55,10 @@ bool ORMPersistenceInterface::updateObject(const ORMObjectInterface &object)
     const std::set<ORMString> &propertyNames(object.propertyNames());
     for (auto &n: propertyNames)
     {
-        if (n != tableFields.id)
+        ORMPropertyInterface *pi(object.getProperty(n));
+        if (pi->hasDetail(DetailDB) && !pi->hasDetail(DetailID))
         {
-            sql.addSet(n, object.getPropertyToString(n));
+            sql.addSet(n, pi->asString());
         }
     }
     sql.addCompare("where", tableFields.id, "=", object.getPropertyToString(tableFields.id));
@@ -83,8 +99,7 @@ bool ORMPersistenceInterface::fetchBlob(const ORMUuid &blobUuid, std::basic_stri
     {
         return false;
     }
-    sqlInterface.fetchBlob(t0035.blob_oid, data);
-    return true;
+    return sqlInterface.fetchBlob(t0035.blob_oid, data);
 }
 
 bool ORMPersistenceInterface::deleteBlob(const ORMUuid &blobUuid)
