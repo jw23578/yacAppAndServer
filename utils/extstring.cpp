@@ -4,6 +4,7 @@
 #include <regex>
 #include <stdlib.h>
 #include <iomanip>
+#include <cstring>
 
 ExtString::ExtString()
 {
@@ -468,7 +469,7 @@ std::string ExtString::timepointToISO(const std::chrono::system_clock::time_poin
 std::chrono::system_clock::time_point ExtString::toTimepoint(const std::string &s)
 {
     std::tm tm;
-    memset(&tm, 0, sizeof(tm));
+    std::memset(&tm, 0, sizeof(tm));
     std::string format("%F %T");
     if (s.size() >= 11)
     {
@@ -543,4 +544,43 @@ std::string ExtString::toHexString(const std::vector<unsigned char> &data, std::
 std::string ExtString::extractFilePath(const std::string &filenameWidthPath)
 {
     return filenameWidthPath.substr(0, filenameWidthPath.find_last_of("/\\"));
+}
+
+uint32_t *ExtString::crc32Table = 0;
+
+void ExtString::generateCRC32Table()
+{
+    if (crc32Table)
+    {
+        return;
+    }
+    crc32Table = new uint32_t[256];
+    uint32_t polynomial = 0xEDB88320;
+    for (uint32_t i = 0; i < 256; i++)
+    {
+        uint32_t c = i;
+        for (size_t j = 0; j < 8; j++)
+        {
+            if (c & 1) {
+                c = polynomial ^ (c >> 1);
+            }
+            else {
+                c >>= 1;
+            }
+        }
+        crc32Table[i] = c;
+    }
+}
+
+uint32_t ExtString::crc32(std::string const &s,
+                          uint32_t initial)
+{
+    generateCRC32Table();
+    uint32_t c = initial ^ 0xFFFFFFFF;
+    const uint8_t* u = reinterpret_cast<const uint8_t*>(s.data());
+    for (size_t i = 0; i < s.size(); ++i)
+    {
+        c = crc32Table[(c ^ u[i]) & 0xFF] ^ (c >> 8);
+    }
+    return c ^ 0xFFFFFFFF;
 }

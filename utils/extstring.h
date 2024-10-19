@@ -119,6 +119,11 @@ public:
     static std::string toHexString(const std::vector<unsigned char> &data, std::string prefix = "0x");
 
     static std::string extractFilePath(const std::string &filenameWidthPath);
+
+    static uint32_t *crc32Table;
+    void generateCRC32Table();
+    uint32_t crc32(std::string const &s,
+                   uint32_t initial);
 };
 
 #endif // EXTSTRING_H

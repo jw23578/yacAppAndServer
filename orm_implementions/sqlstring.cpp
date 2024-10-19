@@ -38,7 +38,7 @@ void SqlString::delet(const std::string &tableName)
 
 void SqlString::insertOrUpdate(sole::uuid &id, const std::string &tableName)
 {
-    if (id == NullUuid)
+    if (id == ExtUuid::NullUuid)
     {
         id = sole::uuid4();
         insert(tableName);
@@ -121,7 +121,7 @@ void SqlString::set(std::string const &param,
 void SqlString::set(const std::string &param,
                       const sole::uuid &value)
 {
-    if (value == NullUuid)
+    if (value == ExtUuid::NullUuid)
     {
         variable2Values[param] = "null";
         return;

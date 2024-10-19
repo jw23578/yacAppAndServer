@@ -12,6 +12,7 @@
 #include "ormpropertybool.h"
 #include "ormpropertyint.h"
 #include "ormpropertyoid.h"
+#include "ormsqlinterface.h"
 
 #ifdef ORMCPPTypes
 #define MACRO_CPP_OR_Q_OBJECT
@@ -113,7 +114,6 @@ class   ORMObjectInterface: public QObject
 #endif
 
         static std::map<ORMString, std::set<ORMString>> allPropertySets;
-
         typedef std::map<ORMString, ORMPropertyInterface*> PropertyMap;
         PropertyMap properties;
     protected:
@@ -155,6 +155,8 @@ class   ORMObjectInterface: public QObject
         const std::set<ORMString> &propertyNames() const;
 
         ORMString toString() const;
+
+        void fill(ORMSqlInterface &sqlInterface);
     };
 
     typedef ORMObjectInterface* ORMObjectInterfacePointer;

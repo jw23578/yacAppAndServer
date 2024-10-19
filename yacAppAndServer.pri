@@ -1,6 +1,7 @@
 INCLUDEPATH += $$PWD
 
 HEADERS += \
+  $$PWD/orm/ormvector.h \
   $$PWD/orm_implementions/t0002_apps.h \
   $$PWD/orm_implementions/t0003_appuser_profiles.h \
   $$PWD/orm_implementions/t0009_appuser_logintoken.h \
@@ -40,6 +41,7 @@ HEADERS += \
   $$PWD/rightnumbers.h \
   $$PWD/tablefields.h \
   $$PWD/tablenames.h \
+  $$PWD/utils/extstringview.h \
   $$PWD/utils/extuuid.h \
   $$PWD/yacappandservermacros.h \
   $$PWD/container/indexedpointercontainer.h \
@@ -82,6 +84,7 @@ SOURCES += \
   $$PWD/orm/ormpropertyoid.cpp \
   $$PWD/orm/ormtemplatedpropertyinterface.cpp \
   $$PWD/rightnumbers.cpp \
+  $$PWD/utils/extstringview.cpp \
   $$PWD/utils/extuuid.cpp
 
 contains(DEFINES, ORMCPPTypes){

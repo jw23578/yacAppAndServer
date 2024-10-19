@@ -4,7 +4,7 @@
 
 ORMPersistenceInterface::ORMPersistenceInterface(ORMSqlInterface &sqlInterface):sqlInterface(sqlInterface) {}
 
-bool ORMPersistenceInterface::insertObject(const ORMObjectInterface &object)
+bool ORMPersistenceInterface::insertObject(const ORMObjectInterface &object) const
 {
     SqlString sql;
     sql.insert(object.getORMName());
@@ -14,14 +14,7 @@ bool ORMPersistenceInterface::insertObject(const ORMObjectInterface &object)
         ORMPropertyInterface *pi(object.getProperty(n));
         if (pi->hasDetail(DetailDB))
         {
-            if (pi->isNull())
-            {
-                sql.addInsertNull(n);
-            }
-            else
-            {
-                sql.addInsert(n, pi->asString());
-            }
+            sql.addInsert(n, pi->asString(), pi->isNull());
         }
     }
     return sqlInterface.execute(sql);
@@ -36,15 +29,7 @@ bool ORMPersistenceInterface::selectObject(const ORMUuid &id, ORMObjectInterface
     {
         return false;
     }
-    const std::set<ORMString> &propertyNames(target.propertyNames());
-    for (auto &n: propertyNames)
-    {
-        ORMPropertyInterface *pi(target.getProperty(n));
-        if (pi->hasDetail(DetailDB))
-        {
-            pi->fromString(sqlInterface.value(n).value_or(""));
-        }
-    }
+    target.fill(sqlInterface);
     return true;
 }
 
@@ -58,7 +43,7 @@ bool ORMPersistenceInterface::updateObject(const ORMObjectInterface &object)
         ORMPropertyInterface *pi(object.getProperty(n));
         if (pi->hasDetail(DetailDB) && !pi->hasDetail(DetailID))
         {
-            sql.addSet(n, pi->asString());
+            sql.addSet(n, pi->asString(), pi->isNull());
         }
     }
     sql.addCompare("where", tableFields.id, "=", object.getPropertyToString(tableFields.id));
@@ -81,6 +66,62 @@ bool ORMPersistenceInterface::deleteObject(ORMObjectInterface &object)
     sql.delet(object.getORMName());
     sql.addCompare("where", tableFields.id, "=", object.getPropertyToString(tableFields.id));
     return sqlInterface.execute(sql);
+}
+
+bool ORMPersistenceInterface::sameDataExists(ORMObjectInterface &object) const
+{
+    SqlString sql("select id from ");
+    sql += object.getORMName();
+    const std::set<ORMString> &propertyNames(object.propertyNames());
+    bool firstCompare(true);
+    for (auto &n: propertyNames)
+    {
+        ORMPropertyInterface *pi(object.getProperty(n));
+        if (pi->hasDetail(DetailDB) && !pi->hasDetail(DetailID))
+        {
+            if (firstCompare)
+            {
+                sql.addCompare(firstCompare ? "where" : "and", n, "=", pi->asString());
+                firstCompare = false;
+            }
+        }
+    }
+    sql += " limit 1";
+    sqlInterface.execute(sql);
+    if (sqlInterface.size() > 0)
+    {
+        object.setUuid("id", sqlInterface.uuidValue("id").value());
+        return true;
+    }
+    return false;
+}
+
+bool ORMPersistenceInterface::insertIfNotSameDataExists(ORMObjectInterface &object) const
+{
+    if (sameDataExists(object))
+    {
+        return true;
+    }
+    return insertObject(object);
+}
+
+size_t ORMPersistenceInterface::fetchIDs(const SqlString &sql,
+                                         std::set<ORMUuid> &ids)
+{
+    if (!sqlInterface.open(sql))
+    {
+        return 0;
+    }
+    for (size_t i(0); i < sqlInterface.size(); ++i)
+    {
+        std::string s(sqlInterface.value("id").value_or(""));
+        if (s.size())
+        {
+            ids.insert(ExtUuid::stringToUuid(s));
+        }
+        sqlInterface.next();
+    }
+    return ids.size();
 }
 
 ORMUuid ORMPersistenceInterface::storeBlob(const std::basic_string<std::byte> &data)

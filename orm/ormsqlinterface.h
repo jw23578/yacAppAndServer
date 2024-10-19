@@ -31,13 +31,15 @@ public:
 
     virtual bool isNull(size_t index) = 0;
     virtual std::optional<std::string> value(size_t index) = 0;
+    virtual std::optional<ORMUuid> uuidValue(size_t index) = 0;
     virtual std::optional<int> intValue(size_t index) = 0;
     virtual std::optional<std::chrono::system_clock::time_point> timepointValue(size_t index) = 0;
 
-    virtual bool isNull(std::string const &columnName);
-    virtual std::optional<std::string> value(std::string const &columnName);
-    virtual std::optional<int> intValue(std::string const &columnName);
-    virtual std::optional<std::chrono::system_clock::time_point> timepointValue(std::string const &columnName);
+    bool isNull(std::string const &columnName);
+    std::optional<std::string> value(std::string const &columnName);
+    std::optional<ORMUuid> uuidValue(std::string const &columnName);
+    std::optional<int> intValue(std::string const &columnName);
+    std::optional<std::chrono::system_clock::time_point> timepointValue(std::string const &columnName);
 };
 
 #endif // ORMSQLINTERFACE_H

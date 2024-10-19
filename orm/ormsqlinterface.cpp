@@ -48,6 +48,12 @@ std::optional<std::string> ORMSqlInterface::value(const std::string &columnName)
     return value(columnName2Index[columnName]);
 }
 
+std::optional<ORMUuid> ORMSqlInterface::uuidValue(const std::string &columnName)
+{
+    fillColumnNames();
+    return uuidValue(columnName2Index[columnName]);
+}
+
 std::optional<int> ORMSqlInterface::intValue(const std::string &columnName)
 {
     fillColumnNames();

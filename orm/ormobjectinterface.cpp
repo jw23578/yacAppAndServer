@@ -151,3 +151,16 @@ ORMString ORMObjectInterface::toString() const
     }
     return result;
 }
+
+void ORMObjectInterface::fill(ORMSqlInterface &sqlInterface)
+{
+    const std::set<ORMString> &pn(propertyNames());
+    for (auto &n: pn)
+    {
+        ORMPropertyInterface *pi(getProperty(n));
+        if (pi->hasDetail(DetailDB))
+        {
+            pi->fromString(sqlInterface.value(n).value_or(""));
+        }
+    }
+}

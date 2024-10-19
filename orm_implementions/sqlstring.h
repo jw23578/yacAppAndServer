@@ -9,6 +9,7 @@
 #include "sole/sole.hpp"
 #include "utils/extstring.h" // marked as unused but is needed for MACRO_set
 #include "utils/definitions.h"
+#include "utils/extuuid.h"
 
 
 #define MACRO_set(sql, fieldValue) \
@@ -18,13 +19,13 @@ sql.set(ExtString::lower(#fieldValue), fieldValue);
 sql.set("id", sole::uuid4());
 
 #define MACRO_addInsert(sql, fieldValue) \
-sql.addInsert(#fieldValue, fieldValue);
+sql.addInsert(#fieldValue, fieldValue, false);
 
 #define MACRO_addSet(sql, fieldValue) \
-sql.addSet(#fieldValue, fieldValue);
+sql.addSet(#fieldValue, fieldValue, false);
 
 #define MACRO_addInsertOrSet(sql, fieldValue) \
-sql.addInsertOrSet(#fieldValue, fieldValue);
+sql.addInsertOrSet(#fieldValue, fieldValue, false);
 
 
 class SqlString
@@ -120,14 +121,23 @@ public:
         sql += " " + connector;
         sql += " " + needle;
         sql += " " + comparator;
-        sql += " :" + needle;
-        set(needle, value);
+        std::string uuid(ExtUuid::uuidToString(ExtUuid::generateUuid()));
+        sql += " :" + uuid;
+        set(uuid, value);
     }
 
     template <class T>
     void addSet(const std::string &field,
-                const T &value)
+                const T &value,
+                const bool isNull)
     {
+        if (isNull)
+        {
+            sql += firstSetField ? "" : ", ";
+            sql += field + " = null ";
+            firstSetField = false;
+            return;
+        }
         addCompare(firstSetField ? "" : ", ",
                    field,
                    "=",
@@ -137,8 +147,21 @@ public:
 
     template <class T>
     void addInsert(const std::string &field,
-                   const T &value)
+                   const T &value,
+                   const bool isNull)
     {
+        if (isNull)
+        {
+            if (!firstSetField)
+            {
+                sql += ", ";
+                insert2ndPart += ", ";
+            }
+            firstSetField = false;
+            sql += field;
+            insert2ndPart += "null";
+            return;
+        }
         if (!firstSetField)
         {
             sql += ", ";
@@ -151,46 +174,15 @@ public:
     }
 
     template <class T>
-    void addInsertOrSet(const std::string &field, const T &value)
+    void addInsertOrSet(const std::string &field, const T &value, const bool isNull)
     {
         if (insertStatement)
         {
-            addInsert(field, value);
+            addInsert(field, value, isNull);
         }
         if (updateStatement)
         {
-            addSet(field, value);
-        }
-    }
-
-    void addSetNull(const std::string &field)
-    {
-        sql += firstSetField ? "" : ", ";
-        sql += field + " = null ";
-        firstSetField = false;
-    }
-
-    void addInsertNull(const std::string &field)
-    {
-        if (!firstSetField)
-        {
-            sql += ", ";
-            insert2ndPart += ", ";
-        }
-        firstSetField = false;
-        sql += field;
-        insert2ndPart += "null";
-    }
-
-    void addInsertOrSetNull(const std::string &field)
-    {
-        if (insertStatement)
-        {
-            addInsertNull(field);
-        }
-        if (updateStatement)
-        {
-            addSetNull(field);
+            addSet(field, value, isNull);
         }
     }
 
@@ -202,7 +194,7 @@ public:
     {
         if (insertStatement)
         {
-            addInsert(needleField, value);
+            addInsert(needleField, value, false);
         }
         if (updateStatement)
         {

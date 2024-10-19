@@ -12,6 +12,9 @@ public:
     void fromString(const ORMString &value) override;
     ORMString asJson() const override;
 
+    void generate();
+    void clear();
+
     ORMPropertyUuid &operator=(const ORMUuid value)
     {
         set(value);
