@@ -3,6 +3,7 @@
 ExtUuid::ExtUuid() {}
 
 #ifdef ORMQTTypes
+#include <QUuid>
 const ORMUuid ExtUuid::NullUuid;
 
 ORMUuid ExtUuid::generateUuid()

@@ -145,7 +145,7 @@ ORMString ORMObjectInterface::toString() const
             result += ",";
         }
         first = false;
-        result += ExtString::quote(p.first);
+        result += ExtString::quote(MACRO_ORM_STRING_2_STD_STRING(p.first));
         result += ":";
         result += p.second->asJson();
     }

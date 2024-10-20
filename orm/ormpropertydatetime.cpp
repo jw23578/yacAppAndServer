@@ -1,8 +1,5 @@
 #include "ormpropertydatetime.h"
-
-#ifdef ORMCPPTypes
 #include "utils/extstring.h"
-#endif
 
 ORMPropertyDateTime::ORMPropertyDateTime():ORMTemplatedPropertyInterface<ORMDateTime>()
 {
@@ -31,5 +28,10 @@ void ORMPropertyDateTime::fromString(const ORMString &value)
 
 ORMString ORMPropertyDateTime::asJson() const
 {
+#ifdef ORMCPPTypes
     return ExtString::quote(asString());
+#endif
+#ifdef ORMQTTypes
+    return ExtString::quote(asString().toStdString()).c_str();
+#endif
 }

@@ -18,7 +18,13 @@ void ORMPropertyString::fromString(const ORMString &value)
 
 ORMString ORMPropertyString::asJson() const
 {
+#ifdef ORMCPPTypes
     return ExtString::quote(asString());
+#endif
+#ifdef ORMQTTypes
+    return ExtString::quote(asString().toStdString()).c_str();
+#endif
+
 }
 
 size_t ORMPropertyString::size() const
