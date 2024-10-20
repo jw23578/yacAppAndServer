@@ -29,7 +29,7 @@ typedef QString ORMUuid;
 typedef std::string ORMString;
 typedef std::chrono::system_clock::time_point ORMDateTime;
 typedef sole::uuid ORMUuid;
-#define MACRO_ORM_STRING_2_STD_STRING(s)
+#define MACRO_ORM_STRING_2_STD_STRING(s) s
 #define Q_OBJECT
 #endif
 
