@@ -36,11 +36,11 @@ void SqlString::delet(const std::string &tableName)
     sql = "delete from " + tableName;
 }
 
-void SqlString::insertOrUpdate(sole::uuid &id, const std::string &tableName)
+void SqlString::insertOrUpdate(ORMUuid &id, const std::string &tableName)
 {
     if (id == ExtUuid::NullUuid)
     {
-        id = sole::uuid4();
+        id = ExtUuid::generateUuid();
         insert(tableName);
     }
     else
@@ -119,14 +119,14 @@ void SqlString::set(std::string const &param,
 }
 
 void SqlString::set(const std::string &param,
-                      const sole::uuid &value)
+                    const ORMUuid &value)
 {
     if (value == ExtUuid::NullUuid)
     {
         variable2Values[param] = "null";
         return;
     }
-    variable2Values[param] = quote(value.str());
+    variable2Values[param] = quote(MACRO_ORM_STRING_2_STD_STRING(ExtUuid::uuidToString(value)));
 }
 
 void SqlString::set(std::string const &param,

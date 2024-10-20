@@ -52,7 +52,7 @@ public:
     void update(std::string const &tableName);
     void insert(std::string const &tableName);
     void delet(std::string const &tableName);
-    void insertOrUpdate(sole::uuid &id, std::string const &tableName);
+    void insertOrUpdate(ORMUuid &id, std::string const &tableName);
 
     bool isUpdateStatement() const;
 
@@ -61,7 +61,7 @@ public:
     void set(std::string const &param,
              std::string const &value);
     void set(std::string const &param,
-             sole::uuid const &value);
+             const ORMUuid &value);
     void set(std::string const &param,
              const char * const value);
     void set(std::string const &param,

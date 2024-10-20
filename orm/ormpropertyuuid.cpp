@@ -20,12 +20,7 @@ void ORMPropertyUuid::fromString(const ORMString &value)
 
 ORMString ORMPropertyUuid::asJson() const
 {
-#ifdef ORMCPPTypes
-    return ExtString::quote(asString());
-#endif
-#ifdef ORMQTTypes
-    return ExtString::quote(asString().toStdString()).c_str();
-#endif
+    return MACRO_STD_STRING_2_ORM_STRING(ExtString::quote(MACRO_ORM_STRING_2_STD_STRING(asString())));
 }
 
 void ORMPropertyUuid::generate()
