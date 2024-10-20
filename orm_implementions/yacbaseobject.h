@@ -30,7 +30,7 @@ public:
         changeRight(changeRight)
     {
         MACRO_ADD_PROPERTY(id);
-        id.addDetail(DetailID);
+        MACRO_ADD_DETAIL(id, DetailID);
     }
     void assign(const YACBaseObject &other);
 };
