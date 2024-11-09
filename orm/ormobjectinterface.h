@@ -26,6 +26,7 @@
 #define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
 public: \
     ormtype name; \
+    type get##name() const {return name.get();} \
     void set##name(type n){if (name.get() == n) return; name = n;} \
     void set##name(ormtype n){if (name == n) return; name = n;}
 
@@ -70,13 +71,13 @@ public: \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertyBool, bool, name)
 
 #define MACRO_UUID_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyUuid, QString, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyUuid, ORMUuid, name)
 
 #define MACRO_DATETIME_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyDateTime, QDateTime, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyDateTime, ORMDateTime, name)
 
 #define MACRO_STRING_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyString, QString, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyString, ORMString, name)
 
 #define MACRO_SIZET_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertySizeT, size_t, name)
