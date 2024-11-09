@@ -17,11 +17,17 @@
 #ifdef ORMCPPTypes
 #define Q_OBJECT
 
-#define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
+/*#define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
     public: \
     ormtype m_##name; \
     type name() const {return m_##name.get();} \
-    void set##name(type n){if (m_##name.get() == n) return; m_##name.set(n);}
+    void set##name(type n){if (m_##name.get() == n) return; m_##name.set(n);} */
+
+#define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
+public: \
+    ormtype name; \
+    void set##name(type n){if (name.get() == n) return; name = n;} \
+    void set##name(ormtype n){if (name == n) return; name = n;}
 
 #define MACRO_ADD_PROPERTY(name) \
     addProperty(#name, name)
@@ -40,25 +46,25 @@ MACRO_ADD_PROPERTY(name); \
     name.addDetail(DetailDontTransfer)
 
 #define MACRO_BOOL_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyBool, ignored, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyBool, bool, name)
 
 #define MACRO_UUID_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyUuid, ignored, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyUuid, ORMUuid, name)
 
 #define MACRO_DATETIME_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyDateTime, ignored, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyDateTime, ORMDateTime, name)
 
 #define MACRO_STRING_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyString, ignored, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyString, ORMString, name)
 
 #define MACRO_SIZET_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertySizeT, ignored, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertySizeT, size_t, name)
 
 #define MACRO_INT_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyInt, ignored, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyInt, int, name)
 
 #define MACRO_OID_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyOID, ignored, name)
+    MACRO_DECLARE_ORMPROPERTY(ORMPropertyOID, size_t, name)
 
 #define MACRO_ADD_DETAIL(name, detail) \
     name.addDetail(detail);

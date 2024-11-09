@@ -130,7 +130,7 @@ ORMUuid ORMPersistenceInterface::storeBlob(const std::basic_string<std::byte> &d
     t0035.setid(ExtUuid::generateUuid());
     t0035.setblob_oid(sqlInterface.storeBlob(data));
     insertObject(t0035);
-    return t0035.id();
+    return t0035.id;
 }
 
 bool ORMPersistenceInterface::fetchBlob(const ORMUuid &blobUuid, std::basic_string<std::byte> &data)
@@ -140,7 +140,7 @@ bool ORMPersistenceInterface::fetchBlob(const ORMUuid &blobUuid, std::basic_stri
     {
         return false;
     }
-    return sqlInterface.fetchBlob(t0035.blob_oid(), data);
+    return sqlInterface.fetchBlob(t0035.blob_oid, data);
 }
 
 bool ORMPersistenceInterface::deleteBlob(const ORMUuid &blobUuid)

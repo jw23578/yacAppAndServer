@@ -33,8 +33,20 @@ public:
     operator T() const
     {
         return value;
-    }        
+    }
+
+    bool isEqual(const ORMTemplatedPropertyInterface<T> &other) const
+    {
+        return value == other.value;
+    }
 };
+
+template <class T>
+bool operator==(const ORMTemplatedPropertyInterface<T> &a, const ORMTemplatedPropertyInterface<T> &b)
+{
+    return typeid(a) == typeid(a) // Allow compare only instances of the same dynamic type
+           && a.isEqual(b);       // If types are the same then do the comparision.
+}
 
 
 #endif // ORMTEMPLATEDPROPERTYINTERFACE_H

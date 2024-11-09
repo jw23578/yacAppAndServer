@@ -19,7 +19,7 @@ public:
     {
         set(value);
         return *this;
-    }        
+    }
 };
 
 #endif // ORMPROPERTYUUID_H
