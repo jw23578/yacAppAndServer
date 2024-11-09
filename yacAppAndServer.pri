@@ -2,6 +2,7 @@ INCLUDEPATH += $$PWD
 
 HEADERS += \
   $$PWD/orm/ormvector.h \
+  $$PWD/orm_implementions/t0001_users.h \
   $$PWD/orm_implementions/t0002_apps.h \
   $$PWD/orm_implementions/t0003_appuser_profiles.h \
   $$PWD/orm_implementions/t0009_appuser_logintoken.h \
@@ -49,6 +50,7 @@ HEADERS += \
   $$PWD/yacappservermethodnames.h
 
 SOURCES += \
+  $$PWD/orm_implementions/t0001_users.cpp \
   $$PWD/orm_implementions/t0009_appuser_logintoken.cpp \
   $$PWD/orm_implementions/t0002_apps.cpp \
   $$PWD/orm_implementions/t0003_appuser_profiles.cpp \

@@ -1,4 +1,5 @@
 #include "yacormfactory.h"
+#include "t0001_users.h"
 #include "t0002_apps.h"
 #include "t0003_appuser_profiles.h"
 #include "t0009_appuser_logintoken.h"
@@ -20,6 +21,7 @@
 
 YACORMFactory::YACORMFactory():ORMFactory<YACBaseObject>()
 {
+    addGhost(new t0001_users);
     addGhost(new t0002_apps);
     addGhost(new t0003_appuser_profiles);
     addGhost(new t0009_appuser_logintoken);
