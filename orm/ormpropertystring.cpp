@@ -26,7 +26,3 @@ size_t ORMPropertyString::size() const
     return getRef().size();
 }
 
-bool operator==(const ORMPropertyString &a, const ORMString &b)
-{
-    return a.getRef() == b;
-}

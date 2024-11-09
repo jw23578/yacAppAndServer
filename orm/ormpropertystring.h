@@ -21,6 +21,4 @@ public:
     size_t size() const;
 };
 
-bool operator==(const ORMPropertyString &a, const ORMString &b);
-
 #endif // ORMPROPERTYSTRING_H
