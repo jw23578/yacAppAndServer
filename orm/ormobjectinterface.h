@@ -32,39 +32,8 @@ public: \
 #define MACRO_ADD_PROPERTY(name) \
     addProperty(#name, name)
 
-#define MACRO_ADD_INDEX_PROPERTY(name) \
-MACRO_ADD_PROPERTY(name); \
-    name.addDetail(DetailDBIndex);
-
-#define MACRO_ADD_TRANSFER_PROPERTY(name) \
-MACRO_ADD_PROPERTY(name); \
-    name.clearDetails(); \
-    name.addDetail(DetailOnlyTransfer);
-
-#define MACRO_ADD_NOTRANSFER_PROPERTY(name) \
-MACRO_ADD_PROPERTY(name); \
-    name.addDetail(DetailDontTransfer)
-
-#define MACRO_BOOL_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyBool, bool, name)
-
-#define MACRO_UUID_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyUuid, ORMUuid, name)
-
-#define MACRO_DATETIME_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyDateTime, ORMDateTime, name)
-
-#define MACRO_STRING_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyString, ORMString, name)
-
-#define MACRO_SIZET_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertySizeT, size_t, name)
-
-#define MACRO_INT_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyInt, int, name)
-
-#define MACRO_OID_PROPERTY(name) \
-    MACRO_DECLARE_ORMPROPERTY(ORMPropertyOID, size_t, name)
+#define MACRO_CLEAR_DETAILS(name) \
+    name.clearDetails();
 
 #define MACRO_ADD_DETAIL(name, detail) \
     name.addDetail(detail);
@@ -79,6 +48,7 @@ MACRO_ADD_PROPERTY(name); \
     public: \
     Q_PROPERTY(type name READ name WRITE set##name NOTIFY name##Changed) \
     type name() const {return m_##name.get();} \
+    type get##name() const {return m_##name.get();} \
     void set##name(type n){if (m_##name.get() == n) return; m_##name.set(n); emit name##Changed();} \
     Q_SIGNAL \
     void name##Changed(); \
@@ -88,19 +58,13 @@ MACRO_ADD_PROPERTY(name); \
     addProperty(#name, m_##name); \
     m_##name.setChangeCallback([this]{emit name##Changed();})
 
-#define MACRO_ADD_INDEX_PROPERTY(name) \
-    MACRO_ADD_PROPERTY(name); \
-    m_##name.addDetail(DetailDBIndex);
+#define MACRO_CLEAR_DETAILS(name) \
+    m_##name.clearDetails();
 
-#define MACRO_ADD_TRANSFER_PROPERTY(name) \
-    MACRO_ADD_PROPERTY(name); \
-    m_##name.clearDetails(); \
-    m_##name.addDetail(DetailOnlyTransfer);
+#define MACRO_ADD_DETAIL(name, detail) \
+    m_##name.addDetail(detail);
 
-#define MACRO_ADD_NOTRANSFER_PROPERTY(name) \
-    MACRO_ADD_PROPERTY(name); \
-    m_##name.addDetail(DetailDontTransfer)
-
+#endif
 
 #define MACRO_BOOL_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertyBool, bool, name)
@@ -123,10 +87,18 @@ MACRO_ADD_PROPERTY(name); \
 #define MACRO_OID_PROPERTY(name) \
     MACRO_DECLARE_ORMPROPERTY(ORMPropertyOID, size_t, name)
 
-#define MACRO_ADD_DETAIL(name, detail) \
-m_##name.addDetail(detail);
+#define MACRO_ADD_INDEX_PROPERTY(name) \
+    MACRO_ADD_PROPERTY(name); \
+    MACRO_ADD_DETAIL(name, DetailDBIndex)
 
-#endif
+#define MACRO_ADD_TRANSFER_PROPERTY(name) \
+    MACRO_ADD_PROPERTY(name); \
+    MACRO_CLEAR_DETAILS(name) \
+    MACRO_ADD_DETAIL(name, DetailOnlyTransfer)
+
+#define MACRO_ADD_NOTRANSFER_PROPERTY(name) \
+    MACRO_ADD_PROPERTY(name); \
+    MACRO_ADD_DETAIL(name, DetailDontTransfer)
 
 #ifdef ORMQTTypes
 class   ORMObjectInterface: public QObject
