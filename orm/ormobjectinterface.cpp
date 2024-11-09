@@ -160,7 +160,7 @@ void ORMObjectInterface::fill(ORMSqlInterface &sqlInterface)
         ORMPropertyInterface *pi(getProperty(n));
         if (pi->hasDetail(DetailDB))
         {
-            pi->fromString(sqlInterface.value(n).value_or(""));
+            pi->fromString(MACRO_STD_STRING_2_ORM_STRING(sqlInterface.value(MACRO_ORM_STRING_2_STD_STRING(n)).value_or("")));
         }
     }
 }

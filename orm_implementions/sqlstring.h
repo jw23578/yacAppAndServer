@@ -121,7 +121,7 @@ public:
         sql += " " + connector;
         sql += " " + needle;
         sql += " " + comparator;
-        std::string uuid(ExtUuid::uuidToString(ExtUuid::generateUuid()));
+        std::string uuid(MACRO_ORM_STRING_2_STD_STRING(ExtUuid::uuidToString(ExtUuid::generateUuid())));
         sql += " :" + uuid;
         set(uuid, value);
     }

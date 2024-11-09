@@ -7,14 +7,14 @@ ORMPersistenceInterface::ORMPersistenceInterface(ORMSqlInterface &sqlInterface):
 bool ORMPersistenceInterface::insertObject(const ORMObjectInterface &object) const
 {
     SqlString sql;
-    sql.insert(object.getORMName());
+    sql.insert(MACRO_ORM_STRING_2_STD_STRING(object.getORMName()));
     const std::set<ORMString> &propertyNames(object.propertyNames());
     for (auto &n: propertyNames)
     {
         ORMPropertyInterface *pi(object.getProperty(n));
         if (pi->hasDetail(DetailDB))
         {
-            sql.addInsert(n, pi->asString(), pi->isNull());
+            sql.addInsert(MACRO_ORM_STRING_2_STD_STRING(n), pi->asString(), pi->isNull());
         }
     }
     return sqlInterface.execute(sql);
@@ -23,8 +23,8 @@ bool ORMPersistenceInterface::insertObject(const ORMObjectInterface &object) con
 bool ORMPersistenceInterface::selectObject(const ORMUuid &id, ORMObjectInterface &target)
 {
     SqlString sql;
-    sql.select(target.getORMName());
-    sql.addCompare("where", tableFields.id, "=", id);
+    sql.select(MACRO_ORM_STRING_2_STD_STRING(target.getORMName()));
+    sql.addCompare("where", MACRO_ORM_STRING_2_STD_STRING(tableFields.id), "=", MACRO_ORM_STRING_2_STD_STRING(id));
     if (!sqlInterface.open(sql))
     {
         return false;
@@ -36,17 +36,17 @@ bool ORMPersistenceInterface::selectObject(const ORMUuid &id, ORMObjectInterface
 bool ORMPersistenceInterface::updateObject(const ORMObjectInterface &object)
 {
     SqlString sql;
-    sql.update(object.getORMName());
+    sql.update(MACRO_ORM_STRING_2_STD_STRING(object.getORMName()));
     const std::set<ORMString> &propertyNames(object.propertyNames());
     for (auto &n: propertyNames)
     {
         ORMPropertyInterface *pi(object.getProperty(n));
         if (pi->hasDetail(DetailDB) && !pi->hasDetail(DetailID))
         {
-            sql.addSet(n, pi->asString(), pi->isNull());
+            sql.addSet(MACRO_ORM_STRING_2_STD_STRING(n), pi->asString(), pi->isNull());
         }
     }
-    sql.addCompare("where", tableFields.id, "=", object.getPropertyToString(tableFields.id));
+    sql.addCompare("where", MACRO_ORM_STRING_2_STD_STRING(tableFields.id), "=", MACRO_ORM_STRING_2_STD_STRING(object.getPropertyToString(tableFields.id)));
     return sqlInterface.execute(sql);
 }
 
@@ -63,15 +63,15 @@ bool ORMPersistenceInterface::upsertObject(ORMObjectInterface &object)
 bool ORMPersistenceInterface::deleteObject(ORMObjectInterface &object)
 {
     SqlString sql;
-    sql.delet(object.getORMName());
-    sql.addCompare("where", tableFields.id, "=", object.getPropertyToString(tableFields.id));
+    sql.delet(MACRO_ORM_STRING_2_STD_STRING(object.getORMName()));
+    sql.addCompare("where", MACRO_ORM_STRING_2_STD_STRING(tableFields.id), "=", MACRO_ORM_STRING_2_STD_STRING(object.getPropertyToString(tableFields.id)));
     return sqlInterface.execute(sql);
 }
 
 bool ORMPersistenceInterface::sameDataExists(ORMObjectInterface &object) const
 {
     SqlString sql("select id from ");
-    sql += object.getORMName();
+    sql += MACRO_ORM_STRING_2_STD_STRING(object.getORMName());
     const std::set<ORMString> &propertyNames(object.propertyNames());
     bool firstCompare(true);
     for (auto &n: propertyNames)
@@ -81,7 +81,7 @@ bool ORMPersistenceInterface::sameDataExists(ORMObjectInterface &object) const
         {
             if (firstCompare)
             {
-                sql.addCompare(firstCompare ? "where" : "and", n, "=", pi->asString());
+                sql.addCompare(firstCompare ? "where" : "and", MACRO_ORM_STRING_2_STD_STRING(n), "=", MACRO_ORM_STRING_2_STD_STRING(pi->asString()));
                 firstCompare = false;
             }
         }
@@ -117,7 +117,7 @@ size_t ORMPersistenceInterface::fetchIDs(const SqlString &sql,
         std::string s(sqlInterface.value("id").value_or(""));
         if (s.size())
         {
-            ids.insert(ExtUuid::stringToUuid(s));
+            ids.insert(ExtUuid::stringToUuid(MACRO_STD_STRING_2_ORM_STRING(s)));
         }
         sqlInterface.next();
     }
@@ -127,10 +127,10 @@ size_t ORMPersistenceInterface::fetchIDs(const SqlString &sql,
 ORMUuid ORMPersistenceInterface::storeBlob(const std::basic_string<std::byte> &data)
 {
     t0035_blobs t0035;
-    t0035.id = ExtUuid::generateUuid();
-    t0035.blob_oid = sqlInterface.storeBlob(data);
+    t0035.setid(ExtUuid::generateUuid());
+    t0035.setblob_oid(sqlInterface.storeBlob(data));
     insertObject(t0035);
-    return t0035.id;
+    return t0035.id();
 }
 
 bool ORMPersistenceInterface::fetchBlob(const ORMUuid &blobUuid, std::basic_string<std::byte> &data)
@@ -140,7 +140,7 @@ bool ORMPersistenceInterface::fetchBlob(const ORMUuid &blobUuid, std::basic_stri
     {
         return false;
     }
-    return sqlInterface.fetchBlob(t0035.blob_oid, data);
+    return sqlInterface.fetchBlob(t0035.blob_oid(), data);
 }
 
 bool ORMPersistenceInterface::deleteBlob(const ORMUuid &blobUuid)

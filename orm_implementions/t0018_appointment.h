@@ -3,7 +3,10 @@
 
 #include "yacbaseobject.h"
 
-MACRO_BEGIN_APP_ORM_OBJECT(t0018_appointment)
+class t0018_appointment: public YACBaseObject
+{
+    Q_OBJECT
+MACRO_UUID_PROPERTY(app_id);
 MACRO_UUID_PROPERTY(appointment_group_id);
 MACRO_UUID_PROPERTY(appointment_template_id);
 MACRO_STRING_PROPERTY(caption);
@@ -17,6 +20,7 @@ MACRO_INT_PROPERTY(booking_credits);
 MACRO_BOOL_PROPERTY(visible_for_everybody);
 MACRO_BOOL_PROPERTY(no_space);
 public:
+MACRO_CREATE_AND_GETORMNAME(t0018_appointment)
 t0018_appointment():YACBaseObject(Rights::RN_everybody)
 {
     MACRO_ADD_INDEX_PROPERTY(app_id);

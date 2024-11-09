@@ -15,11 +15,13 @@
 #include "ormsqlinterface.h"
 
 #ifdef ORMCPPTypes
-#define MACRO_CPP_OR_Q_OBJECT
+#define Q_OBJECT
 
 #define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
     public: \
-    ormtype name;
+    ormtype m_##name; \
+    type name() const {return m_##name.get();} \
+    void set##name(type n){if (m_##name.get() == n) return; m_##name.set(n);}
 
 #define MACRO_ADD_PROPERTY(name) \
     addProperty(#name, name)
@@ -63,7 +65,6 @@ MACRO_ADD_PROPERTY(name); \
 
 #endif
 #ifdef ORMQTTypes
-#define MACRO_CPP_OR_Q_OBJECT Q_OBJECT
 
 #include <QObject>
 #define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \

@@ -5,7 +5,7 @@
 
 class t0002_apps : public YACBaseObject
 {
-    MACRO_CPP_OR_Q_OBJECT
+    Q_OBJECT
 
     MACRO_UUID_PROPERTY(owner_id);
     MACRO_STRING_PROPERTY(app_name);

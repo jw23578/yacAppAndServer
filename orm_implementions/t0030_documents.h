@@ -5,7 +5,7 @@
 
 class t0030_documents : public YACBaseObject
 {
-MACRO_CPP_OR_Q_OBJECT
+    Q_OBJECT
 
     MACRO_UUID_PROPERTY(app_id);
     MACRO_UUID_PROPERTY(creater_id);

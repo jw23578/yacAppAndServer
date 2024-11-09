@@ -25,6 +25,7 @@ HEADERS += \
   $$PWD/orm_implementions/sqlstring.h \
   $$PWD/orm/ormfactory.h \
   $$PWD/orm/ormmap.h \
+  $$PWD/utils/extstring.h \
   $$PWD/orm/ormdefinitions.h \
   $$PWD/orm/ormsqlinterface.h \
   $$PWD/orm/ormobjectinterface.h \
@@ -85,15 +86,15 @@ SOURCES += \
   $$PWD/orm/ormtemplatedpropertyinterface.cpp \
   $$PWD/rightnumbers.cpp \
   $$PWD/utils/extstringview.cpp \
-  $$PWD/utils/extuuid.cpp
+  $$PWD/utils/extuuid.cpp \
+  $$PWD/utils/extstring.cpp
 
 contains(DEFINES, ORMCPPTypes){
 SOURCES += \
-  $$PWD/sole/sole.cpp \
-  $$PWD/utils/extstring.cpp
+  $$PWD/sole/sole.cpp
+
 
 HEADERS += \
   $$PWD/sole/sole.hpp \
-  $$PWD/utils/extstring.h \
   $$PWD/utils/definitions.h
 }
