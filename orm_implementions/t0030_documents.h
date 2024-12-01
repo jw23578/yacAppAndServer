@@ -34,6 +34,7 @@ public:
         MACRO_ADD_PROPERTY(document_description);
         MACRO_ADD_PROPERTY(created_datetime);
         MACRO_ADD_PROPERTY(delete_after_datetime);
+        MACRO_ADD_PROPERTY(document_size);
 
         MACRO_ADD_TRANSFER_PROPERTY(transfer_document_base64);
         MACRO_ADD_TRANSFER_PROPERTY(transfer_comma_separated_catchphrases_base64);
