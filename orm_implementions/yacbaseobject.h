@@ -32,6 +32,7 @@ public:
         MACRO_ADD_PROPERTY(id);
         MACRO_ADD_DETAIL(id, DetailID);
     }
+    void generateID();
     void assign(const YACBaseObject &other);
 };
 

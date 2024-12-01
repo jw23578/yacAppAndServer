@@ -16,7 +16,8 @@ class t0030_documents : public YACBaseObject
     MACRO_STRING_PROPERTY(document_type);
     MACRO_STRING_PROPERTY(document_description);
     MACRO_DATETIME_PROPERTY(created_datetime);
-    MACRO_DATETIME_PROPERTY(delete_after_datetime)
+    MACRO_DATETIME_PROPERTY(delete_after_datetime);
+    MACRO_INT_PROPERTY(document_size);
 
     MACRO_STRING_PROPERTY(transfer_document_base64);
     MACRO_STRING_PROPERTY(transfer_comma_separated_catchphrases_base64);
