@@ -18,6 +18,8 @@ class t0030_documents : public YACBaseObject
     MACRO_DATETIME_PROPERTY(created_datetime);
     MACRO_DATETIME_PROPERTY(delete_after_datetime);
     MACRO_INT_PROPERTY(document_size);
+    MACRO_DATETIME_PROPERTY(deleted_datetime);
+    MACRO_UUID_PROPERTY(deleted_appuser_id);
 
     MACRO_STRING_PROPERTY(transfer_document_base64);
     MACRO_STRING_PROPERTY(transfer_comma_separated_catchphrases_base64);
@@ -35,6 +37,8 @@ public:
         MACRO_ADD_PROPERTY(created_datetime);
         MACRO_ADD_PROPERTY(delete_after_datetime);
         MACRO_ADD_PROPERTY(document_size);
+        MACRO_ADD_PROPERTY(deleted_datetime);
+        MACRO_ADD_PROPERTY(deleted_appuser_id);
 
         MACRO_ADD_TRANSFER_PROPERTY(transfer_document_base64);
         MACRO_ADD_TRANSFER_PROPERTY(transfer_comma_separated_catchphrases_base64);

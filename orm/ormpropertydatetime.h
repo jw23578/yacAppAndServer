@@ -8,8 +8,8 @@ class ORMPropertyDateTime : public ORMTemplatedPropertyInterface<ORMDateTime>
 public:
     ORMPropertyDateTime();
 
-    ORMString asString() const;
-    void fromString(const ORMString &value);
+    ORMString asString() const override;
+    void fromString(const ORMString &value) override;
     ORMString asJson() const override;
 
     ORMPropertyDateTime &operator=(const ORMDateTime value)
@@ -19,5 +19,8 @@ public:
     }
 
 };
+
+bool operator!=(ORMPropertyDateTime const &a, ORMDateTime const &b);
+
 
 #endif // ORMPROPERTYDATETIME_H

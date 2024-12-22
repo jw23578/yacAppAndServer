@@ -48,5 +48,4 @@ bool operator==(const ORMTemplatedPropertyInterface<T> &a, const ORMTemplatedPro
            && a.isEqual(b);       // If types are the same then do the comparision.
 }
 
-
 #endif // ORMTEMPLATEDPROPERTYINTERFACE_H

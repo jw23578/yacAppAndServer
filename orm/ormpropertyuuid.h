@@ -22,4 +22,6 @@ public:
     }
 };
 
+bool operator!=(ORMPropertyUuid const &a, ORMUuid const &b);
+
 #endif // ORMPROPERTYUUID_H

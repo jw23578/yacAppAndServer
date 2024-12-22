@@ -32,3 +32,8 @@ void ORMPropertyUuid::clear()
 {
     set(ExtUuid::NullUuid);
 }
+
+bool operator!=(ORMPropertyUuid const &a, ORMUuid const &b)
+{
+    return a.getRef() != b;
+}
