@@ -1,6 +1,6 @@
 #include "ormpropertyoid.h"
 
-ORMPropertyOID::ORMPropertyOID():ORMTemplatedPropertyInterface<size_t>()
+ORMPropertyOID::ORMPropertyOID(const ORMString &name):ORMTemplatedPropertyInterface<size_t>(name)
 {
 
 }

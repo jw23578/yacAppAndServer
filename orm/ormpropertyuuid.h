@@ -6,7 +6,7 @@
 class ORMPropertyUuid : public ORMTemplatedPropertyInterface<ORMUuid>
 {
 public:
-    ORMPropertyUuid();
+    ORMPropertyUuid(ORMString const &name);
 
     ORMString asString() const override;
     void fromString(const ORMString &value) override;

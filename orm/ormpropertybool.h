@@ -6,7 +6,7 @@
 class ORMPropertyBool : public ORMTemplatedPropertyInterface<bool>
 {
 public:
-    ORMPropertyBool();
+    ORMPropertyBool(ORMString const &name);
 
     ORMString asString() const override;
     void fromString(const ORMString &value) override;

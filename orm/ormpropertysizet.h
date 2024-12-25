@@ -6,7 +6,7 @@
 class ORMPropertySizeT : public ORMTemplatedPropertyInterface<size_t>
 {
 public:
-    ORMPropertySizeT();
+    ORMPropertySizeT(ORMString const &name);
 
 public:
     ORMString asString() const override;

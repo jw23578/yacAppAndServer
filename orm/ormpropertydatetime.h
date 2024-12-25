@@ -6,7 +6,7 @@
 class ORMPropertyDateTime : public ORMTemplatedPropertyInterface<ORMDateTime>
 {
 public:
-    ORMPropertyDateTime();
+    ORMPropertyDateTime(ORMString const &name);
 
     ORMString asString() const override;
     void fromString(const ORMString &value) override;

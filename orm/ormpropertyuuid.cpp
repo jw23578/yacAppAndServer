@@ -2,7 +2,7 @@
 #include "utils/extstring.h"
 #include "utils/extuuid.h"
 
-ORMPropertyUuid::ORMPropertyUuid():ORMTemplatedPropertyInterface<ORMUuid>()
+ORMPropertyUuid::ORMPropertyUuid(ORMString const &name):ORMTemplatedPropertyInterface<ORMUuid>(name)
 {
     set(ExtUuid::NullUuid);
     setNull(true);

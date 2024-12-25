@@ -6,7 +6,7 @@
 class ORMPropertyOID : public ORMTemplatedPropertyInterface<size_t>
 {
 public:
-    ORMPropertyOID();
+    ORMPropertyOID(ORMString const &name);
 
     ORMString asString() const override;
     void fromString(const ORMString &value) override;

@@ -25,7 +25,7 @@
 
 #define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
 public: \
-    ormtype name; \
+    ormtype name{#name}; \
     type get##name() const {return name.get();} \
     void set##name(type n){if (name.get() == n) return; name = n;} \
     void set##name(ormtype n){if (name == n) return; name = n;}
@@ -112,8 +112,8 @@ class   ORMObjectInterface: public QObject
 #endif
 
         static std::map<ORMString, std::set<ORMString>> allPropertySets;
-        typedef std::map<ORMString, ORMPropertyInterface*> PropertyMap;
-        PropertyMap properties;
+        typedef std::map<ORMString, ORMPropertyInterface*> NameToPropertyMap;
+        NameToPropertyMap properties;
     protected:
         void addProperty(ORMString propertyName, ORMPropertyInterface &property);
     public:

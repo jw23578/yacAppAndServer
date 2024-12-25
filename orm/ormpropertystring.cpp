@@ -1,7 +1,7 @@
 #include "ormpropertystring.h"
 #include "utils/extstring.h"
 
-ORMPropertyString::ORMPropertyString():ORMTemplatedPropertyInterface<ORMString>()
+ORMPropertyString::ORMPropertyString(const ORMString &name):ORMTemplatedPropertyInterface<ORMString>(name)
 {
 
 }

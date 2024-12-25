@@ -1,7 +1,7 @@
 #include "ormpropertydatetime.h"
 #include "utils/extstring.h"
 
-ORMPropertyDateTime::ORMPropertyDateTime():ORMTemplatedPropertyInterface<ORMDateTime>()
+ORMPropertyDateTime::ORMPropertyDateTime(const ORMString &name):ORMTemplatedPropertyInterface<ORMDateTime>(name)
 {
 
 }

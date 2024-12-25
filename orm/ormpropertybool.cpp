@@ -1,6 +1,6 @@
 #include "ormpropertybool.h"
 
-ORMPropertyBool::ORMPropertyBool():ORMTemplatedPropertyInterface<bool>()
+ORMPropertyBool::ORMPropertyBool(const ORMString &name):ORMTemplatedPropertyInterface<bool>(name)
 {
     set(false);
 }

@@ -6,7 +6,7 @@
 class ORMPropertyInt : public ORMTemplatedPropertyInterface<int>
 {    
 public:
-    ORMPropertyInt();
+    ORMPropertyInt(ORMString const &name);
 
     ORMString asString() const override;
     void fromString(const ORMString &value) override;

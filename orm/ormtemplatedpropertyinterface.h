@@ -6,9 +6,15 @@
 template <class T>
 class ORMTemplatedPropertyInterface : public ORMPropertyInterface
 {
+    ORMString m_name;
     T value;
 public:
-    ORMTemplatedPropertyInterface(){}
+    ORMTemplatedPropertyInterface(ORMString const &name):m_name(name){}
+
+    const ORMString &name() const
+    {
+        return m_name;
+    }
 
     void set(const T &value)
     {
