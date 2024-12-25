@@ -13,6 +13,12 @@ std::map<ORMString, std::set<ORMString>> ORMObjectInterface::allPropertySets;
 void ORMObjectInterface::addProperty(ORMString propertyName, ORMPropertyInterface &property)
 {
     properties[propertyName] = &property;
+    propertiesSet.insert(&property);
+}
+
+const std::set<ORMPropertyInterface *> &ORMObjectInterface::getProperties() const
+{
+    return propertiesSet;
 }
 
 ORMPropertyInterface *ORMObjectInterface::getProperty(const ORMString &propertyName) const
@@ -154,13 +160,11 @@ ORMString ORMObjectInterface::toString() const
 
 void ORMObjectInterface::fill(ORMSqlInterface &sqlInterface)
 {
-    const std::set<ORMString> &pn(propertyNames());
-    for (auto &n: pn)
+    for (const auto &p: propertiesSet)
     {
-        ORMPropertyInterface *pi(getProperty(n));
-        if (pi->hasDetail(DetailDB))
+        if (p->hasDetail(DetailDB))
         {
-            pi->fromString(MACRO_STD_STRING_2_ORM_STRING(sqlInterface.value(MACRO_ORM_STRING_2_STD_STRING(n)).value_or("")));
+            p->fromString(MACRO_STD_STRING_2_ORM_STRING(sqlInterface.value(MACRO_ORM_STRING_2_STD_STRING(p->name())).value_or("")));
         }
     }
 }

@@ -9,11 +9,14 @@ class ORMPropertyInterface
     bool bNull{true};
     std::function<void()> changeCallback{0};
     std::set<ORMPropertyDetails> details;
+    ORMString m_name;
 protected:
     void callChangeCallback();
 public:
-    ORMPropertyInterface();
+    ORMPropertyInterface(const ORMString &name);
     virtual ~ORMPropertyInterface() {}
+
+    const ORMString &name() const;
 
     virtual ORMString asString() const = 0;
     virtual void fromString(const ORMString &value) = 0;
