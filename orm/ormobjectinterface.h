@@ -114,6 +114,7 @@ class   ORMObjectInterface: public QObject
         static std::map<ORMString, std::set<ORMString>> allPropertySets;
         typedef std::map<ORMString, ORMPropertyInterface*> NameToPropertyMap;
         NameToPropertyMap properties;
+        std::set<ORMPropertyInterface*> propertiesSet;
     protected:
         void addProperty(ORMString propertyName, ORMPropertyInterface &property);
     public:
@@ -126,6 +127,7 @@ class   ORMObjectInterface: public QObject
         virtual const ORMString getORMName() const = 0;
         virtual ORMObjectInterface *create() const = 0;
 
+        const std::set<ORMPropertyInterface*> &getProperties() const;
         ORMPropertyInterface *getProperty(const ORMString &propertyName) const;
 
         bool propertyExists(const ORMString &propertyName) const;

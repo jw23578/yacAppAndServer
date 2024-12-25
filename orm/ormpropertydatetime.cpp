@@ -24,6 +24,10 @@ void ORMPropertyDateTime::fromString(const ORMString &value)
 #ifdef ORMQTTypes
     set(QDateTime::fromString(value, Qt::DateFormat::ISODateWithMs));
 #endif
+    if (value == "")
+    {
+        setNull(true);
+    }
 }
 
 ORMString ORMPropertyDateTime::asJson() const

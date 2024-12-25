@@ -1,8 +1,13 @@
 #include "ormpropertyinterface.h"
 
-ORMPropertyInterface::ORMPropertyInterface():bNull(true)
+ORMPropertyInterface::ORMPropertyInterface(const ORMString &name):bNull(true), m_name(name)
 {
     details.insert(DetailDB);
+}
+
+const ORMString &ORMPropertyInterface::name() const
+{
+    return m_name;
 }
 
 void ORMPropertyInterface::setNull(const bool n)
