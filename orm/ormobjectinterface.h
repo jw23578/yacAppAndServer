@@ -45,7 +45,7 @@ public: \
 #include <QObject>
 #define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
     private: \
-    ormtype m_##name; \
+    ormtype m_##name{#name}; \
     public: \
     Q_PROPERTY(type name READ name WRITE set##name NOTIFY name##Changed) \
     type name() const {return m_##name.get();} \
