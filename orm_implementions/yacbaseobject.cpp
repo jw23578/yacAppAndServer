@@ -11,8 +11,8 @@ void YACBaseObject::assign(const YACBaseObject &other)
     {
         return;
     }
-    for (const auto &pn: propertyNames())
+    for (const auto &p: getProperties())
     {
-        setPropertyFromString(pn, other.getPropertyToString(pn));
+        setPropertyFromString(p->name(), other.getPropertyToString(p->name()));
     }
 }
