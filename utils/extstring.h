@@ -80,6 +80,11 @@ public:
     static void upperSelf(std::string &s);
     static void lowerSelf(std::string &s);
 
+    static void fillUpRightSelf(std::string &s, size_t toSize, char c);
+    static void fillUpLeftSelf(std::string &s, size_t toSize, char c);
+
+    static std::string right(const std::string &s, size_t count);
+
     static std::string escape(std::string text,
                               const std::string &needle,
                               const std::string &escapeSign);
