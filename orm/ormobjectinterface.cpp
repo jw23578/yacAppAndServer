@@ -170,7 +170,7 @@ void ORMObjectInterface::fill(ORMSqlInterface &sqlInterface)
         {
             if (p->hasDetail(DetailOnlyTransfer))
             {
-                if (sqlInterface.columnExists(p->name()))
+                if (sqlInterface.columnExists(MACRO_ORM_STRING_2_STD_STRING(p->name())))
                 {
                     p->fromString(MACRO_STD_STRING_2_ORM_STRING(sqlInterface.value(MACRO_ORM_STRING_2_STD_STRING(p->name())).value_or("")));
                 }
