@@ -6,7 +6,7 @@
 #include <iconv.h>
 #include <vector>
 #include <map>
-#include "sole/sole.hpp"
+#include "utils/reducedsole.h"
 #include "utils/extstring.h" // marked as unused but is needed for MACRO_set
 #include "utils/definitions.h"
 #include "utils/extuuid.h"
@@ -101,7 +101,7 @@ public:
         variable2Values[param] = value.str();
     }
     void set(const std::string &param,
-             const std::set<sole::uuid> &uuids);
+             const std::set<reducedsole::uuid> &uuids);
     SqlString &operator=(std::string const &s);
     SqlString &operator+=(std::string const &s);
     SqlString &operator+=(SqlString const &s);

@@ -205,7 +205,7 @@ void SqlString::set(const std::string &param,
 }
 
 void SqlString::set(const std::string &param,
-                      const std::set<sole::uuid> &uuids)
+                      const std::set<reducedsole::uuid> &uuids)
 {
     if (uuids.size() == 0)
     {

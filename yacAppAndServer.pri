@@ -1,4 +1,5 @@
 INCLUDEPATH += $$PWD
+QMAKE_CXXFLAGS += -std=c++2a
 
 HEADERS += \
   $$PWD/orm/ormvector.h \
@@ -21,6 +22,7 @@ HEADERS += \
   $$PWD/orm_implementions/t0033_words.h \
   $$PWD/orm_implementions/t0034_word2document.h \
   $$PWD/orm_implementions/t0035_blobs.h \
+  $$PWD/orm_implementions/t0036_rythm.h \
   $$PWD/orm_implementions/yacormfactory.h \
   $$PWD/orm_implementions/yacbaseobject.h \
   $$PWD/orm_implementions/sqlstring.h \
@@ -45,6 +47,7 @@ HEADERS += \
   $$PWD/tablenames.h \
   $$PWD/utils/extstringview.h \
   $$PWD/utils/extuuid.h \
+  $$PWD/utils/reducedsole.h \
   $$PWD/yacappandservermacros.h \
   $$PWD/container/indexedpointercontainer.h \
   $$PWD/yacappservermethodnames.h
@@ -69,6 +72,7 @@ SOURCES += \
   $$PWD/orm_implementions/t0033_words.cpp \
   $$PWD/orm_implementions/t0034_word2document.cpp \
   $$PWD/orm_implementions/t0035_blobs.cpp \
+  $$PWD/orm_implementions/t0036_rythm.cpp \
   $$PWD/orm_implementions/yacbaseobject.cpp \
   $$PWD/orm_implementions/yacormfactory.cpp \
   $$PWD/orm_implementions/sqlstring.cpp \
@@ -89,14 +93,13 @@ SOURCES += \
   $$PWD/rightnumbers.cpp \
   $$PWD/utils/extstringview.cpp \
   $$PWD/utils/extuuid.cpp \
-  $$PWD/utils/extstring.cpp
+  $$PWD/utils/extstring.cpp \
+  $$PWD/utils/reducedsole.cpp
 
 contains(DEFINES, ORMCPPTypes){
-SOURCES += \
-  $$PWD/sole/sole.cpp
+SOURCES +=
 
 
 HEADERS += \
-  $$PWD/sole/sole.hpp \
   $$PWD/utils/definitions.h
 }

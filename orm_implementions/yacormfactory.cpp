@@ -18,6 +18,7 @@
 #include "t0033_words.h"
 #include "t0034_word2document.h"
 #include "t0035_blobs.h"
+#include "t0036_rythm.h"
 
 YACORMFactory::YACORMFactory():ORMFactory<YACBaseObject>()
 {
@@ -40,4 +41,5 @@ YACORMFactory::YACORMFactory():ORMFactory<YACBaseObject>()
     addGhost(new t0034_word2document);
     addGhost(new t0033_words);
     addGhost(new t0035_blobs);
+    addGhost(new t0036_rythm);
 }
