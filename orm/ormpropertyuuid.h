@@ -15,9 +15,15 @@ public:
     void generate();
     void clear();
 
-    ORMPropertyUuid &operator=(const ORMUuid value)
+    ORMPropertyUuid &operator=(const ORMPropertyUuid &other)
     {
-        set(value);
+        set(other.get());
+        return *this;
+    }
+
+    ORMPropertyUuid &operator=(const ORMUuid &other)
+    {
+        set(other);
         return *this;
     }
 };

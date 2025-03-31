@@ -375,6 +375,33 @@ void ExtString::lowerSelf(std::string &s)
     std::transform(s.begin(), s.end(), s.begin(), ::tolower);
 }
 
+void ExtString::fillUpRightSelf(std::string &s, size_t toSize, char c)
+{
+    if (s.size() >= toSize)
+    {
+        return;
+    }
+    s = s + std::string(toSize - s.size(), c);
+}
+
+void ExtString::fillUpLeftSelf(std::string &s, size_t toSize, char c)
+{
+    if (s.size() >= toSize)
+    {
+        return;
+    }
+    s = std::string(toSize - s.size(), c) + s;
+}
+
+std::string ExtString::right(const std::string &s, size_t count)
+{
+    if (s.size() <= count)
+    {
+        return s;
+    }
+    return s.substr(s.size() - count, count);
+}
+
 std::string ExtString::escape(std::string text,
                               std::string const &needle,
                               std::string const &escapeSign)

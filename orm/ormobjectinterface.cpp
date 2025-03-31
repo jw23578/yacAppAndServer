@@ -166,5 +166,15 @@ void ORMObjectInterface::fill(ORMSqlInterface &sqlInterface)
         {
             p->fromString(MACRO_STD_STRING_2_ORM_STRING(sqlInterface.value(MACRO_ORM_STRING_2_STD_STRING(p->name())).value_or("")));
         }
+        else
+        {
+            if (p->hasDetail(DetailOnlyTransfer))
+            {
+                if (sqlInterface.columnExists(p->name()))
+                {
+                    p->fromString(MACRO_STD_STRING_2_ORM_STRING(sqlInterface.value(MACRO_ORM_STRING_2_STD_STRING(p->name())).value_or("")));
+                }
+            }
+        }
     }
 }

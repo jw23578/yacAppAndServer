@@ -14,7 +14,7 @@ class t0002_apps : public YACBaseObject
     MACRO_STRING_PROPERTY(app_color_name);
     MACRO_BOOL_PROPERTY(is_template_app);
     MACRO_STRING_PROPERTY(json_yacapp);
-    MACRO_SIZET_PROPERTY(yacpck_base64);
+    MACRO_OID_PROPERTY(yacpck_base64);
     MACRO_STRING_PROPERTY(app_info_url);
     MACRO_STRING_PROPERTY(search_code);
     MACRO_STRING_PROPERTY(installation_code_hash);

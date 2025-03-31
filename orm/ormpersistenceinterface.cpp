@@ -8,13 +8,11 @@ bool ORMPersistenceInterface::insertObject(const ORMObjectInterface &object) con
 {
     SqlString sql;
     sql.insert(MACRO_ORM_STRING_2_STD_STRING(object.getORMName()));
-    const std::set<ORMString> &propertyNames(object.propertyNames());
-    for (auto &n: propertyNames)
+    for (const auto &p: object.getProperties())
     {
-        ORMPropertyInterface *pi(object.getProperty(n));
-        if (pi->hasDetail(DetailDB))
+        if (p->hasDetail(DetailDB))
         {
-            sql.addInsert(MACRO_ORM_STRING_2_STD_STRING(n), pi->asString(), pi->isNull());
+            sql.addInsert(MACRO_ORM_STRING_2_STD_STRING(p->name()), p->asString(), p->isNull());
         }
     }
     return sqlInterface.execute(sql);
@@ -37,13 +35,11 @@ bool ORMPersistenceInterface::updateObject(const ORMObjectInterface &object)
 {
     SqlString sql;
     sql.update(MACRO_ORM_STRING_2_STD_STRING(object.getORMName()));
-    const std::set<ORMString> &propertyNames(object.propertyNames());
-    for (auto &n: propertyNames)
+    for (const auto &p: object.getProperties())
     {
-        ORMPropertyInterface *pi(object.getProperty(n));
-        if (pi->hasDetail(DetailDB) && !pi->hasDetail(DetailID))
+        if (p->hasDetail(DetailDB))
         {
-            sql.addSet(MACRO_ORM_STRING_2_STD_STRING(n), pi->asString(), pi->isNull());
+            sql.addSet(MACRO_ORM_STRING_2_STD_STRING(p->name()), p->asString(), p->isNull());
         }
     }
     sql.addCompare("where", MACRO_ORM_STRING_2_STD_STRING(tableFields.id), "=", MACRO_ORM_STRING_2_STD_STRING(object.getPropertyToString(tableFields.id)));
@@ -72,22 +68,18 @@ bool ORMPersistenceInterface::sameDataExists(ORMObjectInterface &object) const
 {
     SqlString sql("select id from ");
     sql += MACRO_ORM_STRING_2_STD_STRING(object.getORMName());
-    const std::set<ORMString> &propertyNames(object.propertyNames());
+
     bool firstCompare(true);
-    for (auto &n: propertyNames)
+    for (const auto &p: object.getProperties())
     {
-        ORMPropertyInterface *pi(object.getProperty(n));
-        if (pi->hasDetail(DetailDB) && !pi->hasDetail(DetailID))
+        if (p->hasDetail(DetailDB) && !p->hasDetail(DetailID))
         {
-            if (firstCompare)
-            {
-                sql.addCompare(firstCompare ? "where" : "and", MACRO_ORM_STRING_2_STD_STRING(n), "=", MACRO_ORM_STRING_2_STD_STRING(pi->asString()));
-                firstCompare = false;
-            }
+            sql.addCompare(firstCompare ? "where" : "and", MACRO_ORM_STRING_2_STD_STRING(p->name()), "=", MACRO_ORM_STRING_2_STD_STRING(p->asString()));
+            firstCompare = false;
         }
     }
     sql += " limit 1";
-    sqlInterface.execute(sql);
+    sqlInterface.open(sql);
     if (sqlInterface.size() > 0)
     {
         object.setUuid("id", sqlInterface.uuidValue("id").value());

@@ -28,6 +28,7 @@ public:
 
     virtual size_t columns() = 0;
     virtual std::string columnName(size_t index) = 0;
+    bool columnExists(const std::string columnName);
 
     virtual bool isNull(size_t index) = 0;
     virtual std::optional<std::string> value(size_t index) = 0;
