@@ -16,6 +16,7 @@ public:
 
     bool insertObject(ORMObjectInterface const &object) const;
     bool selectObject(ORMUuid const &id, ORMObjectInterface &target);
+    bool selectObject(ORMString const &field, ORMString const &needle, ORMObjectInterface &target);
     bool updateObject(ORMObjectInterface const &object);
     bool upsertObject(ORMObjectInterface &object);
     bool deleteObject(ORMObjectInterface &object);

@@ -31,6 +31,21 @@ bool ORMPersistenceInterface::selectObject(const ORMUuid &id, ORMObjectInterface
     return true;
 }
 
+bool ORMPersistenceInterface::selectObject(const ORMString &field,
+                                           const ORMString &needle,
+                                           ORMObjectInterface &target)
+{
+    SqlString sql;
+    sql.select(MACRO_ORM_STRING_2_STD_STRING(target.getORMName()));
+    sql.addCompare("where", MACRO_ORM_STRING_2_STD_STRING(field), "=", MACRO_ORM_STRING_2_STD_STRING(needle));
+    if (!sqlInterface.open(sql))
+    {
+        return false;
+    }
+    target.fill(sqlInterface);
+    return true;
+}
+
 bool ORMPersistenceInterface::updateObject(const ORMObjectInterface &object)
 {
     SqlString sql;
