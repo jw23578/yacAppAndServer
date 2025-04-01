@@ -28,10 +28,10 @@ typedef QString ORMUuid;
 #ifdef ORMCPPTypes
 #include <string>
 #include <chrono>
-#include "sole/sole.hpp"
+#include "utils/reducedsole.h"
 typedef std::string ORMString;
 typedef std::chrono::system_clock::time_point ORMDateTime;
-typedef sole::uuid ORMUuid;
+typedef reducedsole::uuid ORMUuid;
 #define MACRO_ORM_STRING_2_STD_STRING(s) s
 #define MACRO_STD_STRING_2_ORM_STRING(s) s
 #define Q_OBJECT

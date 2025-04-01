@@ -23,11 +23,11 @@ ORMUuid ExtUuid::stringToUuid(ORMString const &str)
 #endif
 
 #ifdef ORMCPPTypes
-const ORMUuid ExtUuid::NullUuid = sole::rebuild("00000000-0000-0000-0000-000000000000");
+const ORMUuid ExtUuid::NullUuid = reducedsole::rebuild("00000000-0000-0000-0000-000000000000");
 
 ORMUuid ExtUuid::generateUuid()
 {
-    return sole::uuid4();
+    return reducedsole::uuid4();
 }
 
 ORMString ExtUuid::uuidToString(ORMUuid const &id)
@@ -37,7 +37,7 @@ ORMString ExtUuid::uuidToString(ORMUuid const &id)
 
 ORMUuid ExtUuid::stringToUuid(ORMString const &str)
 {
-    return sole::rebuild(str);
+    return reducedsole::rebuild(str);
 }
 
 

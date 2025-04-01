@@ -17,11 +17,11 @@ public:
     MACRO_CREATE_AND_GETORMNAME(t0036_rythm)
     t0036_rythm():YACBaseObject(Rights::RN_everybody)
     {
-        m_repeat_every_months = 0;
-        m_repeat_every_days = 0;
-        m_xth_day_from_month_beginn = -1;
-        m_xth_day_from_month_end = -1;
-        m_special_day_of_week = -1;
+        setrepeat_every_months(0);
+        setrepeat_every_days(0);
+        setxth_day_from_month_beginn(-1);
+        setxth_day_from_month_end(-1);
+        setspecial_day_of_week(-1);
         MACRO_ADD_PROPERTY(repeat_every_months);
         MACRO_ADD_PROPERTY(repeat_every_days);
         MACRO_ADD_PROPERTY(xth_day_from_month_beginn);
