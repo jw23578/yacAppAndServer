@@ -31,13 +31,17 @@ bool ORMPersistenceInterface::selectObject(const ORMUuid &id, ORMObjectInterface
     return true;
 }
 
-bool ORMPersistenceInterface::selectObject(const ORMString &field,
-                                           const ORMString &needle,
+bool ORMPersistenceInterface::selectObject(std::map<ORMString, ORMString> field2needle,
                                            ORMObjectInterface &target)
 {
     SqlString sql;
     sql.select(MACRO_ORM_STRING_2_STD_STRING(target.getORMName()));
-    sql.addCompare("where", MACRO_ORM_STRING_2_STD_STRING(field), "=", MACRO_ORM_STRING_2_STD_STRING(needle));
+    bool first(true);
+    for (const auto &f2n: field2needle)
+    {
+        sql.addCompare(first ? "where" : "and", MACRO_ORM_STRING_2_STD_STRING(f2n.first), "=", MACRO_ORM_STRING_2_STD_STRING(f2n.second));
+        first = false;
+    }
     if (!sqlInterface.open(sql))
     {
         return false;
@@ -87,7 +91,7 @@ bool ORMPersistenceInterface::sameDataExists(ORMObjectInterface &object) const
     bool firstCompare(true);
     for (const auto &p: object.getProperties())
     {
-        if (p->hasDetail(DetailDB) && !p->hasDetail(DetailID))
+        if (p->hasDetail(DetailDB) && !p->hasDetail(DetailDBPrimaryKey) && !p->hasDetail(DetailID) && !p->hasDetail(DetailDBSystemInfo))
         {
             sql.addCompare(firstCompare ? "where" : "and", MACRO_ORM_STRING_2_STD_STRING(p->name()), "=", MACRO_ORM_STRING_2_STD_STRING(p->asString()));
             firstCompare = false;

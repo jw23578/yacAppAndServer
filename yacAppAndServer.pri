@@ -3,6 +3,7 @@ QMAKE_CXXFLAGS += -std=c++2a
 
 HEADERS += \
   $$PWD/orm/ormvector.h \
+  $$PWD/orm_implementions/appbaseobject.h \
   $$PWD/orm_implementions/t0001_users.h \
   $$PWD/orm_implementions/t0002_apps.h \
   $$PWD/orm_implementions/t0003_appuser_profiles.h \
@@ -23,6 +24,7 @@ HEADERS += \
   $$PWD/orm_implementions/t0034_word2document.h \
   $$PWD/orm_implementions/t0035_blobs.h \
   $$PWD/orm_implementions/t0036_rythm.h \
+  $$PWD/orm_implementions/t0037_fee.h \
   $$PWD/orm_implementions/yacormfactory.h \
   $$PWD/orm_implementions/yacbaseobject.h \
   $$PWD/orm_implementions/sqlstring.h \
@@ -53,6 +55,7 @@ HEADERS += \
   $$PWD/yacappservermethodnames.h
 
 SOURCES += \
+  $$PWD/orm_implementions/appbaseobject.cpp \
   $$PWD/orm_implementions/t0001_users.cpp \
   $$PWD/orm_implementions/t0009_appuser_logintoken.cpp \
   $$PWD/orm_implementions/t0002_apps.cpp \
@@ -73,6 +76,7 @@ SOURCES += \
   $$PWD/orm_implementions/t0034_word2document.cpp \
   $$PWD/orm_implementions/t0035_blobs.cpp \
   $$PWD/orm_implementions/t0036_rythm.cpp \
+  $$PWD/orm_implementions/t0037_fee.cpp \
   $$PWD/orm_implementions/yacbaseobject.cpp \
   $$PWD/orm_implementions/yacormfactory.cpp \
   $$PWD/orm_implementions/sqlstring.cpp \

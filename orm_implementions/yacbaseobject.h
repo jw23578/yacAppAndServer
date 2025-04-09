@@ -22,6 +22,11 @@ class YACBaseObject : public ORMObjectInterface
     Q_OBJECT
 
     MACRO_UUID_PROPERTY(id);
+    MACRO_DATETIME_PROPERTY(created);
+    MACRO_UUID_PROPERTY(created_by_t0003_id)
+    MACRO_DATETIME_PROPERTY(historied);
+    MACRO_DATETIME_PROPERTY(deleted);
+    MACRO_UUID_PROPERTY(deleted_by_t0003_id)
 public:
     const RightNumber changeRight;
 
@@ -29,8 +34,13 @@ public:
     YACBaseObject(RightNumber changeRight):ORMObjectInterface(),
         changeRight(changeRight)
     {
-        MACRO_ADD_PROPERTY(id);
-        MACRO_ADD_DETAIL(id, DetailID);
+        MACRO_ADD_PROPERTY_ADD_DETAIL(id, DetailDBPrimaryKey);
+        MACRO_ADD_DETAIL(id, DetailDBSystemInfo);
+        MACRO_ADD_PROPERTY_ADD_DETAIL(created, DetailDBSystemInfo);
+        MACRO_ADD_PROPERTY_ADD_DETAIL(created_by_t0003_id, DetailDBSystemInfo);
+        MACRO_ADD_PROPERTY_ADD_DETAIL(historied, DetailDBSystemInfo);
+        MACRO_ADD_PROPERTY_ADD_DETAIL(deleted, DetailDBSystemInfo);
+        MACRO_ADD_PROPERTY_ADD_DETAIL(deleted_by_t0003_id, DetailDBSystemInfo);
     }
     void generateID();
     void assign(const YACBaseObject &other);

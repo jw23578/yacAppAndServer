@@ -11,6 +11,8 @@ public:
     ORMVector();
     ~ORMVector();
 
+    T *createObject() const;
+
     T &append();
 
     std::size_t size();

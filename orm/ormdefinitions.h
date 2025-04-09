@@ -5,6 +5,8 @@
 enum ORMPropertyDetails
 {
     DetailDB,
+    DetailDBPrimaryKey,
+    DetailDBSystemInfo,
     DetailID,
     DetailDBIndex,
     DetailOnlyTransfer,

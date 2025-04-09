@@ -16,7 +16,7 @@ public:
 
     bool insertObject(ORMObjectInterface const &object) const;
     bool selectObject(ORMUuid const &id, ORMObjectInterface &target);
-    bool selectObject(ORMString const &field, ORMString const &needle, ORMObjectInterface &target);
+    bool selectObject(std::map<ORMString, ORMString> field2needle, ORMObjectInterface &target);
     bool updateObject(ORMObjectInterface const &object);
     bool upsertObject(ORMObjectInterface &object);
     bool deleteObject(ORMObjectInterface &object);
@@ -26,6 +26,17 @@ public:
 
     size_t fetchIDs(SqlString const &sql,
                     std::set<ORMUuid> &ids);
+
+    template<class T>
+    size_t fetchAllObjects(ORMVector<T> &target)
+    {
+        T *ghost(target.createObject());
+        SqlString sql;
+        sql.select(ghost->getORMName());
+        delete ghost;
+        return fetchObjects(sql, target);
+    }
+
     template<class T>
     size_t fetchObjects(SqlString const &sql, ORMVector<T> &target)
     {

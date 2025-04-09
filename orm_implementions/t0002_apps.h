@@ -2,6 +2,7 @@
 #define T0002_APPS_H
 
 #include "yacbaseobject.h"
+#include "orm/ormpersistenceinterface.h"
 
 class t0002_apps : public YACBaseObject
 {
@@ -46,6 +47,8 @@ public:
     {
         return new t0002_apps;
     }
+
+    void createDefaults(ORMPersistenceInterface &opi) const;
 };
 
 #endif // T0002_APPS_H

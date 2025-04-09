@@ -13,6 +13,12 @@ ORMVector<T>::~ORMVector()
 }
 
 template<class T>
+T *ORMVector<T>::createObject() const
+{
+    return new T;
+}
+
+template<class T>
 T &ORMVector<T>::append()
 {
     objects.push_back(new T);

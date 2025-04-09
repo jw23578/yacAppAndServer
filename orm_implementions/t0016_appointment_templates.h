@@ -1,26 +1,24 @@
 #ifndef T0016_APPOINTMENT_TEMPLATES_H
 #define T0016_APPOINTMENT_TEMPLATES_H
 
-#include "yacbaseobject.h"
+#include "appbaseobject.h"
 
-class t0016_appointment_templates : public YACBaseObject
+class t0016_appointment_templates : public AppBaseObject
 {
     Q_OBJECT
-MACRO_UUID_PROPERTY(app_id);
-MACRO_STRING_PROPERTY(name);
-MACRO_INT_PROPERTY(default_duration_in_minutes);
-MACRO_INT_PROPERTY(color);
-MACRO_UUID_PROPERTY(owner_id);
+    MACRO_UUID_PROPERTY(appointment_template_id)
+    MACRO_STRING_PROPERTY(name);
+    MACRO_INT_PROPERTY(default_duration_in_minutes);
+    MACRO_INT_PROPERTY(color);
 public:
-MACRO_CREATE_AND_GETORMNAME(t0016_appointment_templates)
-t0016_appointment_templates():YACBaseObject(Rights::RN_everybody)
-{
-    MACRO_ADD_INDEX_PROPERTY(app_id);
-    MACRO_ADD_PROPERTY(name);
-    MACRO_ADD_PROPERTY(default_duration_in_minutes);
-    MACRO_ADD_PROPERTY(color);
-    MACRO_ADD_PROPERTY(owner_id);
-}
+    MACRO_CREATE_AND_GETORMNAME(t0016_appointment_templates)
+    t0016_appointment_templates():AppBaseObject(Rights::RN_everybody)
+    {
+        MACRO_ADD_PROPERTY(appointment_template_id);
+        MACRO_ADD_PROPERTY(name);
+        MACRO_ADD_PROPERTY(default_duration_in_minutes);
+        MACRO_ADD_PROPERTY(color);
+    }
 };
 
 #endif // T0016_APPOINTMENT_TEMPLATES_H

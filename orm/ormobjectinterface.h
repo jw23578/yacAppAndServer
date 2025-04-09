@@ -14,6 +14,8 @@
 #include "ormpropertyoid.h"
 #include "ormsqlinterface.h"
 
+class ORMPersistenceInterface;
+
 #ifdef ORMCPPTypes
 #define Q_OBJECT
 
@@ -33,11 +35,16 @@ public: \
 #define MACRO_ADD_PROPERTY(name) \
     addProperty(#name, name)
 
+#define MACRO_ADD_DETAIL(name, detail) \
+name.addDetail(detail);
+
+#define MACRO_ADD_PROPERTY_ADD_DETAIL(name, detail) \
+addProperty(#name, name); \
+MACRO_ADD_DETAIL(name, detail)
+
 #define MACRO_CLEAR_DETAILS(name) \
     name.clearDetails();
 
-#define MACRO_ADD_DETAIL(name, detail) \
-    name.addDetail(detail);
 
 #endif
 #ifdef ORMQTTypes
