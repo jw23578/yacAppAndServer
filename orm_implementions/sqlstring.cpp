@@ -10,6 +10,12 @@ SqlString::SqlString(std::string const &s):
 
 }
 
+void SqlString::select(const std::string &field, const std::string &tableName)
+{
+    selectStatement = true;
+    sql = "select " + field + " from " + tableName;
+}
+
 void SqlString::select(const std::string &tableName)
 {
     selectStatement = true;
@@ -115,6 +121,13 @@ std::string SqlString::esc(std::string const &s)
 void SqlString::set(std::string const &param,
                       std::string const &value)
 {
+    if (param == "password_hash")
+    {
+        reducedsole::uuid pwdId(ExtUuid::generateUuid());
+        variable2Values[param] = "crypt(:aaa" + pwdId.str() + ", gen_salt('bf'))";
+        set("aaa" + pwdId.str(), value);
+        return;
+    }
     variable2Values[param] = quote(esc(value));
 }
 

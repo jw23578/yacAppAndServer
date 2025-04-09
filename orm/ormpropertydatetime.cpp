@@ -32,6 +32,10 @@ void ORMPropertyDateTime::fromString(const ORMString &value)
 
 ORMString ORMPropertyDateTime::asJson() const
 {
+    if (isNull())
+    {
+        return "null";
+    }
     return MACRO_STD_STRING_2_ORM_STRING(ExtString::quote(MACRO_ORM_STRING_2_STD_STRING(asString())));
 }
 

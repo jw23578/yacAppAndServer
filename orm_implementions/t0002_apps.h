@@ -3,11 +3,13 @@
 
 #include "yacbaseobject.h"
 #include "orm/ormpersistenceinterface.h"
+#include "t0003_appuser_profiles.h"
 
 class t0002_apps : public YACBaseObject
 {
     Q_OBJECT
 
+    MACRO_UUID_PROPERTY(app_id);
     MACRO_UUID_PROPERTY(owner_id);
     MACRO_STRING_PROPERTY(app_name);
     MACRO_INT_PROPERTY(app_version);
@@ -21,9 +23,13 @@ class t0002_apps : public YACBaseObject
     MACRO_STRING_PROPERTY(installation_code_hash);
 
     MACRO_STRING_PROPERTY(transfer_yacpck_base64);
+
+    t0003_appuser_profiles theSystemUser;
+
 public:
     t0002_apps():YACBaseObject(Rights::RN_everybody)
     {
+        MACRO_ADD_PROPERTY_ADD_DETAIL(app_id, DetailID);
         MACRO_ADD_PROPERTY(owner_id);
         MACRO_ADD_PROPERTY(app_name);
         MACRO_ADD_PROPERTY(app_version);
@@ -48,7 +54,7 @@ public:
         return new t0002_apps;
     }
 
-    void createDefaults(ORMPersistenceInterface &opi) const;
+    void createDefaults(ORMPersistenceInterface &opi);
 };
 
 #endif // T0002_APPS_H

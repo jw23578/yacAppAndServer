@@ -39,10 +39,12 @@ public:
         MACRO_ADD_PROPERTY_ADD_DETAIL(created, DetailDBSystemInfo);
         MACRO_ADD_PROPERTY_ADD_DETAIL(created_by_t0003_id, DetailDBSystemInfo);
         MACRO_ADD_PROPERTY_ADD_DETAIL(historied, DetailDBSystemInfo);
+        MACRO_ADD_DETAIL(historied, DetailDBHstoriedDateTime);
         MACRO_ADD_PROPERTY_ADD_DETAIL(deleted, DetailDBSystemInfo);
+        MACRO_ADD_DETAIL(deleted, DetailDBDeletedDateTime);
         MACRO_ADD_PROPERTY_ADD_DETAIL(deleted_by_t0003_id, DetailDBSystemInfo);
     }
-    void generateID();
+    void prepareFirstInsert();
     void assign(const YACBaseObject &other);
 };
 

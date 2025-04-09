@@ -7,6 +7,7 @@ class t0001_users : public YACBaseObject
 {
     Q_OBJECT
 
+    MACRO_UUID_PROPERTY(user_id);
     MACRO_STRING_PROPERTY(loginemail);
     MACRO_STRING_PROPERTY(password_hash);
     MACRO_DATETIME_PROPERTY(verified);
@@ -19,6 +20,7 @@ public:
     MACRO_CREATE_AND_GETORMNAME(t0001_users)
     t0001_users():YACBaseObject(Rights::RN_everybody)
     {
+        MACRO_ADD_PROPERTY_ADD_DETAIL(user_id, DetailID);
         MACRO_ADD_INDEX_PROPERTY(loginemail);
         MACRO_ADD_PROPERTY(password_hash);
         MACRO_ADD_PROPERTY(verified);

@@ -26,7 +26,7 @@ T &ORMVector<T>::append()
 }
 
 template<class T>
-std::size_t ORMVector<T>::size()
+std::size_t ORMVector<T>::size() const
 {
     return objects.size();
 }
@@ -36,3 +36,10 @@ T &ORMVector<T>::operator[](const std::size_t i)
 {
     return *objects[i];
 }
+
+template<class T>
+const T &ORMVector<T>::getConst(const std::size_t i) const
+{
+    return *objects[i];
+}
+

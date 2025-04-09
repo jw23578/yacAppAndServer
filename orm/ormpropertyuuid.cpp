@@ -16,10 +16,18 @@ ORMString ORMPropertyUuid::asString() const
 void ORMPropertyUuid::fromString(const ORMString &value)
 {
     set(ExtUuid::stringToUuid(value));
+    if (value == "")
+    {
+        setNull(true);
+    }
 }
 
 ORMString ORMPropertyUuid::asJson() const
 {
+    if (isNull())
+    {
+        return "null";
+    }
     return MACRO_STD_STRING_2_ORM_STRING(ExtString::quote(MACRO_ORM_STRING_2_STD_STRING(asString())));
 }
 

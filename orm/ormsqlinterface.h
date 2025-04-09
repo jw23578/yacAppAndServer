@@ -3,18 +3,19 @@
 
 #include "orm_implementions/sqlstring.h"
 #include <optional>
+class ORMPersistenceInterface;
+class ORMObjectInterface;
 
 class ORMSqlInterface
 {
+    friend ORMPersistenceInterface;
+    friend ORMObjectInterface;
     std::map<std::string, size_t> columnName2Index;
     void fillColumnNames();
 protected:
     size_t currentRow = {0};
     virtual bool internalExecute(SqlString const &sql) = 0;
     virtual bool internalOpen(SqlString const &sql) = 0;
-public:
-    ORMSqlInterface();
-    virtual ~ORMSqlInterface() {}
 
     bool execute(SqlString const &sql);
     bool open(SqlString const &sql);
@@ -41,6 +42,11 @@ public:
     std::optional<ORMUuid> uuidValue(std::string const &columnName);
     std::optional<int> intValue(std::string const &columnName);
     std::optional<std::chrono::system_clock::time_point> timepointValue(std::string const &columnName);
+
+public:
+    ORMSqlInterface();
+    virtual ~ORMSqlInterface() {}
+
 };
 
 #endif // ORMSQLINTERFACE_H

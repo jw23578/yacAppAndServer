@@ -1,15 +1,14 @@
 #ifndef T0003_APPUSER_PROFILES_H
 #define T0003_APPUSER_PROFILES_H
 
-#include "yacbaseobject.h"
+#include "appbaseobject.h"
 
-class t0003_appuser_profiles : public YACBaseObject
+class t0003_appuser_profiles : public AppBaseObject
 {
 #ifdef ORMQTTypes
     Q_OBJECT
 #endif
-
-    MACRO_UUID_PROPERTY(app_id);
+    MACRO_UUID_PROPERTY(appuser_profile_id);
     MACRO_STRING_PROPERTY(fstname);
     MACRO_STRING_PROPERTY(surname);
     MACRO_STRING_PROPERTY(visible_name);
@@ -21,16 +20,15 @@ class t0003_appuser_profiles : public YACBaseObject
     MACRO_DATETIME_PROPERTY(verify_token_valid_until);
     MACRO_STRING_PROPERTY(update_password_token);
     MACRO_DATETIME_PROPERTY(update_password_token_valid_until);
-    MACRO_DATETIME_PROPERTY(deleted);
     MACRO_BOOL_PROPERTY(searching_exactly_allowed);
     MACRO_BOOL_PROPERTY(searching_fuzzy_allowed);
     MACRO_STRING_PROPERTY(public_key_base64);
     MACRO_UUID_PROPERTY(image_id);
 
 public:
-    t0003_appuser_profiles():YACBaseObject(Rights::RN_everybody)
+    t0003_appuser_profiles():AppBaseObject(Rights::RN_everybody)
     {
-        MACRO_ADD_INDEX_PROPERTY(app_id);
+        MACRO_ADD_PROPERTY_ADD_DETAIL(appuser_profile_id, DetailID);
         MACRO_ADD_PROPERTY(fstname);
         MACRO_ADD_PROPERTY(surname);
         MACRO_ADD_PROPERTY(visible_name);
@@ -42,7 +40,6 @@ public:
         MACRO_ADD_PROPERTY(verify_token_valid_until);
         MACRO_ADD_PROPERTY(update_password_token);
         MACRO_ADD_PROPERTY(update_password_token_valid_until);
-        MACRO_ADD_PROPERTY(deleted);
         MACRO_ADD_PROPERTY(searching_exactly_allowed);
         MACRO_ADD_PROPERTY(searching_fuzzy_allowed);
         MACRO_ADD_PROPERTY(public_key_base64);

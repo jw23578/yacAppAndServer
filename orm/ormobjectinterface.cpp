@@ -1,5 +1,6 @@
 #include "ormobjectinterface.h"
 #include "utils/extstring.h"
+#include "ormpersistenceinterface.h"
 
 #define MACRO_ConstPropertyIterator(propertyName, returnValue) \
     const auto it(properties.find(propertyName)); \
@@ -177,4 +178,16 @@ void ORMObjectInterface::fill(ORMSqlInterface &sqlInterface)
             }
         }
     }
+}
+
+ORMPropertyInterface *ORMObjectInterface::getIDProperty() const
+{
+    for (const auto &p: propertiesSet)
+    {
+        if (p->hasDetail(DetailID))
+        {
+            return p;
+        }
+    }
+    return 0;
 }

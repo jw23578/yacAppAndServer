@@ -18,6 +18,11 @@ public:
         return *this;
     }
 
+    bool operator!=(const ORMString &other)
+    {
+        return getRef() != other;
+    }
+
     size_t size() const;
 };
 

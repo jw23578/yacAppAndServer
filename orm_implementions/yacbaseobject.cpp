@@ -1,8 +1,8 @@
 #include "yacbaseobject.h"
 
-void YACBaseObject::generateID()
+void YACBaseObject::prepareFirstInsert()
 {
-    setid(ExtUuid::generateUuid());
+    setUuid(getIDProperty()->name(), ExtUuid::generateUuid());
 }
 
 void YACBaseObject::assign(const YACBaseObject &other)

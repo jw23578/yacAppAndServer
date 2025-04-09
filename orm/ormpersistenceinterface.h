@@ -14,15 +14,16 @@ class ORMPersistenceInterface
 public:
     ORMPersistenceInterface(ORMSqlInterface &sqlInterface);
 
-    bool insertObject(ORMObjectInterface const &object) const;
+    bool insertObject(ORMObjectInterface &object, const reducedsole::uuid &created_by_t0003_id) const;
+    bool existObject(ORMUuid const &id, const ORMObjectInterface &target);
     bool selectObject(ORMUuid const &id, ORMObjectInterface &target);
+    bool selectObject(ORMUuid const &id, ORMObjectInterface &target, size_t &count);
     bool selectObject(std::map<ORMString, ORMString> field2needle, ORMObjectInterface &target);
-    bool updateObject(ORMObjectInterface const &object);
-    bool upsertObject(ORMObjectInterface &object);
-    bool deleteObject(ORMObjectInterface &object);
+    bool selectObject(std::map<ORMString, ORMString> field2needle, ORMObjectInterface &target, size_t &count);
+    bool deleteObject(ORMObjectInterface &object, const reducedsole::uuid &deleted_by_t0003_id);
 
     bool sameDataExists(ORMObjectInterface &object) const;
-    bool insertIfNotSameDataExists(ORMObjectInterface &object) const;
+    bool insertIfNotSameDataExists(ORMObjectInterface &object, const reducedsole::uuid &created_by_t0003_id) const;
 
     size_t fetchIDs(SqlString const &sql,
                     std::set<ORMUuid> &ids);
@@ -52,9 +53,9 @@ public:
         return target.size();
     }
 
-    ORMUuid storeBlob(std::basic_string<std::byte> const &data);
+    ORMUuid storeBlob(std::basic_string<std::byte> const &data, const reducedsole::uuid &created_by_t0003_id);
     bool fetchBlob(const ORMUuid &blobUuid, std::basic_string<std::byte> &data);
-    bool deleteBlob(const ORMUuid &blobUuid);
+    bool deleteBlob(const ORMUuid &blobUuid, const reducedsole::uuid &deleted_by_t0003_id);
 
     virtual ~ORMPersistenceInterface() {}
 };

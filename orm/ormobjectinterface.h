@@ -121,7 +121,7 @@ class   ORMObjectInterface: public QObject
         static std::map<ORMString, std::set<ORMString>> allPropertySets;
         typedef std::map<ORMString, ORMPropertyInterface*> NameToPropertyMap;
         NameToPropertyMap properties;
-        std::set<ORMPropertyInterface*> propertiesSet;
+        std::set<ORMPropertyInterface*> propertiesSet;        
     protected:
         void addProperty(ORMString propertyName, ORMPropertyInterface &property);
     public:
@@ -164,6 +164,8 @@ class   ORMObjectInterface: public QObject
         ORMString toString() const;
 
         void fill(ORMSqlInterface &sqlInterface);
+
+        ORMPropertyInterface *getIDProperty() const;
     };
 
     typedef ORMObjectInterface* ORMObjectInterfacePointer;

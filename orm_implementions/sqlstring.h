@@ -48,6 +48,7 @@ class SqlString
 public:
     SqlString();
     SqlString(std::string const &s);
+    void select(const std::string &field, const std::string &tableName);
     void select(std::string const &tableName);
     void update(std::string const &tableName);
     void insert(std::string const &tableName);

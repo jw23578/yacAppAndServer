@@ -7,6 +7,7 @@ HEADERS += \
   $$PWD/orm_implementions/t0001_users.h \
   $$PWD/orm_implementions/t0002_apps.h \
   $$PWD/orm_implementions/t0003_appuser_profiles.h \
+  $$PWD/orm_implementions/t0004_appuser_passwordhashes.h \
   $$PWD/orm_implementions/t0009_appuser_logintoken.h \
   $$PWD/orm_implementions/t0016_appointment_templates.h \
   $$PWD/orm_implementions/t0018_appointment.h \
@@ -57,6 +58,7 @@ HEADERS += \
 SOURCES += \
   $$PWD/orm_implementions/appbaseobject.cpp \
   $$PWD/orm_implementions/t0001_users.cpp \
+  $$PWD/orm_implementions/t0004_appuser_passwordhashes.cpp \
   $$PWD/orm_implementions/t0009_appuser_logintoken.cpp \
   $$PWD/orm_implementions/t0002_apps.cpp \
   $$PWD/orm_implementions/t0003_appuser_profiles.cpp \

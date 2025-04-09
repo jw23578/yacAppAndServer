@@ -9,6 +9,7 @@ class t0009_appuser_logintoken : public YACBaseObject
     Q_OBJECT
 #endif
 
+    MACRO_UUID_PROPERTY(appuser_logintoken_id);
     MACRO_UUID_PROPERTY(appuser_id);
     MACRO_STRING_PROPERTY(login_token);
     MACRO_DATETIME_PROPERTY(login_token_valid_until);
@@ -16,6 +17,7 @@ class t0009_appuser_logintoken : public YACBaseObject
 public:
     t0009_appuser_logintoken():YACBaseObject(Rights::RN_noOne)
     {
+        MACRO_ADD_PROPERTY_ADD_DETAIL(appuser_logintoken_id, DetailID);
         MACRO_ADD_PROPERTY(appuser_id);
         MACRO_ADD_PROPERTY(login_token);
         MACRO_ADD_PROPERTY(login_token_valid_until);
