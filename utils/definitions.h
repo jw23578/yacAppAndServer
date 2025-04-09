@@ -2,7 +2,7 @@
 #define DEFINITIONS_H
 
 #include <chrono>
-#include "utils/reducedsole.h"
+#include "JWUtils/reducedsole.h"
 
 #define MACRO_NameValue(variable) #variable, variable
 

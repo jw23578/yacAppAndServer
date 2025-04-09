@@ -1,6 +1,6 @@
 #include "ormpropertyuuid.h"
-#include "utils/extstring.h"
-#include "utils/extuuid.h"
+#include "JWUtils/extstring.h"
+#include "JWUtils/extuuid.h"
 
 ORMPropertyUuid::ORMPropertyUuid(ORMString const &name):ORMTemplatedPropertyInterface<ORMUuid>(name)
 {

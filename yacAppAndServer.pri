@@ -31,7 +31,6 @@ HEADERS += \
   $$PWD/orm_implementions/sqlstring.h \
   $$PWD/orm/ormfactory.h \
   $$PWD/orm/ormmap.h \
-  $$PWD/utils/extstring.h \
   $$PWD/orm/ormdefinitions.h \
   $$PWD/orm/ormsqlinterface.h \
   $$PWD/orm/ormobjectinterface.h \
@@ -48,9 +47,6 @@ HEADERS += \
   $$PWD/rightnumbers.h \
   $$PWD/tablefields.h \
   $$PWD/tablenames.h \
-  $$PWD/utils/extstringview.h \
-  $$PWD/utils/extuuid.h \
-  $$PWD/utils/reducedsole.h \
   $$PWD/yacappandservermacros.h \
   $$PWD/container/indexedpointercontainer.h \
   $$PWD/yacappservermethodnames.h
@@ -96,11 +92,7 @@ SOURCES += \
   $$PWD/orm/ormpropertyint.cpp \
   $$PWD/orm/ormpropertyoid.cpp \
   $$PWD/orm/ormtemplatedpropertyinterface.cpp \
-  $$PWD/rightnumbers.cpp \
-  $$PWD/utils/extstringview.cpp \
-  $$PWD/utils/extuuid.cpp \
-  $$PWD/utils/extstring.cpp \
-  $$PWD/utils/reducedsole.cpp
+  $$PWD/rightnumbers.cpp
 
 contains(DEFINES, ORMCPPTypes){
 SOURCES +=

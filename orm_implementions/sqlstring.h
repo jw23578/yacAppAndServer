@@ -6,10 +6,10 @@
 #include <iconv.h>
 #include <vector>
 #include <map>
-#include "utils/reducedsole.h"
-#include "utils/extstring.h" // marked as unused but is needed for MACRO_set
-#include "utils/definitions.h"
-#include "utils/extuuid.h"
+#include "JWUtils/reducedsole.h"
+#include "JWUtils/extstring.h" // marked as unused but is needed for MACRO_set
+#include "JWUtils/definitions.h"
+#include "JWUtils/extuuid.h"
 
 
 #define MACRO_set(sql, fieldValue) \

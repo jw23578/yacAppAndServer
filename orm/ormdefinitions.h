@@ -1,6 +1,7 @@
 #ifndef ORMDEFINITIONS_H
 #define ORMDEFINITIONS_H
 
+#include "JWUtils/definitions.h"
 
 enum ORMPropertyDetails
 {
