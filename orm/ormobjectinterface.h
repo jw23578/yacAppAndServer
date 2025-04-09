@@ -23,6 +23,8 @@ class ORMPersistenceInterface;
     type name() const {return m_##name.get();} \
     void set##name(type n){if (m_##name.get() == n) return; m_##name.set(n);} */
 
+#ifdef ORMCPPTypes
+
 #define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
 public: \
     ormtype name{#name}; \
