@@ -5,7 +5,9 @@
 
 class t0001_users : public YACBaseObject
 {
+#ifdef ORMQTTypes
     Q_OBJECT
+#endif
 
     MACRO_UUID_PROPERTY(user_id);
     MACRO_STRING_PROPERTY(loginemail);

@@ -5,7 +5,9 @@
 
 class t0016_appointment_templates : public AppBaseObject
 {
+#ifdef ORMQTTypes
     Q_OBJECT
+#endif
     MACRO_UUID_PROPERTY(appointment_template_id)
     MACRO_STRING_PROPERTY(name);
     MACRO_INT_PROPERTY(default_duration_in_minutes);

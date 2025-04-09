@@ -7,7 +7,9 @@
 
 class t0002_apps : public YACBaseObject
 {
+#ifdef ORMQTTypes
     Q_OBJECT
+#endif
 
     MACRO_UUID_PROPERTY(app_id);
     MACRO_UUID_PROPERTY(owner_id);

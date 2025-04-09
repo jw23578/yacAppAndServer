@@ -5,12 +5,14 @@
 
 class t0032_catchphrase2document: public YACBaseObject
 {
+#ifdef ORMQTTypes
     Q_OBJECT
+#endif
     MACRO_UUID_PROPERTY(app_id);
-MACRO_UUID_PROPERTY(document_id);
-MACRO_UUID_PROPERTY(t0031_id);
+    MACRO_UUID_PROPERTY(document_id);
+    MACRO_UUID_PROPERTY(t0031_id);
 public:
-MACRO_CREATE_AND_GETORMNAME(t0032_catchphrase2document)
+    MACRO_CREATE_AND_GETORMNAME(t0032_catchphrase2document)
     t0032_catchphrase2document():YACBaseObject(Rights::RN_everybody)
     {
         MACRO_ADD_INDEX_PROPERTY(app_id);

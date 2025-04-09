@@ -5,7 +5,9 @@
 
 class t0018_appointment: public YACBaseObject
 {
+#ifdef ORMQTTypes
     Q_OBJECT
+#endif
     MACRO_UUID_PROPERTY(app_id);
     MACRO_UUID_PROPERTY(appointment_group_id);
     MACRO_UUID_PROPERTY(appointment_template_id);

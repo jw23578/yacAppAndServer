@@ -1,5 +1,5 @@
 #include "ormpersistenceinterface.h"
-#include "JWUtils/extuuid.h"
+#include "extuuid.h"
 #include "orm_implementions/t0035_blobs.h"
 
 ORMPersistenceInterface::ORMPersistenceInterface(ORMSqlInterface &sqlInterface):sqlInterface(sqlInterface) {}

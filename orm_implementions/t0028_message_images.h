@@ -5,7 +5,9 @@
 
 class t0028_message_images : public YACBaseObject
 {
+#ifdef ORMQTTypes
     Q_OBJECT
+#endif
 
     MACRO_UUID_PROPERTY(app_id);
     MACRO_OID_PROPERTY(image_oid);

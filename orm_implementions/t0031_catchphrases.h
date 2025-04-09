@@ -5,7 +5,9 @@
 
 class t0031_catchphrases : public YACBaseObject
 {
+#ifdef ORMQTTypes
     Q_OBJECT
+#endif
 
     MACRO_UUID_PROPERTY(app_id);
     MACRO_STRING_PROPERTY(catchphrase);
