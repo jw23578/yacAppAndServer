@@ -96,6 +96,5 @@ contains(DEFINES, ORMCPPTypes){
 SOURCES +=
 
 
-HEADERS += \
-  $$PWD/utils/definitions.h
+HEADERS +=
 }
