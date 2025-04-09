@@ -1,7 +1,7 @@
 #ifndef ORMSQLINTERFACE_H
 #define ORMSQLINTERFACE_H
 
-#include "orm_implementions/sqlstring.h"
+#include "sqlstring.h"
 #include <optional>
 class ORMPersistenceInterface;
 class ORMObjectInterface;
