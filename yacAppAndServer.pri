@@ -2,7 +2,6 @@ INCLUDEPATH += $$PWD
 QMAKE_CXXFLAGS += -std=c++2a
 
 HEADERS += \
-  $$PWD/orm/ormvector.h \
   $$PWD/orm_implementions/appbaseobject.h \
   $$PWD/orm_implementions/t0001_users.h \
   $$PWD/orm_implementions/t0002_apps.h \
@@ -61,20 +60,6 @@ SOURCES += \
   $$PWD/orm_implementions/t0037_fee.cpp \
   $$PWD/orm_implementions/yacbaseobject.cpp \
   $$PWD/orm_implementions/yacormfactory.cpp \
-  $$PWD/orm/ormfactory.cpp \
-  $$PWD/orm/ormmap.cpp \
-  $$PWD/orm/ormsqlinterface.cpp \
-  $$PWD/orm/ormobjectinterface.cpp \
-  $$PWD/orm/ormpersistenceinterface.cpp \
-  $$PWD/orm/ormpropertyinterface.cpp \
-  $$PWD/orm/ormpropertysizet.cpp \
-  $$PWD/orm/ormpropertydatetime.cpp \
-  $$PWD/orm/ormpropertystring.cpp \
-  $$PWD/orm/ormpropertyuuid.cpp \
-  $$PWD/orm/ormpropertybool.cpp \
-  $$PWD/orm/ormpropertyint.cpp \
-  $$PWD/orm/ormpropertyoid.cpp \
-  $$PWD/orm/ormtemplatedpropertyinterface.cpp \
   $$PWD/rightnumbers.cpp
 
 contains(DEFINES, ORMCPPTypes){
