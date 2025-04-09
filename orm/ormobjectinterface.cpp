@@ -1,5 +1,5 @@
 #include "ormobjectinterface.h"
-#include "JWUtils/extstring.h"
+#include "extstring.h"
 #include "ormpersistenceinterface.h"
 
 #define MACRO_ConstPropertyIterator(propertyName, returnValue) \

@@ -1,5 +1,5 @@
 #include "ormpropertystring.h"
-#include "JWUtils/extstring.h"
+#include "extstring.h"
 
 ORMPropertyString::ORMPropertyString(const ORMString &name):ORMTemplatedPropertyInterface<ORMString>(name)
 {

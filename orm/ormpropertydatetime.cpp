@@ -1,5 +1,5 @@
 #include "ormpropertydatetime.h"
-#include "JWUtils/extstring.h"
+#include "extstring.h"
 
 ORMPropertyDateTime::ORMPropertyDateTime(const ORMString &name):ORMTemplatedPropertyInterface<ORMDateTime>(name)
 {

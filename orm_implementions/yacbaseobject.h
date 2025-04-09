@@ -19,7 +19,9 @@ YACBaseObject *create() const override \
 
 class YACBaseObject : public ORMObjectInterface
 {
+#ifdef ORMQTTypes
     Q_OBJECT
+#endif
 
     MACRO_UUID_PROPERTY(id);
     MACRO_DATETIME_PROPERTY(created);

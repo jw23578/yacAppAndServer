@@ -6,7 +6,9 @@
 
 class t0033_words: public YACBaseObject
 {
+#ifdef ORMQTTypes
     Q_OBJECT
+#endif
     MACRO_UUID_PROPERTY(word_id);
     MACRO_STRING_PROPERTY(word);
 public:

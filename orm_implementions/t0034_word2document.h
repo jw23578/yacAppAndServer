@@ -5,7 +5,9 @@
 
 class t0034_word2document: public YACBaseObject
 {
+#ifdef ORMQTTypes
     Q_OBJECT
+#endif
     MACRO_UUID_PROPERTY(app_id);
     MACRO_UUID_PROPERTY(document_id);
     MACRO_UUID_PROPERTY(t0033_id);
