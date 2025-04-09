@@ -16,8 +16,6 @@
 
 class ORMPersistenceInterface;
 
-#ifdef ORMCPPTypes
-#define Q_OBJECT
 
 /*#define MACRO_DECLARE_ORMPROPERTY(ormtype, type, name) \
     public: \
