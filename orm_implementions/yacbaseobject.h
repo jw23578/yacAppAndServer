@@ -1,7 +1,7 @@
 #ifndef YACBASEOBJECT_H
 #define YACBASEOBJECT_H
 
-#include "orm/ormobjectinterface.h"
+#include "ormobjectinterface.h"
 #include "rightnumbers.h"
 #include "tablefields.h"
 

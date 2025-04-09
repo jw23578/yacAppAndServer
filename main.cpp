@@ -1,5 +1,5 @@
-#include "orm/ormpropertyuuid.h"
-#include "orm/ormpropertyint.h"
+#include "ormpropertyuuid.h"
+#include "ormpropertyint.h"
 #include "container/indexedpointercontainer.h"
 
 int main(int argc, char **argv)

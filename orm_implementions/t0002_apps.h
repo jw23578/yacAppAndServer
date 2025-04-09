@@ -2,7 +2,7 @@
 #define T0002_APPS_H
 
 #include "yacbaseobject.h"
-#include "orm/ormpersistenceinterface.h"
+#include "ormpersistenceinterface.h"
 #include "t0003_appuser_profiles.h"
 
 class t0002_apps : public YACBaseObject

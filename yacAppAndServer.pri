@@ -28,21 +28,6 @@ HEADERS += \
   $$PWD/orm_implementions/t0037_fee.h \
   $$PWD/orm_implementions/yacormfactory.h \
   $$PWD/orm_implementions/yacbaseobject.h \
-  $$PWD/orm/ormfactory.h \
-  $$PWD/orm/ormmap.h \
-  $$PWD/orm/ormdefinitions.h \
-  $$PWD/orm/ormsqlinterface.h \
-  $$PWD/orm/ormobjectinterface.h \
-  $$PWD/orm/ormpersistenceinterface.cpp \
-  $$PWD/orm/ormpropertyinterface.h \
-  $$PWD/orm/ormpropertysizet.h \
-  $$PWD/orm/ormpropertydatetime.h \
-  $$PWD/orm/ormpropertystring.h \
-  $$PWD/orm/ormpropertyuuid.h \
-  $$PWD/orm/ormpropertybool.h \
-  $$PWD/orm/ormpropertyint.h \
-  $$PWD/orm/ormpropertyoid.h \
-  $$PWD/orm/ormtemplatedpropertyinterface.h \
   $$PWD/rightnumbers.h \
   $$PWD/tablefields.h \
   $$PWD/tablenames.h \

@@ -2,7 +2,7 @@
 #define YACORMFACTORY_H
 
 #include "yacbaseobject.h"
-#include "orm/ormfactory.h"
+#include "ormfactory.h"
 
 class YACORMFactory: public ORMFactory<YACBaseObject>
 {

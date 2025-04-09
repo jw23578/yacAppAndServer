@@ -9,6 +9,7 @@ QMAKE_CXXFLAGS += -std=c++2a
 CONFIG -= app_bundle
 
 include("../JWUtils/JWUtils.pri")
+include("../JWORM/JWORM.pri")
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -17,20 +18,6 @@ include("../JWUtils/JWUtils.pri")
 
 SOURCES += \
   main.cpp \
-  orm/ormfactory.cpp \
-  orm/ormmap.cpp \
-  orm/ormobjectinterface.cpp \
-  orm/ormpersistenceinterface.cpp \
-  orm/ormpropertybool.cpp \
-  orm/ormpropertyint.cpp \
-  orm/ormpropertyinterface.cpp \
-  orm/ormpropertyoid.cpp \
-  orm/ormpropertysizet.cpp \
-  orm/ormpropertydatetime.cpp \
-  orm/ormpropertystring.cpp \
-  orm/ormpropertyuuid.cpp \
-  orm/ormsqlinterface.cpp \
-  orm/ormtemplatedpropertyinterface.cpp \
   orm_implementions/appbaseobject.cpp \
   orm_implementions/t0001_users.cpp \
   orm_implementions/t0002_apps.cpp \
@@ -62,21 +49,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
   container/indexedpointercontainer.h \
-  orm/ormdefinitions.h \
-  orm/ormfactory.h \
-  orm/ormmap.h \
-  orm/ormobjectinterface.h \
-  orm/ormpersistenceinterface.h \
-  orm/ormpropertybool.h \
-  orm/ormpropertydatetime.h \
-  orm/ormpropertyint.h \
-  orm/ormpropertyinterface.h \
-  orm/ormpropertyoid.h \
-  orm/ormpropertysizet.h \
-  orm/ormpropertystring.h \
-  orm/ormpropertyuuid.h \
-  orm/ormsqlinterface.h \
-  orm/ormtemplatedpropertyinterface.h \
   orm_implementions/appbaseobject.h \
   orm_implementions/t0001_users.h \
   orm_implementions/t0002_apps.h \
