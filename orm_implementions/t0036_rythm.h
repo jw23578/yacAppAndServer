@@ -9,6 +9,7 @@ class t0036_rythm : public YACBaseObject
     Q_OBJECT
 
     MACRO_UUID_PROPERTY(app_id);
+    MACRO_UUID_PROPERTY(rythm_id);
     MACRO_STRING_PROPERTY(rythm_name);
     MACRO_BOOL_PROPERTY(default_rythm);
     MACRO_INT_PROPERTY(repeat_every_months)
@@ -27,6 +28,7 @@ public:
         setspecial_day_of_week(-1);
 
         MACRO_ADD_PROPERTY(app_id);
+        MACRO_ADD_PROPERTY_ADD_DETAIL(rythm_id, DetailID);
         MACRO_ADD_PROPERTY(rythm_name);
         MACRO_ADD_PROPERTY(default_rythm);
         MACRO_ADD_PROPERTY(repeat_every_months);

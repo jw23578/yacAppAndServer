@@ -3,6 +3,8 @@
 #include "t0002_apps.h"
 #include "t0003_appuser_profiles.h"
 #include "t0004_appuser_passwordhashes.h"
+#include "t0005_group_of_appusers.h"
+#include "t0006_appuser2group.h"
 #include "t0009_appuser_logintoken.h"
 #include "t0016_appointment_templates.h"
 #include "t0018_appointment.h"
@@ -22,12 +24,15 @@
 #include "t0036_rythm.h"
 #include "t0037_fee.h"
 
+
 YACORMFactory::YACORMFactory():ORMFactory<YACBaseObject>()
 {
     addGhost(new t0001_users);
     addGhost(new t0002_apps);
-    addGhost(new t0003_appuser_profiles);
+    addGhost(new t0003_appuser_profiles);    
     addGhost(new t0004_appuser_passwordhashes);
+    addGhost(new t0005_group_of_appusers);
+    addGhost(new t0006_appuser2group);
     addGhost(new t0009_appuser_logintoken);
     addGhost(new t0016_appointment_templates);
     addGhost(new t0018_appointment);
