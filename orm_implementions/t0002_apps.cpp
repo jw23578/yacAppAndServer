@@ -10,7 +10,11 @@ void t0002_apps::createDefaults(ORMPersistenceInterface &opi)
         theSystemUser.setfstname("theSystemUser");
         theSystemUser.setsurname("theSystemUser");
         theSystemUser.setapp_id(getapp_id());
+#ifdef ONLY_INSERT_DB_CREATED_BY_COLUMN
         opi.insertObject(theSystemUser, theSystemUser.getappuser_profile_id());
+#else
+        opi.insertObject(theSystemUser);
+#endif
     }
 
     t0036_rythm daily;
@@ -22,7 +26,11 @@ void t0002_apps::createDefaults(ORMPersistenceInterface &opi)
         daily.setrythm_name("daily");
         daily.setdefault_rythm(true);
         daily.setrepeat_every_days(1);
+#ifdef ONLY_INSERT_DB_CREATED_BY_COLUMN
         opi.insertObject(daily, theSystemUser.getappuser_profile_id());
+#else
+        opi.insertObject(daily);
+#endif
     }
     t0036_rythm weekly;
     if (!opi.selectObject({{weekly.rythm_nameORM().name(), "weekly"},
@@ -33,7 +41,11 @@ void t0002_apps::createDefaults(ORMPersistenceInterface &opi)
         weekly.setrythm_name("weekly");
         weekly.setdefault_rythm(true);
         weekly.setrepeat_every_days(7);
+#ifdef ONLY_INSERT_DB_CREATED_BY_COLUMN
         opi.insertObject(weekly, theSystemUser.getappuser_profile_id());
+#else
+        opi.insertObject(weekly);
+#endif
     }
     t0036_rythm monthly;
     if (!opi.selectObject({{monthly.rythm_nameORM().name(), "monthly"},
@@ -44,6 +56,10 @@ void t0002_apps::createDefaults(ORMPersistenceInterface &opi)
         monthly.setrythm_name("monthly");
         monthly.setdefault_rythm(true);
         monthly.setrepeat_every_months(1);
+#ifdef ONLY_INSERT_DB_CREATED_BY_COLUMN
         opi.insertObject(monthly, theSystemUser.getappuser_profile_id());
+#else
+        opi.insertObject(monthly);
+#endif
     }
 }
