@@ -6,12 +6,6 @@
 class TableNames
 {
 public:
-    MACRO_ConstString(t0009_appuser_logintoken);
-    MACRO_ConstString(t0004_appuser_passwordhashes);
-    MACRO_ConstString(t0005_group_of_appusers);
-    MACRO_ConstString(t0006_appuser2group);
-    MACRO_ConstString(t0007_messages);
-    MACRO_ConstString(t0008_message_received);
     MACRO_ConstString(t0010_task);
     MACRO_ConstString(t0011_task_time);
     MACRO_ConstString(t0012_worktime);

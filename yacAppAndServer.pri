@@ -3,13 +3,14 @@ QMAKE_CXXFLAGS += -std=c++2a
 
 HEADERS += \
   $$PWD/orm_implementions/appbaseobject.h \
-  $$PWD/orm_implementions/t0001_users.h \
-  $$PWD/orm_implementions/t0002_apps.h \
-  $$PWD/orm_implementions/t0003_appuser_profiles.h \
-  $$PWD/orm_implementions/t0004_appuser_passwordhashes.h \
+  $$PWD/orm_implementions/t0001_apps.h \
+  $$PWD/orm_implementions/t0002_user.h \
+  $$PWD/orm_implementions/t0003_user_passwordhashes.h \
+  $$PWD/orm_implementions/t0004_user_logintoken.h \
   $$PWD/orm_implementions/t0005_group_of_appusers.h \
   $$PWD/orm_implementions/t0006_appuser2group.h \
-  $$PWD/orm_implementions/t0009_appuser_logintoken.h \
+  $$PWD/orm_implementions/t0007_messages.h \
+  $$PWD/orm_implementions/t0008_message_received.h \
   $$PWD/orm_implementions/t0016_appointment_templates.h \
   $$PWD/orm_implementions/t0018_appointment.h \
   $$PWD/orm_implementions/t0021_right_group.h \
@@ -38,13 +39,14 @@ HEADERS += \
 
 SOURCES += \
   $$PWD/orm_implementions/appbaseobject.cpp \
-  $$PWD/orm_implementions/t0001_users.cpp \
-  $$PWD/orm_implementions/t0004_appuser_passwordhashes.cpp \
+  $$PWD/orm_implementions/t0001_apps.cpp \
+  $$PWD/orm_implementions/t0002_user.cpp \
+  $$PWD/orm_implementions/t0003_user_passwordhashes.cpp \
+  $$PWD/orm_implementions/t0004_user_logintoken.cpp \
   $$PWD/orm_implementions/t0005_group_of_appusers.cpp \
   $$PWD/orm_implementions/t0006_appuser2group.cpp \
-  $$PWD/orm_implementions/t0009_appuser_logintoken.cpp \
-  $$PWD/orm_implementions/t0002_apps.cpp \
-  $$PWD/orm_implementions/t0003_appuser_profiles.cpp \
+  $$PWD/orm_implementions/t0007_messages.cpp \
+  $$PWD/orm_implementions/t0008_message_received.cpp \
   $$PWD/orm_implementions/t0016_appointment_templates.cpp \
   $$PWD/orm_implementions/t0018_appointment.cpp \
   $$PWD/orm_implementions/t0021_right_group.cpp \

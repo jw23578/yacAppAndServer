@@ -26,7 +26,6 @@ public:
     MACRO_ConstString(public_key_base64);
     MACRO_ConstString(deleted);
     MACRO_ConstString(name);
-    MACRO_ConstString(appuser_id);
     MACRO_ConstString(password_hash);
     MACRO_ConstString(user_mood);
     MACRO_ConstString(day_rating);

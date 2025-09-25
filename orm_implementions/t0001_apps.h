@@ -1,11 +1,11 @@
-#ifndef T0002_APPS_H
-#define T0002_APPS_H
+#ifndef T0001_APPS_H
+#define T0001_APPS_H
 
 #include "yacbaseobject.h"
 #include "ormpersistenceinterface.h"
-#include "t0003_appuser_profiles.h"
+#include "t0002_user.h"
 
-class t0002_apps : public YACBaseObject
+class t0001_apps : public YACBaseObject
 {
 #ifdef ORMQTTypes
     Q_OBJECT
@@ -26,10 +26,10 @@ class t0002_apps : public YACBaseObject
 
     MACRO_STRING_PROPERTY(transfer_yacpck_base64);
 
-    t0003_appuser_profiles theSystemUser;
+    t0002_user theSystemUser;
 
 public:
-    t0002_apps():YACBaseObject(Rights::RN_everybody)
+    t0001_apps():YACBaseObject(Rights::RN_everybody)
     {
         MACRO_ADD_PROPERTY_ADD_DETAIL(app_id, DetailID);
         MACRO_ADD_PROPERTY(owner_id);
@@ -47,17 +47,10 @@ public:
 
         MACRO_ADD_TRANSFER_PROPERTY(transfer_yacpck_base64);
     }
-    const ORMString getORMName() const override
-    {
-        return "t0002_apps";
-    }
-    YACBaseObject *create() const override
-    {
-        return new t0002_apps;
-    }
+    MACRO_CREATE_AND_GETORMNAME(t0001_apps)
 
     void createDefaults(ORMPersistenceInterface &opi);
 };
 
-#endif // T0002_APPS_H
+#endif // T0001_APPS_H
 

@@ -1,7 +1,7 @@
-#include "t0002_apps.h"
+#include "t0001_apps.h"
 #include "t0036_rythm.h"
 
-void t0002_apps::createDefaults(ORMPersistenceInterface &opi)
+void t0001_apps::createDefaults(ORMPersistenceInterface &opi)
 {
     if (!opi.selectObject({{theSystemUser.fstnameORM().name(), "theSystemUser"},
                            {theSystemUser.surnameORM().name(), "theSystemUser"}}, theSystemUser))
@@ -11,7 +11,7 @@ void t0002_apps::createDefaults(ORMPersistenceInterface &opi)
         theSystemUser.setsurname("theSystemUser");
         theSystemUser.setapp_id(getapp_id());
 #ifdef ONLY_INSERT_DB_CREATED_BY_COLUMN
-        opi.insertObject(theSystemUser, theSystemUser.getappuser_profile_id());
+        opi.insertObject(theSystemUser, theSystemUser.getuser_id());
 #else
         opi.insertObject(theSystemUser);
 #endif
@@ -27,7 +27,7 @@ void t0002_apps::createDefaults(ORMPersistenceInterface &opi)
         daily.setdefault_rythm(true);
         daily.setrepeat_every_days(1);
 #ifdef ONLY_INSERT_DB_CREATED_BY_COLUMN
-        opi.insertObject(daily, theSystemUser.getappuser_profile_id());
+        opi.insertObject(daily, theSystemUser.getuser_id());
 #else
         opi.insertObject(daily);
 #endif
@@ -42,7 +42,7 @@ void t0002_apps::createDefaults(ORMPersistenceInterface &opi)
         weekly.setdefault_rythm(true);
         weekly.setrepeat_every_days(7);
 #ifdef ONLY_INSERT_DB_CREATED_BY_COLUMN
-        opi.insertObject(weekly, theSystemUser.getappuser_profile_id());
+        opi.insertObject(weekly, theSystemUser.getuser_id());
 #else
         opi.insertObject(weekly);
 #endif
@@ -57,7 +57,7 @@ void t0002_apps::createDefaults(ORMPersistenceInterface &opi)
         monthly.setdefault_rythm(true);
         monthly.setrepeat_every_months(1);
 #ifdef ONLY_INSERT_DB_CREATED_BY_COLUMN
-        opi.insertObject(monthly, theSystemUser.getappuser_profile_id());
+        opi.insertObject(monthly, theSystemUser.getuser_id());
 #else
         opi.insertObject(monthly);
 #endif

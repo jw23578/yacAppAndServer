@@ -1,14 +1,14 @@
-#ifndef T0003_APPUSER_PROFILES_H
-#define T0003_APPUSER_PROFILES_H
+#ifndef T0002_USER_H
+#define T0002_USER_H
 
 #include "appbaseobject.h"
 
-class t0003_appuser_profiles : public AppBaseObject
+class t0002_user : public AppBaseObject
 {
 #ifdef ORMQTTypes
     Q_OBJECT
 #endif
-    MACRO_UUID_PROPERTY(appuser_profile_id);
+    MACRO_UUID_PROPERTY(user_id);
     MACRO_STRING_PROPERTY(fstname);
     MACRO_STRING_PROPERTY(surname);
     MACRO_STRING_PROPERTY(visible_name);
@@ -24,11 +24,12 @@ class t0003_appuser_profiles : public AppBaseObject
     MACRO_BOOL_PROPERTY(searching_fuzzy_allowed);
     MACRO_STRING_PROPERTY(public_key_base64);
     MACRO_UUID_PROPERTY(image_id);
+    MACRO_BOOL_PROPERTY(super_user);
 
 public:
-    t0003_appuser_profiles():AppBaseObject(Rights::RN_everybody)
+    t0002_user():AppBaseObject(Rights::RN_everybody)
     {
-        MACRO_ADD_PROPERTY_ADD_DETAIL(appuser_profile_id, DetailID);
+        MACRO_ADD_PROPERTY_ADD_DETAIL(user_id, DetailID);
         MACRO_ADD_PROPERTY(fstname);
         MACRO_ADD_PROPERTY(surname);
         MACRO_ADD_PROPERTY(visible_name);
@@ -44,15 +45,9 @@ public:
         MACRO_ADD_PROPERTY(searching_fuzzy_allowed);
         MACRO_ADD_PROPERTY(public_key_base64);
         MACRO_ADD_PROPERTY(image_id);
+        MACRO_ADD_PROPERTY(super_user);
     }
-    const ORMString getORMName() const override
-    {
-        return "t0003_appuser_profiles";
-    }
-    YACBaseObject *create() const override
-    {
-        return new t0003_appuser_profiles;
-    }
+    MACRO_CREATE_AND_GETORMNAME(t0002_user)
 };
 
-#endif // T0003_APPUSER_PROFILES_H
+#endif // T0002_USER_H

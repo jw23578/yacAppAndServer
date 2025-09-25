@@ -10,7 +10,7 @@ class t0022_right_group2appuser : public YACBaseObject
 #endif
 
     MACRO_UUID_PROPERTY(right_group_id);
-    MACRO_UUID_PROPERTY(appuser_id);
+    MACRO_UUID_PROPERTY(user_id);
     MACRO_DATETIME_PROPERTY(requested_datetime);
     MACRO_DATETIME_PROPERTY(approved_datetime);
     MACRO_UUID_PROPERTY(approved_appuser_id);
@@ -19,25 +19,17 @@ class t0022_right_group2appuser : public YACBaseObject
     MACRO_DATETIME_PROPERTY(result_seen);
 
 public:
+    MACRO_CREATE_AND_GETORMNAME(t0022_right_group2appuser)
     t0022_right_group2appuser():YACBaseObject(Rights::RN_changeRightsGroups)
     {
         MACRO_ADD_INDEX_PROPERTY(right_group_id);
-        MACRO_ADD_INDEX_PROPERTY(appuser_id);
+        MACRO_ADD_INDEX_PROPERTY(user_id);
         MACRO_ADD_PROPERTY(requested_datetime);
         MACRO_ADD_PROPERTY(approved_datetime);
         MACRO_ADD_PROPERTY(approved_appuser_id);
         MACRO_ADD_PROPERTY(denied_datetime);
         MACRO_ADD_PROPERTY(denied_appuser_id);
         MACRO_ADD_PROPERTY(result_seen);
-    }
-
-    const ORMString getORMName() const override
-    {
-        return "t0022_right_group2appuser";
-    }
-    ORMObjectInterface *create() const override
-    {
-        return new t0022_right_group2appuser;
     }
 };
 

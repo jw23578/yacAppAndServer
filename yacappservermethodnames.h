@@ -9,13 +9,17 @@ public:
     MACRO_ConstString(getAllAPPs);
     MACRO_ConstString(getAPP);
     MACRO_ConstString(getAPPImage);
+    MACRO_ConstString(uploadApp);
 
+    MACRO_ConstString(loginUser);
     MACRO_ConstString(logoutUser);
+    MACRO_ConstString(userLoggedIn);
+    MACRO_ConstString(verifyUser);
+    MACRO_ConstString(registerUser);
 
     MACRO_ConstString(updateDeviceToken);
     MACRO_ConstString(updateAppUserProfile);
     MACRO_ConstString(requestVerifyToken);
-    MACRO_ConstString(registerAppUser);
     MACRO_ConstString(fetchProfile);
     MACRO_ConstString(fetchMyProfile);
     MACRO_ConstString(insertAppointmentTemplate);

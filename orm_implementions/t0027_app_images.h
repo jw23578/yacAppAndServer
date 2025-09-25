@@ -15,6 +15,7 @@ class t0027_app_images : public YACBaseObject
     MACRO_INT_PROPERTY(position);
     MACRO_STRING_PROPERTY(transfer_image_base64);
 public:
+    MACRO_CREATE_AND_GETORMNAME(t0027_app_images)
     t0027_app_images():YACBaseObject(Rights::RN_everybody)
     {
         MACRO_ADD_INDEX_PROPERTY(app_id);
@@ -23,14 +24,6 @@ public:
         MACRO_ADD_PROPERTY(position);
 
         MACRO_ADD_TRANSFER_PROPERTY(transfer_image_base64);
-    }
-    const ORMString getORMName() const override
-    {
-        return "t0027_app_images";
-    }
-    YACBaseObject *create() const override
-    {
-        return new t0027_app_images;
     }
 };
 
