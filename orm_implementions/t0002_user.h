@@ -48,6 +48,11 @@ public:
         MACRO_ADD_PROPERTY(super_user);
     }
     MACRO_CREATE_AND_GETORMNAME(t0002_user)
+
+    void clearUpdatePasswordToken();
+    bool loadByLoginEMail(ORMPersistenceInterface &opi,
+                          const reducedsole::uuid &appId,
+                          const ORMString &loginEMail);
 };
 
 #endif // T0002_USER_H

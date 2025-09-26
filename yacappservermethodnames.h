@@ -16,6 +16,8 @@ public:
     MACRO_ConstString(userLoggedIn);
     MACRO_ConstString(verifyUser);
     MACRO_ConstString(registerUser);
+    MACRO_ConstString(updatePasswordUser);
+    MACRO_ConstString(requestUpdatePasswordUser);
 
     MACRO_ConstString(updateDeviceToken);
     MACRO_ConstString(updateAppUserProfile);
