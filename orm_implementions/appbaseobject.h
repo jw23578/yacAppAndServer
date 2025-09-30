@@ -2,6 +2,8 @@
 #define APPBASEOBJECT_H
 
 #include "yacbaseobject.h"
+#include "currentcontext.h"
+#include "logstatcontroller.h"
 
 class AppBaseObject : public YACBaseObject
 {
@@ -15,7 +17,13 @@ public:
     {
         MACRO_ADD_INDEX_PROPERTY(app_id);
     }
-
+    void erase(CurrentContext &context);
+    void store(CurrentContext &context);
+    void storeIfUnique(CurrentContext &context);
+    bool load(CurrentContext &context,
+              const reducedsole::uuid &id);
+    bool load(CurrentContext &context,
+              const std::map<ORMString, ORMString> &field2needle);
 };
 
 #endif // APPBASEOBJECT_H

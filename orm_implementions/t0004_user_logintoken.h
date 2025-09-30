@@ -23,6 +23,8 @@ public:
         MACRO_ADD_PROPERTY(login_token);
         MACRO_ADD_PROPERTY(login_token_valid_until);
     }
+    void loginSuccessful(CurrentContext &context,
+                         const reducedsole::uuid &userId);
 };
 
 #endif // T0004_USER_LOGINTOKEN_H

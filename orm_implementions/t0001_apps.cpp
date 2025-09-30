@@ -1,65 +1,45 @@
 #include "t0001_apps.h"
 #include "t0036_rythm.h"
 
-void t0001_apps::createDefaults(ORMPersistenceInterface &opi)
+void t0001_apps::createDefaults(CurrentContext &context)
 {
-    if (!opi.selectObject({{theSystemUser.fstnameORM().name(), "theSystemUser"},
-                           {theSystemUser.surnameORM().name(), "theSystemUser"}}, theSystemUser))
+    if (!theSuperUser.load(context,
+                           {{theSuperUser.fstnameORM().name(), context.superUserFstname},
+                           {theSuperUser.surnameORM().name(), context.superUserSurname}}))
     {
-        theSystemUser.prepareFirstInsert();
-        theSystemUser.setfstname("theSystemUser");
-        theSystemUser.setsurname("theSystemUser");
-        theSystemUser.setapp_id(getapp_id());
-#ifdef ONLY_INSERT_DB_CREATED_BY_COLUMN
-        opi.insertObject(theSystemUser, theSystemUser.getuser_id());
-#else
-        opi.insertObject(theSystemUser);
-#endif
+        theSuperUser.fstname = context.superUserFstname;
+        theSuperUser.surname = context.superUserSurname;
+        theSuperUser.store(context);
     }
 
     t0036_rythm daily;
-    if (!opi.selectObject({{daily.rythm_nameORM().name(), "daily"},
-                           {daily.app_idORM().name(), idORM().asString()}}, daily))
+    if (!daily.load(context,
+                    {{daily.rythm_nameORM().name(), "daily"},
+                     {daily.app_idORM().name(), idORM().asString()}}))
     {
-        daily.prepareFirstInsert();
-        daily.setapp_id(getapp_id());
         daily.setrythm_name("daily");
         daily.setdefault_rythm(true);
         daily.setrepeat_every_days(1);
-#ifdef ONLY_INSERT_DB_CREATED_BY_COLUMN
-        opi.insertObject(daily, theSystemUser.getuser_id());
-#else
-        opi.insertObject(daily);
-#endif
+        daily.store(context);
     }
     t0036_rythm weekly;
-    if (!opi.selectObject({{weekly.rythm_nameORM().name(), "weekly"},
-                           {weekly.app_idORM().name(), idORM().asString()}}, weekly))
+    if (!weekly.load(context,
+                     {{weekly.rythm_nameORM().name(), "weekly"},
+                      {weekly.app_idORM().name(), idORM().asString()}}))
     {
-        weekly.prepareFirstInsert();
-        weekly.setapp_id(getapp_id());
         weekly.setrythm_name("weekly");
         weekly.setdefault_rythm(true);
         weekly.setrepeat_every_days(7);
-#ifdef ONLY_INSERT_DB_CREATED_BY_COLUMN
-        opi.insertObject(weekly, theSystemUser.getuser_id());
-#else
-        opi.insertObject(weekly);
-#endif
+        weekly.store(context);
     }
     t0036_rythm monthly;
-    if (!opi.selectObject({{monthly.rythm_nameORM().name(), "monthly"},
-                           {monthly.app_idORM().name(), idORM().asString()}}, monthly))
+    if (!monthly.load(context,
+                      {{monthly.rythm_nameORM().name(), "monthly"},
+                       {monthly.app_idORM().name(), idORM().asString()}}))
     {
-        monthly.prepareFirstInsert();
-        monthly.setapp_id(getapp_id());
         monthly.setrythm_name("monthly");
         monthly.setdefault_rythm(true);
         monthly.setrepeat_every_months(1);
-#ifdef ONLY_INSERT_DB_CREATED_BY_COLUMN
-        opi.insertObject(monthly, theSystemUser.getuser_id());
-#else
-        opi.insertObject(monthly);
-#endif
+        monthly.store(context);
     }
 }

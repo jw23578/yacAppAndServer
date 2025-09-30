@@ -3,6 +3,7 @@ QMAKE_CXXFLAGS += -std=c++2a
 
 HEADERS += \
   $$PWD/orm_implementions/appbaseobject.h \
+  $$PWD/orm_implementions/currentcontext.h \
   $$PWD/orm_implementions/t0001_apps.h \
   $$PWD/orm_implementions/t0002_user.h \
   $$PWD/orm_implementions/t0003_user_passwordhashes.h \
@@ -39,6 +40,7 @@ HEADERS += \
 
 SOURCES += \
   $$PWD/orm_implementions/appbaseobject.cpp \
+  $$PWD/orm_implementions/currentcontext.cpp \
   $$PWD/orm_implementions/t0001_apps.cpp \
   $$PWD/orm_implementions/t0002_user.cpp \
   $$PWD/orm_implementions/t0003_user_passwordhashes.cpp \

@@ -1,14 +1,13 @@
 #ifndef T__36_RYTHM_H
 #define T__36_RYTHM_H
 
-#include "yacbaseobject.h"
+#include "appbaseobject.h"
 #include <chrono>
 
-class t0036_rythm : public YACBaseObject
+class t0036_rythm : public AppBaseObject
 {
     Q_OBJECT
 
-    MACRO_UUID_PROPERTY(app_id);
     MACRO_UUID_PROPERTY(rythm_id);
     MACRO_STRING_PROPERTY(rythm_name);
     MACRO_BOOL_PROPERTY(default_rythm);
@@ -19,7 +18,7 @@ class t0036_rythm : public YACBaseObject
     MACRO_INT_PROPERTY(special_day_of_week) // 0 = Sunday to 6 = Saturday, -1 inactive https://en.cppreference.com/w/cpp/chrono/weekday
 public:
     MACRO_CREATE_AND_GETORMNAME(t0036_rythm)
-    t0036_rythm():YACBaseObject(Rights::RN_everybody)
+    t0036_rythm():AppBaseObject(Rights::RN_everybody)
     {
         setrepeat_every_months(0);
         setrepeat_every_days(0);
@@ -27,7 +26,6 @@ public:
         setxth_day_from_month_end(-1);
         setspecial_day_of_week(-1);
 
-        MACRO_ADD_PROPERTY(app_id);
         MACRO_ADD_PROPERTY_ADD_DETAIL(rythm_id, DetailID);
         MACRO_ADD_PROPERTY(rythm_name);
         MACRO_ADD_PROPERTY(default_rythm);

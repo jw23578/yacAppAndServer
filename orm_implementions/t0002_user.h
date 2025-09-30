@@ -26,6 +26,7 @@ class t0002_user : public AppBaseObject
     MACRO_UUID_PROPERTY(image_id);
     MACRO_BOOL_PROPERTY(super_user);
 
+    static std::map<std::string, reducedsole::uuid> loginEMailAndAppId2AppUserId;
 public:
     t0002_user():AppBaseObject(Rights::RN_everybody)
     {
@@ -50,9 +51,35 @@ public:
     MACRO_CREATE_AND_GETORMNAME(t0002_user)
 
     void clearUpdatePasswordToken();
-    bool loadByLoginEMail(ORMPersistenceInterface &opi,
-                          const reducedsole::uuid &appId,
+    bool loadByLoginEMail(CurrentContext &context,
                           const ORMString &loginEMail);
+
+
+    static bool lookupUser(CurrentContext &context,
+                           const std::string &loginEMail,
+                           t0002_user &resultUser,
+                           std::string &message);
+    bool registerUser(CurrentContext &context,
+                      const std::string &loginEMail,
+                      const std::string &password,
+                      std::string &message);
+    bool verifyUser(CurrentContext &context,
+                    const std::string &loginEMail,
+                    const std::string &verifyToken,
+                    std::string &loginToken,
+                    std::string &message);
+    bool createVerifyToken(CurrentContext &context,
+                           const std::string &loginEMail,
+                           std::string &message);
+    bool createVerifiedAppUser(CurrentContext &context,
+                               const std::string &loginEMail,
+                               const std::string &fstname,
+                               const std::string &surname,
+                               const std::string &visible_name,
+                               const bool searching_exactly_allowed,
+                               const bool searching_fuzzy_allowed,
+                               const std::string &public_key_base64,
+                               std::string &message);
 };
 
 #endif // T0002_USER_H

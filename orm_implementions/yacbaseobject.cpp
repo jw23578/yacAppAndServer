@@ -2,7 +2,12 @@
 
 void YACBaseObject::prepareFirstInsert()
 {
-    setUuid(getIDProperty()->name(), ExtUuid::generateUuid());
+    auto p(getIDProperty());
+    if (!p->isNull())
+    {
+        return;
+    }
+    setUuid(p->name(), ExtUuid::generateUuid());
 }
 
 void YACBaseObject::assign(const YACBaseObject &other)
