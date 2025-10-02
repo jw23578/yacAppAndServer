@@ -24,9 +24,9 @@ public:
         MACRO_ADD_PROPERTY(login_token_valid_until);
     }
     void loginSuccessful(CurrentContext &context,
-                         const reducedsole::uuid &userId);
+                         const ORMUuid &userId);
     static void disableLoginTokenByUserId(CurrentContext &context,
-                                          const reducedsole::uuid &userId);
+                                          const ORMUuid &userId);
     static bool logoutUserByLoginToken(CurrentContext &context,
                                        const std::string logintoken);
     bool userLoggedIn(CurrentContext &context,

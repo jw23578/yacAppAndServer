@@ -2,21 +2,21 @@
 #include "t0002_user.h"
 
 void t0004_user_logintoken::loginSuccessful(CurrentContext &context,
-                                            const reducedsole::uuid &userId)
+                                            const ORMUuid &userId)
 {
     int validHours(24 * 7);
-    user_id.set(userId);
-    login_token = ExtUuid::generateUuid().str();
-    login_token_valid_until.set(std::chrono::system_clock::now() + std::chrono::hours(1) * validHours);
+    setuser_id(userId);
+    setlogin_token(ExtUuid::uuidToString(ExtUuid::generateUuid()));
+    setlogin_token_valid_until(std::chrono::system_clock::now() + std::chrono::hours(1) * validHours);
     store(context);
 }
 
 void t0004_user_logintoken::disableLoginTokenByUserId(CurrentContext &context,
-                                                      const reducedsole::uuid &userId)
+                                                      const ORMUuid &userId)
 {
     t0004_user_logintoken logintoken;
     ORMVector<t0004_user_logintoken> logintokenVector;
-    logintoken.fetchObjects(context, {{logintoken.user_id.name(), userId.str()}}, logintokenVector);
+    logintoken.fetchObjects(context, {{logintoken.user_idORM().name(), ExtUuid::uuidToString(userId)}}, logintokenVector);
     for (size_t i(0); logintokenVector.size(); ++i)
     {
         logintokenVector[i].erase(context);
