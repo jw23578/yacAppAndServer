@@ -7,8 +7,8 @@ void t0001_apps::createDefaults(CurrentContext &context)
                            {{theSuperUser.fstnameORM().name(), context.superUserFstname},
                            {theSuperUser.surnameORM().name(), context.superUserSurname}}))
     {
-        theSuperUser.fstname = context.superUserFstname;
-        theSuperUser.surname = context.superUserSurname;
+        theSuperUser.setfstname(context.superUserFstname);
+        theSuperUser.setsurname(context.superUserSurname);
         theSuperUser.store(context);
     }
 

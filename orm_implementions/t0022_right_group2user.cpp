@@ -2,8 +2,8 @@
 #include "t0023_right2rightgroup.h"
 
 bool t0022_right_group2user::removeUser(CurrentContext &context,
-                                           const reducedsole::uuid &rightGroupId,
-                                           const reducedsole::uuid &userId,
+                                           const ORMUuid &rightGroupId,
+                                           const ORMUuid &userId,
                                            std::string &message)
 {
     if (!userInRightGroup(context, rightGroupId, userId))
