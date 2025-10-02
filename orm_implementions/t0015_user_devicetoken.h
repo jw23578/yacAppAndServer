@@ -22,7 +22,7 @@ public:
     }
 
     size_t fetchDeviceToken(CurrentContext &context,
-                            const reducedsole::uuid &userId,
+                            const ORMUuid &userId,
                             std::set<ORMString> &deviceTokenSet);
 };
 
