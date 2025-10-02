@@ -24,13 +24,21 @@ void AppBaseObject::storeIfUnique(CurrentContext &context)
 bool AppBaseObject::load(CurrentContext &context,
                          const reducedsole::uuid &id)
 {
+    size_t count(0);
     return context.opi.selectObject({{getIDProperty()->name(), id.str()}},
                                     app_id.name(), context.appId.str(),
-                                    *this);
+                                    *this) && count == 1;
+}
+
+bool AppBaseObject::load(CurrentContext &context,
+                         const ORMPropertyUuid &puuid)
+{
+    return load(context, {{puuid.name(), puuid.asString()}});
 }
 
 bool AppBaseObject::load(CurrentContext &context,
                          const std::map<ORMString, ORMString> &field2needle)
 {
-    return context.opi.selectObject(field2needle, app_id.name(), context.appId.str(), *this);
+    size_t count(0);
+    return context.opi.selectObject(field2needle, app_id.name(), context.appId.str(), *this, count) && count == 1;
 }

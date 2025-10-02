@@ -12,10 +12,11 @@ HEADERS += \
   $$PWD/orm_implementions/t0006_appuser2group.h \
   $$PWD/orm_implementions/t0007_messages.h \
   $$PWD/orm_implementions/t0008_message_received.h \
+  $$PWD/orm_implementions/t0015_user_devicetoken.h \
   $$PWD/orm_implementions/t0016_appointment_templates.h \
   $$PWD/orm_implementions/t0018_appointment.h \
   $$PWD/orm_implementions/t0021_right_group.h \
-  $$PWD/orm_implementions/t0022_right_group2appuser.h \
+  $$PWD/orm_implementions/t0022_right_group2user.h \
   $$PWD/orm_implementions/t0023_right2rightgroup.h \
   $$PWD/orm_implementions/t0026_appuser_tag.h \
   $$PWD/orm_implementions/t0027_app_images.h \
@@ -49,10 +50,11 @@ SOURCES += \
   $$PWD/orm_implementions/t0006_appuser2group.cpp \
   $$PWD/orm_implementions/t0007_messages.cpp \
   $$PWD/orm_implementions/t0008_message_received.cpp \
+  $$PWD/orm_implementions/t0015_user_devicetoken.cpp \
   $$PWD/orm_implementions/t0016_appointment_templates.cpp \
   $$PWD/orm_implementions/t0018_appointment.cpp \
   $$PWD/orm_implementions/t0021_right_group.cpp \
-  $$PWD/orm_implementions/t0022_right_group2appuser.cpp \
+  $$PWD/orm_implementions/t0022_right_group2user.cpp \
   $$PWD/orm_implementions/t0023_right2rightgroup.cpp \
   $$PWD/orm_implementions/t0026_appuser_tag.cpp \
   $$PWD/orm_implementions/t0027_app_images.cpp \

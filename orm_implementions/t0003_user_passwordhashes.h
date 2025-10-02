@@ -19,6 +19,10 @@ public:
         MACRO_ADD_PROPERTY(user_id);
         MACRO_ADD_PROPERTY(password_hash);
     }
+    bool login(CurrentContext &context,
+               const reducedsole::uuid &userId,
+               const std::string &password,
+               std::string &message);
 };
 
 #endif // T___4_APPUSER_PASSWORDHASHES_H

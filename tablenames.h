@@ -11,7 +11,6 @@ public:
     MACRO_ConstString(t0012_worktime);
     MACRO_ConstString(t0013_images);
     MACRO_ConstString(t0014_message_read);
-    MACRO_ConstString(t0015_appuser_devicetoken);
     MACRO_ConstString(t0016_appointment_templates);
     MACRO_ConstString(t0028_message_images);
     MACRO_ConstString(t0029_third_party_user_data);

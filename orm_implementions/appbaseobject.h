@@ -23,7 +23,17 @@ public:
     bool load(CurrentContext &context,
               const reducedsole::uuid &id);
     bool load(CurrentContext &context,
+              const ORMPropertyUuid &puuid);
+    bool load(CurrentContext &context,
               const std::map<ORMString, ORMString> &field2needle);
+
+    template<class T>
+    size_t fetchObjects(CurrentContext &context,
+                        const std::map<ORMString, ORMString> &field2needle,
+                        ORMVector<T> &target)
+    {
+        return context.opi.fetchObjects(field2needle, app_id.name(), context.appId.str(), target);
+    }
 };
 
 #endif // APPBASEOBJECT_H

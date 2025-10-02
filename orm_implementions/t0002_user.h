@@ -55,9 +55,8 @@ public:
                           const ORMString &loginEMail);
 
 
-    static bool lookupUser(CurrentContext &context,
+    bool lookupUser(CurrentContext &context,
                            const std::string &loginEMail,
-                           t0002_user &resultUser,
                            std::string &message);
     bool registerUser(CurrentContext &context,
                       const std::string &loginEMail,
@@ -79,6 +78,15 @@ public:
                                const bool searching_exactly_allowed,
                                const bool searching_fuzzy_allowed,
                                const std::string &public_key_base64,
+                               std::string &message);
+    bool updatePassword(CurrentContext &context,
+                        const std::string &loginEMail,
+                        const std::string &updatePasswordToken,
+                        const std::string &password,
+                        std::string &message,
+                        std::string &loginToken);
+    bool requestUpdatePassword(CurrentContext &context,
+                               const std::string &loginEMail,
                                std::string &message);
 };
 

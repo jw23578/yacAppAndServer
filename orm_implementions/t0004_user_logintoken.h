@@ -25,6 +25,15 @@ public:
     }
     void loginSuccessful(CurrentContext &context,
                          const reducedsole::uuid &userId);
+    static void disableLoginTokenByUserId(CurrentContext &context,
+                                          const reducedsole::uuid &userId);
+    static bool logoutUserByLoginToken(CurrentContext &context,
+                                       const std::string logintoken);
+    bool userLoggedIn(CurrentContext &context,
+                      const std::string &loginEMail,
+                      const std::string &loginToken);
+    void refresh(CurrentContext &context,
+                 const std::string &loginToken);
 };
 
 #endif // T0004_USER_LOGINTOKEN_H

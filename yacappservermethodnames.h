@@ -20,7 +20,7 @@ public:
     MACRO_ConstString(requestUpdatePasswordUser);
 
     MACRO_ConstString(updateDeviceToken);
-    MACRO_ConstString(updateAppUserProfile);
+    MACRO_ConstString(updateUserProfile);
     MACRO_ConstString(requestVerifyToken);
     MACRO_ConstString(fetchProfile);
     MACRO_ConstString(fetchMyProfile);

@@ -1,6 +1,6 @@
 #include "t0021_right_group.h"
 #include "ormpersistenceinterface.h"
-#include "t0022_right_group2appuser.h"
+#include "t0022_right_group2user.h"
 #include "t0023_right2rightgroup.h"
 
 std::map<reducedsole::uuid, reducedsole::uuid> t0021_right_group::appId2AdminGroupId;
@@ -53,9 +53,9 @@ size_t t0021_right_group::fetchMember(CurrentContext &context,
                                     std::set<ORMUuid> &member)
 {
     SqlString sql;
-    sql.select(t0022_right_group2appuser().getORMName());
+    sql.select(t0022_right_group2user().getORMName());
     sql.addCompare("where", right_group_id.name(), "=", right_group_id);
-    context.opi.fetchValues(sql, t0022_right_group2appuser().right_group_id.name(), member);
+    context.opi.fetchValues(sql, t0022_right_group2user().right_group_id.name(), member);
     return member.size();
 }
 

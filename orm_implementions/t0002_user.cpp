@@ -21,28 +21,27 @@ bool t0002_user::loadByLoginEMail(CurrentContext &context,
 
 bool t0002_user::lookupUser(CurrentContext &context,
                             const std::string &loginEMail,
-                            t0002_user &resultUser,
                             std::string &message)
 {
     auto it(loginEMailAndAppId2AppUserId.find(loginEMail + context.appId.str()));
     if (it != loginEMailAndAppId2AppUserId.end())
     {
         context.opi.selectObject(it->second,
-                                 resultUser);
+                                 *this);
         return true;
     }
-    if (!resultUser.loadByLoginEMail(context,
-                                     loginEMail))
+    if (!loadByLoginEMail(context,
+                          loginEMail))
     {
         message = "LoginEMail/User not found. Please check your LoginEMail or register first.";
         return false;
     }
-    if (resultUser.verified.isNull())
+    if (verified.isNull())
     {
         message = "LoginEMail/User not yet verified";
         return false;
     }
-    loginEMailAndAppId2AppUserId[loginEMail + context.appId.str()] = resultUser.user_id;
+    loginEMailAndAppId2AppUserId[loginEMail + context.appId.str()] = user_id;
     return true;
 }
 
@@ -171,6 +170,69 @@ bool t0002_user::createVerifiedAppUser(CurrentContext &context,
     this->searching_fuzzy_allowed = searching_fuzzy_allowed;
     this->public_key_base64 = public_key_base64;
     image_id.setNull(true);
+    store(context);
+    return true;
+}
+
+bool t0002_user::updatePassword(CurrentContext &context,
+                                const std::string &loginEMail,
+                                const std::string &updatePasswordToken,
+                                const std::string &password,
+                                std::string &message,
+                                std::string &loginToken)
+{
+    if (!loadByLoginEMail(context, loginEMail))
+    {
+        message = std::string("no user with loginEMail: ") + ExtString::quote(loginEMail) + std::string(" found");
+        return false;
+    }
+    if (update_password_token_valid_until.isNull())
+    {
+        message = std::string("no update password token requested");
+        return false;
+    }
+    std::chrono::system_clock::time_point now(std::chrono::system_clock::now());
+    if (update_password_token_valid_until < now)
+    {
+        message = std::string("update password token not valid any more, please request update password again.");
+        clearUpdatePasswordToken();
+        store(context);
+        return false;
+    }
+    if (update_password_token != updatePasswordToken)
+    {
+        message = std::string("wrong updatePasswordToken");
+        return false;
+    }
+    clearUpdatePasswordToken();
+    store(context);
+
+    t0003_user_passwordhashes passwordhash;
+    passwordhash.load(context, {{t0003_user_passwordhashes().user_id.name(), user_id.asString()}});
+    passwordhash.setuser_id(user_id);
+    passwordhash.setpassword_hash(password);
+    passwordhash.store(context);
+
+    t0004_user_logintoken ::disableLoginTokenByUserId(context, user_id);
+
+    t0004_user_logintoken userLogintoken;
+    userLogintoken.loginSuccessful(context, user_id);
+    loginToken = userLogintoken.login_token;
+    message = "update password successful";
+    return true;
+
+}
+
+bool t0002_user::requestUpdatePassword(CurrentContext &context,
+                                       const std::string &loginEMail,
+                                       std::string &message)
+{
+    if (!lookupUser(context, loginEMail, message))
+    {
+        return false;
+    }
+    update_password_token = ExtString::randomString(0, 0, 4, 0);
+    update_password_token_valid_until = std::chrono::system_clock::now() + std::chrono::minutes(60);
     store(context);
     return true;
 }
