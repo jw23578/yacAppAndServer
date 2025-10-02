@@ -6,12 +6,12 @@ bool t0003_user_passwordhashes::login(CurrentContext &context,
                                       std::string &message)
 {
     SqlString sql("select *, ");
-    sql += password_hash.name();
+    sql += password_hashORM().name();
     sql += " = crypt(:password, ";
-    sql += password_hash.name();
+    sql += password_hashORM().name();
     sql += ") as login_ok from ";
     sql += getORMName();
-    sql.addCompare("where", user_id.name(), "=", userId);
+    sql.addCompare("where", user_idORM().name(), "=", userId);
     context.opi.addOnlyInsertDBWhere(false, sql);
     sql.set("password", password);
     std::set<bool> loginOks;
