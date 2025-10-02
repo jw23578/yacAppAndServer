@@ -1,8 +1,8 @@
 #include "t0003_user_passwordhashes.h"
 
 bool t0003_user_passwordhashes::login(CurrentContext &context,
-                                      const reducedsole::uuid &userId,
-                                      const std::string &password,
+                                      const ORMUuid &userId,
+                                      const ORMString &password,
                                       std::string &message)
 {
     SqlString sql("select *, ");
