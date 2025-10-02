@@ -59,34 +59,34 @@ public:
                     const ORMString &loginEMail,
                     std::string &message);
     bool registerUser(CurrentContext &context,
-                      const std::string &loginEMail,
-                      const std::string &password,
+                      const ORMString &loginEMail,
+                      const ORMString &password,
                       std::string &message);
     bool verifyUser(CurrentContext &context,
-                    const std::string &loginEMail,
-                    const std::string &verifyToken,
-                    std::string &loginToken,
+                    const ORMString &loginEMail,
+                    const ORMString &verifyToken,
+                    ORMString &loginToken,
                     std::string &message);
     bool createVerifyToken(CurrentContext &context,
-                           const std::string &loginEMail,
+                           const ORMString &loginEMail,
                            std::string &message);
     bool createVerifiedAppUser(CurrentContext &context,
-                               const std::string &loginEMail,
-                               const std::string &fstname,
-                               const std::string &surname,
-                               const std::string &visible_name,
+                               const ORMString &loginEMail,
+                               const ORMString &fstname,
+                               const ORMString &surname,
+                               const ORMString &visible_name,
                                const bool searching_exactly_allowed,
                                const bool searching_fuzzy_allowed,
-                               const std::string &public_key_base64,
+                               const ORMString &public_key_base64,
                                std::string &message);
     bool updatePassword(CurrentContext &context,
-                        const std::string &loginEMail,
-                        const std::string &updatePasswordToken,
-                        const std::string &password,
+                        const ORMString &loginEMail,
+                        const ORMString &updatePasswordToken,
+                        const ORMString &password,
                         std::string &message,
-                        std::string &loginToken);
+                        ORMString &loginToken);
     bool requestUpdatePassword(CurrentContext &context,
-                               const std::string &loginEMail,
+                               const ORMString &loginEMail,
                                std::string &message);
 };
 

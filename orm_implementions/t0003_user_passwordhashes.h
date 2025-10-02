@@ -20,8 +20,8 @@ public:
         MACRO_ADD_PROPERTY(password_hash);
     }
     bool login(CurrentContext &context,
-               const reducedsole::uuid &userId,
-               const std::string &password,
+               const ORMUuid &userId,
+               const ORMString &password,
                std::string &message);
 };
 

@@ -33,8 +33,8 @@ public:
         MACRO_ADD_PROPERTY(result_seen);
     }
     bool removeUser(CurrentContext &context,
-                    const reducedsole::uuid &rightGroupId,
-                    const reducedsole::uuid &userId, std::string &message);
+                    const ORMUuid &rightGroupId,
+                    const ORMUuid &userId, std::string &message);
     bool userInRightGroup(CurrentContext &context,
                           const ORMUuid &rightGroupId,
                           const ORMUuid &userId);

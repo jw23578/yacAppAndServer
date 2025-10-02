@@ -7,7 +7,7 @@ void t0004_user_logintoken::loginSuccessful(CurrentContext &context,
     int validHours(24 * 7);
     setuser_id(userId);
     setlogin_token(ExtUuid::uuidToString(ExtUuid::generateUuid()));
-    setlogin_token_valid_until(std::chrono::system_clock::now() + std::chrono::hours(1) * validHours);
+    setlogin_token_valid_until(MACRO_TIMEPOINT_TO_ORM(std::chrono::system_clock::now() + std::chrono::hours(1) * validHours));
     store(context);
 }
 
@@ -57,7 +57,7 @@ void t0004_user_logintoken::refresh(CurrentContext &context,
     {
         return;
     }
-    setlogin_token_valid_until(std::chrono::system_clock::now() + std::chrono::hours(24 *7));
+    setlogin_token_valid_until(MACRO_TIMEPOINT_TO_ORM(std::chrono::system_clock::now() + std::chrono::hours(24 *7)));
     store(context);
 }
 

@@ -38,16 +38,16 @@ ORMUuid t0021_right_group::checkAndGenerateAdminGroup(CurrentContext &context)
             right2rightgroup.store(context);
         }
     }
-    return adminGroup.right_group_id;
+    return adminGroup.getright_group_id();
 }
 
 void t0021_right_group::fetchRightNumbers(ORMPersistenceInterface &opi, std::set<int> &rightNumbers)
 {
     SqlString sql;
     sql.select(t0023_right2rightgroup().getORMName());
-    sql.addCompare("where", t0023_right2rightgroup().right_group_id.name(), "=", right_group_id);
+    sql.addCompare("where", t0023_right2rightgroup().right_group_idORM().name(), "=", getright_group_id());
     opi.addOnlyInsertDBWhere(false, sql);
-    opi.fetchValues(sql, t0023_right2rightgroup().right_number.name(), rightNumbers);
+    opi.fetchValues(sql, t0023_right2rightgroup().right_numberORM().name(), rightNumbers);
 }
 
 size_t t0021_right_group::fetchMember(CurrentContext &context,
@@ -55,8 +55,8 @@ size_t t0021_right_group::fetchMember(CurrentContext &context,
 {
     SqlString sql;
     sql.select(t0022_right_group2user().getORMName());
-    sql.addCompare("where", right_group_id.name(), "=", right_group_id);
-    context.opi.fetchValues(sql, t0022_right_group2user().right_group_id.name(), member);
+    sql.addCompare("where", right_group_idORM().name(), "=", getright_group_id());
+    context.opi.fetchValues(sql, t0022_right_group2user().right_group_idORM().name(), member);
     return member.size();
 }
 

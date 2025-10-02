@@ -9,8 +9,8 @@ class CurrentContext
 private:
     CurrentContext() = delete;
 public:
-    static constexpr std::string superUserFstname = "superUser";
-    static constexpr std::string superUserSurname = "superUser";
+    static const ORMString superUserFstname;
+    static const ORMString superUserSurname;
 
     ORMPersistenceInterface &opi;
     const ORMUuid &appId;

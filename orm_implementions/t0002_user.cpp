@@ -46,8 +46,8 @@ bool t0002_user::lookupUser(CurrentContext &context,
 }
 
 bool t0002_user::registerUser(CurrentContext &context,
-                              const std::string &loginEMail,
-                              const std::string &password,
+                              const ORMString &loginEMail,
+                              const ORMString &password,
                               std::string &message)
 {
     Log::Scope scope("createAppUser");
@@ -56,27 +56,27 @@ bool t0002_user::registerUser(CurrentContext &context,
         message = "LoginEMail already exists.";
         return false;
     }
-    fstname = "";
-    surname = "";
-    visible_name = "";
-    verified.setNull(true);
-    loginemail = loginEMail;
-    verify_token = ExtString::randomString(0, 0, 4, 0);
-    verify_token_valid_until = std::chrono::system_clock::now() + std::chrono::minutes(60);
-    update_password_token =  "";
-    update_password_token_valid_until.setNull(true);
-    deleted.setNull(true);
-    searching_exactly_allowed = false; // FIXME
-    searching_fuzzy_allowed = true; // FIXME
-    public_key_base64 = ""; // FIXME
-    image_id.setNull(true); // FIXME
+    setfstname("");
+    setsurname("");
+    setvisible_name("");
+    verifiedORM().setNull(true);
+    setloginemail(loginEMail);
+    setverify_token(ExtString::randomString(0, 0, 4, 0));
+    setverify_token_valid_until(MACRO_TIMEPOINT_TO_ORM(std::chrono::system_clock::now() + std::chrono::minutes(60)));
+    setupdate_password_token("");
+    update_password_token_valid_untilORM().setNull(true);
+    deletedORM().setNull(true);
+    setsearching_exactly_allowed(false); // FIXME
+    setsearching_fuzzy_allowed(true); // FIXME
+    setpublic_key_base64(""); // FIXME
+    image_idORM().setNull(true); // FIXME
     store(context);
 
     if (password.size())
     {
         t0003_user_passwordhashes passwordHash;
-        passwordHash.user_id = user_id;
-        passwordHash.password_hash = password;
+        passwordHash.setuser_id(getuser_id());
+        passwordHash.setpassword_hash(password);
         passwordHash.store(context);
     }
 
@@ -84,50 +84,50 @@ bool t0002_user::registerUser(CurrentContext &context,
 }
 
 bool t0002_user::verifyUser(CurrentContext &context,
-                            const std::string &loginEMail,
-                            const std::string &verifyToken,
-                            std::string &loginToken,
+                            const ORMString &loginEMail,
+                            const ORMString &verifyToken,
+                            ORMString &loginToken,
                             std::string &message)
 {
     if (!loadByLoginEMail(context, loginEMail))
     {
-        message = std::string("no appuser with loginEMail: ") + ExtString::quote(loginEMail) + std::string(" found");
+        message = std::string("no appuser with loginEMail: ") + ExtString::quote(MACRO_ORM_STRING_2_STD_STRING(loginEMail)) + std::string(" found");
         return false;
     }
     LogStatController::slog(__FILE__, __LINE__, LogStatController::verbose,
-                            std::string("verify_token_valid_until as string: ") + verify_token_valid_until.asString());
+                            std::string("verify_token_valid_until as string: ") + MACRO_ORM_STRING_2_STD_STRING(verify_token_valid_untilORM().asString()));
 
     LogStatController::slog(__FILE__, __LINE__, LogStatController::verbose,
-                            std::string("verify_token_valid_until: ") + ExtString::timepointToISO(verify_token_valid_until));
+                            std::string("verify_token_valid_until: ") + ExtString::timepointToISO(MACRO_ORM_TO_TIMEPOINT(getverify_token_valid_until())));
 
     std::chrono::system_clock::time_point now(std::chrono::system_clock::now());
     LogStatController::slog(__FILE__, __LINE__, LogStatController::verbose,
                             std::string("now: ") + ExtString::timepointToISO(now));
-    if (verify_token_valid_until < now)
+    if (MACRO_ORM_TO_TIMEPOINT(getverify_token_valid_until()) < now)
     {
         message = std::string("Token not valid any more, please request new Token.");
         return false;
     }
-    if (verify_token != verifyToken)
+    if (getverify_token() != verifyToken)
     {
         message = std::string("wrong token");
         return false;
     }
 
     {
-        verified = TimePointPostgreSqlNow;
-        verify_token = "";
-        verify_token_valid_until.setNull(true);
+        setverified(MACRO_TIMEPOINT_TO_ORM(TimePointPostgreSqlNow));
+        setverify_token("");
+        verify_token_valid_untilORM().setNull(true);
         store(context);
     }
     t0004_user_logintoken userLogintoken;
-    userLogintoken.loginSuccessful(context, user_id);
-    loginToken = userLogintoken.login_token;
+    userLogintoken.loginSuccessful(context, getuser_id());
+    loginToken = userLogintoken.getlogin_token();
     return true;
 }
 
 bool t0002_user::createVerifyToken(CurrentContext &context,
-                                   const std::string &loginEMail,
+                                   const ORMString &loginEMail,
                                    std::string &message)
 {
     if (!loadByLoginEMail(context,  loginEMail))
@@ -135,20 +135,20 @@ bool t0002_user::createVerifyToken(CurrentContext &context,
         message = "LoginEMail does not exist.";
         return false;
     }
-    verify_token = ExtString::randomString(0, 0, 4, 0);
-    verify_token_valid_until = std::chrono::system_clock::now() + std::chrono::minutes(60);
+    setverify_token(ExtString::randomString(0, 0, 4, 0));
+    setverify_token_valid_until(MACRO_TIMEPOINT_TO_ORM(std::chrono::system_clock::now() + std::chrono::minutes(60)));
     store(context);
     return true;
 }
 
 bool t0002_user::createVerifiedAppUser(CurrentContext &context,
-                                       const std::string &loginEMail,
-                                       const std::string &fstname,
-                                       const std::string &surname,
-                                       const std::string &visible_name,
+                                       const ORMString &loginEMail,
+                                       const ORMString &fstname,
+                                       const ORMString &surname,
+                                       const ORMString &visible_name,
                                        const bool searching_exactly_allowed,
                                        const bool searching_fuzzy_allowed,
-                                       const std::string &public_key_base64,
+                                       const ORMString &public_key_base64,
                                        std::string &message)
 {
     if (loadByLoginEMail(context, loginEMail))
@@ -156,50 +156,50 @@ bool t0002_user::createVerifiedAppUser(CurrentContext &context,
         message = "LoginEMail already exists.";
         return false;
     }
-    this->fstname = fstname;
-    this->surname = surname;
-    this->visible_name = visible_name;
-    verified = std::chrono::system_clock::now();
-    loginemail = loginEMail;
-    verify_token = "";
-    verify_token_valid_until.setNull(true);
-    update_password_token = "";
-    update_password_token_valid_until.setNull(true);
-    deleted.setNull(true);
-    this->searching_exactly_allowed = searching_exactly_allowed;
-    this->searching_fuzzy_allowed = searching_fuzzy_allowed;
-    this->public_key_base64 = public_key_base64;
-    image_id.setNull(true);
+    this->setfstname(fstname);
+    this->setsurname(surname);
+    this->setvisible_name(visible_name);
+    setverified(MACRO_TIMEPOINT_TO_ORM(std::chrono::system_clock::now()));
+    setloginemail(loginEMail);
+    setverify_token("");
+    verify_token_valid_untilORM().setNull(true);
+    setupdate_password_token("");
+    update_password_token_valid_untilORM().setNull(true);
+    deletedORM().setNull(true);
+    this->setsearching_exactly_allowed(searching_exactly_allowed);
+    this->setsearching_fuzzy_allowed(searching_fuzzy_allowed);
+    this->setpublic_key_base64(public_key_base64);
+    image_idORM().setNull(true);
     store(context);
     return true;
 }
 
 bool t0002_user::updatePassword(CurrentContext &context,
-                                const std::string &loginEMail,
-                                const std::string &updatePasswordToken,
-                                const std::string &password,
+                                const ORMString &loginEMail,
+                                const ORMString &updatePasswordToken,
+                                const ORMString &password,
                                 std::string &message,
-                                std::string &loginToken)
+                                ORMString &loginToken)
 {
     if (!loadByLoginEMail(context, loginEMail))
     {
-        message = std::string("no user with loginEMail: ") + ExtString::quote(loginEMail) + std::string(" found");
+        message = std::string("no user with loginEMail: ") + ExtString::quote(MACRO_ORM_STRING_2_STD_STRING(loginEMail)) + std::string(" found");
         return false;
     }
-    if (update_password_token_valid_until.isNull())
+    if (update_password_token_valid_untilORM().isNull())
     {
         message = std::string("no update password token requested");
         return false;
     }
     std::chrono::system_clock::time_point now(std::chrono::system_clock::now());
-    if (update_password_token_valid_until < now)
+    if (MACRO_ORM_TO_TIMEPOINT(getupdate_password_token_valid_until()) < now)
     {
         message = std::string("update password token not valid any more, please request update password again.");
         clearUpdatePasswordToken();
         store(context);
         return false;
     }
-    if (update_password_token != updatePasswordToken)
+    if (getupdate_password_token() != updatePasswordToken)
     {
         message = std::string("wrong updatePasswordToken");
         return false;
@@ -208,31 +208,31 @@ bool t0002_user::updatePassword(CurrentContext &context,
     store(context);
 
     t0003_user_passwordhashes passwordhash;
-    passwordhash.load(context, {{t0003_user_passwordhashes().user_id.name(), user_id.asString()}});
-    passwordhash.setuser_id(user_id);
+    passwordhash.load(context, {{t0003_user_passwordhashes().user_idORM().name(), user_idORM().asString()}});
+    passwordhash.setuser_id(getuser_id());
     passwordhash.setpassword_hash(password);
     passwordhash.store(context);
 
-    t0004_user_logintoken ::disableLoginTokenByUserId(context, user_id);
+    t0004_user_logintoken ::disableLoginTokenByUserId(context, getuser_id());
 
     t0004_user_logintoken userLogintoken;
-    userLogintoken.loginSuccessful(context, user_id);
-    loginToken = userLogintoken.login_token;
+    userLogintoken.loginSuccessful(context, getuser_id());
+    loginToken = userLogintoken.getlogin_token();
     message = "update password successful";
     return true;
 
 }
 
 bool t0002_user::requestUpdatePassword(CurrentContext &context,
-                                       const std::string &loginEMail,
+                                       const ORMString &loginEMail,
                                        std::string &message)
 {
     if (!lookupUser(context, loginEMail, message))
     {
         return false;
     }
-    update_password_token = ExtString::randomString(0, 0, 4, 0);
-    update_password_token_valid_until = std::chrono::system_clock::now() + std::chrono::minutes(60);
+    setupdate_password_token(ExtString::randomString(0, 0, 4, 0));
+    setupdate_password_token_valid_until(MACRO_TIMEPOINT_TO_ORM(std::chrono::system_clock::now() + std::chrono::minutes(60)));
     store(context);
     return true;
 }
