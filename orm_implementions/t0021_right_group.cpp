@@ -3,9 +3,9 @@
 #include "t0022_right_group2user.h"
 #include "t0023_right2rightgroup.h"
 
-std::map<reducedsole::uuid, reducedsole::uuid> t0021_right_group::appId2AdminGroupId;
+std::map<ORMUuid, ORMUuid> t0021_right_group::appId2AdminGroupId;
 
-reducedsole::uuid t0021_right_group::checkAndGenerateAdminGroup(CurrentContext &context)
+ORMUuid t0021_right_group::checkAndGenerateAdminGroup(CurrentContext &context)
 {
     const auto it(appId2AdminGroupId.find(context.appId));
     if (it != appId2AdminGroupId.end())
@@ -13,14 +13,15 @@ reducedsole::uuid t0021_right_group::checkAndGenerateAdminGroup(CurrentContext &
         return it->second;
     }
     t0021_right_group adminGroup;
-    if (context.opi.selectObject({{adminGroup.name.name(), Rights::Administrator}, {adminGroup.app_id.name(), context.appId.str()}}, adminGroup))
+    if (context.opi.selectObject({{adminGroup.nameORM().name(), Rights::Administrator},
+                                  {adminGroup.app_idORM().name(), ExtUuid::uuidToString(context.appId)}}, adminGroup))
     {
-        appId2AdminGroupId[context.appId] = adminGroup.right_group_id;
-        return adminGroup.right_group_id;
+        appId2AdminGroupId[context.appId] = adminGroup.getright_group_id();
+        return adminGroup.getright_group_id();
     }
 
-    adminGroup.name = Rights::Administrator;
-    adminGroup.app_id = context.appId;
+    adminGroup.setname(Rights::Administrator);
+    adminGroup.setapp_id(context.appId);
     adminGroup.prepareFirstInsert();
     context.opi.insertObject(adminGroup, context.userId);
 
@@ -32,8 +33,8 @@ reducedsole::uuid t0021_right_group::checkAndGenerateAdminGroup(CurrentContext &
         if (current_right_numbers.find(rn) == current_right_numbers.end())
         {
             t0023_right2rightgroup right2rightgroup;
-            right2rightgroup.right_group_id = adminGroup.right_group_id;
-            right2rightgroup.right_number = rn;
+            right2rightgroup.setright_group_id(adminGroup.getright_group_id());
+            right2rightgroup.setright_number(rn);
             right2rightgroup.store(context);
         }
     }

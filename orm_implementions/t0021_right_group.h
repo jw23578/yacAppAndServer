@@ -16,7 +16,7 @@ class t0021_right_group : public AppBaseObject
     MACRO_BOOL_PROPERTY(request_allowed);
     MACRO_BOOL_PROPERTY(visible_for_non_members);
 
-    static std::map<reducedsole::uuid, reducedsole::uuid> appId2AdminGroupId;
+    static std::map<ORMUuid, ORMUuid> appId2AdminGroupId;
 public:
     MACRO_CREATE_AND_GETORMNAME(t0021_right_group)
     t0021_right_group():AppBaseObject(Rights::RN_changeRightsGroups)
@@ -28,7 +28,7 @@ public:
         MACRO_ADD_PROPERTY(request_allowed);
         MACRO_ADD_PROPERTY(visible_for_non_members);
     }
-    static reducedsole::uuid checkAndGenerateAdminGroup(CurrentContext &context);
+    static ORMUuid checkAndGenerateAdminGroup(CurrentContext &context);
     void fetchRightNumbers(ORMPersistenceInterface &opi, std::set<int> &rightNumbers);
     size_t fetchMember(CurrentContext &context, std::set<ORMUuid> &member);
 };

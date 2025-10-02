@@ -36,10 +36,10 @@ public:
                     const reducedsole::uuid &rightGroupId,
                     const reducedsole::uuid &userId, std::string &message);
     bool userInRightGroup(CurrentContext &context,
-                          const reducedsole::uuid &rightGroupId,
-                          const reducedsole::uuid &userId);
+                          const ORMUuid &rightGroupId,
+                          const ORMUuid &userId);
     void fetchUserRightNumbers(CurrentContext &context,
-                               const reducedsole::uuid &userId,
+                               const ORMUuid &userId,
                                std::set<int> &rightNumbersSet);
 };
 

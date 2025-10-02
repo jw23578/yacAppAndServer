@@ -1,6 +1,6 @@
 #include "rightnumbers.h"
 
-const std::string Rights::Administrator("Administrator");
+const ORMString Rights::Administrator("Administrator");
 std::set<int> Rights::allRightNumbers;
 std::map<int, RightNumber*> Rights::allRightNumberObjects;
 const RightNumber Rights::RN_noOne{-1, "This Right has Nobody"};

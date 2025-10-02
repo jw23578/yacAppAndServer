@@ -1,6 +1,7 @@
 #ifndef RIGHTNUMBERS_H
 #define RIGHTNUMBERS_H
 
+#include "definitions.h"
 #include <set>
 #ifdef YACAPPServer
 #include <string>
@@ -15,7 +16,7 @@ class RightNumber;
 
 namespace Rights
 {
-extern const std::string Administrator;
+extern const ORMString Administrator;
 extern std::set<int> allRightNumbers;
 extern std::map<int, RightNumber*> allRightNumberObjects;
 }

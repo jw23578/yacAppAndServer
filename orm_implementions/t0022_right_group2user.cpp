@@ -16,27 +16,27 @@ bool t0022_right_group2user::removeUser(CurrentContext &context,
 }
 
 bool t0022_right_group2user::userInRightGroup(CurrentContext &context,
-                                              const reducedsole::uuid &rightGroupId,
-                                              const reducedsole::uuid &userId)
+                                              const ORMUuid &rightGroupId,
+                                              const ORMUuid &userId)
 {
     return load(context,
-              {{right_group_id.name(), ExtUuid::uuidToString(rightGroupId)},
-               {user_id.name(), ExtUuid::uuidToString(userId)}});
+              {{right_group_idORM().name(), ExtUuid::uuidToString(rightGroupId)},
+               {user_idORM().name(), ExtUuid::uuidToString(userId)}});
 }
 
 
 void t0022_right_group2user::fetchUserRightNumbers(CurrentContext &context,
-                                                      const reducedsole::uuid &userId,
+                                                      const ORMUuid &userId,
                                                       std::set<int> &rightNumbersSet)
 {
     SqlString sql;
     sql.select(t0023_right2rightgroup().getORMName());
-    sql += std::string(" where ") + right_group_id.name();
-    sql += std::string(" in (select ") + right_group_id.name();
-    sql += std::string(" from ") + getORMName();
-    sql.addCompare("where", user_id.name(), "=", ExtUuid::uuidToString(userId));
+    sql += ORMString(" where ") + right_group_idORM().name();
+    sql += ORMString(" in (select ") + right_group_idORM().name();
+    sql += ORMString(" from ") + getORMName();
+    sql.addCompare("where", user_idORM().name(), "=", ExtUuid::uuidToString(userId));
     context.opi.addOnlyInsertDBWhere(false, sql);
     sql += std::string(")");
     context.opi.addOnlyInsertDBWhere(true, sql);
-    context.opi.fetchValues(sql, t0023_right2rightgroup().right_number.name(), rightNumbersSet);
+    context.opi.fetchValues(sql, t0023_right2rightgroup().right_numberORM().name(), rightNumbersSet);
 }

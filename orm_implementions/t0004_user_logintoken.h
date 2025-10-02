@@ -28,12 +28,12 @@ public:
     static void disableLoginTokenByUserId(CurrentContext &context,
                                           const ORMUuid &userId);
     static bool logoutUserByLoginToken(CurrentContext &context,
-                                       const std::string logintoken);
+                                       const ORMString logintoken);
     bool userLoggedIn(CurrentContext &context,
-                      const std::string &loginEMail,
-                      const std::string &loginToken);
+                      const ORMString &loginEMail,
+                      const ORMString &loginToken);
     void refresh(CurrentContext &context,
-                 const std::string &loginToken);
+                 const ORMString &loginToken);
 };
 
 #endif // T0004_USER_LOGINTOKEN_H

@@ -24,10 +24,10 @@ void t0004_user_logintoken::disableLoginTokenByUserId(CurrentContext &context,
 }
 
 bool t0004_user_logintoken::logoutUserByLoginToken(CurrentContext &context,
-                                                   const std::string logintoken)
+                                                   const ORMString logintoken)
 {
     t0004_user_logintoken loginToken;
-    if (!loginToken.load(context, {{loginToken.login_token.name(), logintoken}}))
+    if (!loginToken.load(context, {{loginToken.login_tokenORM().name(), logintoken}}))
     {
         return false;
     }
@@ -36,8 +36,8 @@ bool t0004_user_logintoken::logoutUserByLoginToken(CurrentContext &context,
 }
 
 bool t0004_user_logintoken::userLoggedIn(CurrentContext &context,
-                                         const std::string &loginEMail,
-                                         const std::string &loginToken)
+                                         const ORMString &loginEMail,
+                                         const ORMString &loginToken)
 {
     std::string ignored;
     t0002_user user;
@@ -45,19 +45,19 @@ bool t0004_user_logintoken::userLoggedIn(CurrentContext &context,
     {
         return false;
     }
-    return load(context, {{user_id.name(), user.user_id.asString()},
-                          {login_token.name(), loginToken}});
+    return load(context, {{user_idORM().name(), user.user_idORM().asString()},
+                          {login_tokenORM().name(), loginToken}});
 }
 
 void t0004_user_logintoken::refresh(CurrentContext &context,
-                                    const std::string &loginToken)
+                                    const ORMString &loginToken)
 {
-    if (!load(context, {{user_id.name(), context.userId.str()},
-                        {login_token.name(), loginToken}}))
+    if (!load(context, {{user_idORM().name(), ExtUuid::uuidToString(context.userId)},
+                        {login_tokenORM().name(), loginToken}}))
     {
         return;
     }
-    login_token_valid_until = std::chrono::system_clock::now() + std::chrono::hours(24 *7);
+    setlogin_token_valid_until(std::chrono::system_clock::now() + std::chrono::hours(24 *7));
     store(context);
 }
 
