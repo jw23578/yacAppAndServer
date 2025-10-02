@@ -21,7 +21,7 @@ public:
     void store(CurrentContext &context);
     void storeIfUnique(CurrentContext &context);
     bool load(CurrentContext &context,
-              const reducedsole::uuid &id);
+              const ORMUuid &id);
     bool load(CurrentContext &context,
               const ORMPropertyUuid &puuid);
     bool load(CurrentContext &context,
@@ -32,7 +32,7 @@ public:
                         const std::map<ORMString, ORMString> &field2needle,
                         ORMVector<T> &target)
     {
-        return context.opi.fetchObjects(field2needle, app_idORM().name(), context.appId.str(), target);
+        return context.opi.fetchObjects(field2needle, app_idORM().name(), ExtUuid::uuidToString(context.appId), target);
     }
 };
 

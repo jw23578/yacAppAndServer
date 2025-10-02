@@ -3,27 +3,27 @@
 #include "t0003_user_passwordhashes.h"
 #include "t0004_user_logintoken.h"
 
-std::map<std::string, reducedsole::uuid> t0002_user::loginEMailAndAppId2AppUserId;
+std::map<ORMString, ORMUuid> t0002_user::loginEMailAndAppId2AppUserId;
 
 
 void t0002_user::clearUpdatePasswordToken()
 {
-    update_password_token = "";
-    update_password_token_valid_until.setNull(true);
+    setupdate_password_token("");
+    update_password_token_valid_untilORM().setNull(true);
 }
 
 bool t0002_user::loadByLoginEMail(CurrentContext &context,
                                   const ORMString &loginEMail)
 {
     return load(context,
-                {{loginemail.name(), loginEMail}});
+                {{loginemailORM().name(), loginEMail}});
 }
 
 bool t0002_user::lookupUser(CurrentContext &context,
-                            const std::string &loginEMail,
+                            const ORMString &loginEMail,
                             std::string &message)
 {
-    auto it(loginEMailAndAppId2AppUserId.find(loginEMail + context.appId.str()));
+    auto it(loginEMailAndAppId2AppUserId.find(loginEMail + ExtUuid::uuidToString(context.appId)));
     if (it != loginEMailAndAppId2AppUserId.end())
     {
         context.opi.selectObject(it->second,
@@ -36,12 +36,12 @@ bool t0002_user::lookupUser(CurrentContext &context,
         message = "LoginEMail/User not found. Please check your LoginEMail or register first.";
         return false;
     }
-    if (verified.isNull())
+    if (verifiedORM().isNull())
     {
         message = "LoginEMail/User not yet verified";
         return false;
     }
-    loginEMailAndAppId2AppUserId[loginEMail + context.appId.str()] = user_id;
+    loginEMailAndAppId2AppUserId[loginEMail + ExtUuid::uuidToString(context.appId)] = getuser_id();
     return true;
 }
 

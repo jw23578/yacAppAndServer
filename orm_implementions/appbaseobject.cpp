@@ -9,24 +9,25 @@ void AppBaseObject::erase(CurrentContext &context)
 
 void AppBaseObject::store(CurrentContext &context)
 {
-    app_id = context.appId;
+    setapp_id(context.appId);
     prepareFirstInsert();
     context.opi.insertObject(*this, context.userId);
 }
 
 void AppBaseObject::storeIfUnique(CurrentContext &context)
 {
-    app_id = context.appId;
+    setapp_id(context.appId);
     prepareFirstInsert();
     context.opi.insertIfNotSameDataExists(*this, context.userId);
 }
 
 bool AppBaseObject::load(CurrentContext &context,
-                         const reducedsole::uuid &id)
+                         const ORMUuid &id)
 {
     size_t count(0);
-    return context.opi.selectObject({{getIDProperty()->name(), id.str()}},
-                                    app_id.name(), context.appId.str(),
+    return context.opi.selectObject({{getIDProperty()->name(), ExtUuid::uuidToString(id)}},
+                                    app_idORM().name(),
+                                    ExtUuid::uuidToString(context.appId),
                                     *this) && count == 1;
 }
 
@@ -40,5 +41,5 @@ bool AppBaseObject::load(CurrentContext &context,
                          const std::map<ORMString, ORMString> &field2needle)
 {
     size_t count(0);
-    return context.opi.selectObject(field2needle, app_id.name(), context.appId.str(), *this, count) && count == 1;
+    return context.opi.selectObject(field2needle, app_idORM().name(), ExtUuid::uuidToString(context.appId), *this, count) && count == 1;
 }

@@ -13,11 +13,11 @@ public:
     static constexpr std::string superUserSurname = "superUser";
 
     ORMPersistenceInterface &opi;
-    const reducedsole::uuid &appId;
-    reducedsole::uuid userId;
+    const ORMUuid &appId;
+    ORMUuid userId;
     CurrentContext(ORMPersistenceInterface &opi,
-                   const reducedsole::uuid &appId,
-                   const reducedsole::uuid &userId);
+                   const ORMUuid &appId,
+                   const ORMUuid &userId);
 };
 
 #endif // CURRENTCONTEXT_H

@@ -26,7 +26,7 @@ class t0002_user : public AppBaseObject
     MACRO_UUID_PROPERTY(image_id);
     MACRO_BOOL_PROPERTY(super_user);
 
-    static std::map<std::string, reducedsole::uuid> loginEMailAndAppId2AppUserId;
+    static std::map<ORMString, ORMUuid> loginEMailAndAppId2AppUserId;
 public:
     t0002_user():AppBaseObject(Rights::RN_everybody)
     {
@@ -56,8 +56,8 @@ public:
 
 
     bool lookupUser(CurrentContext &context,
-                           const std::string &loginEMail,
-                           std::string &message);
+                    const ORMString &loginEMail,
+                    std::string &message);
     bool registerUser(CurrentContext &context,
                       const std::string &loginEMail,
                       const std::string &password,
