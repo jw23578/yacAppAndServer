@@ -32,7 +32,7 @@ public:
                         const std::map<ORMString, ORMString> &field2needle,
                         ORMVector<T> &target)
     {
-        return context.opi.fetchObjects(field2needle, app_id.name(), context.appId.str(), target);
+        return context.opi.fetchObjects(field2needle, app_idORM().name(), context.appId.str(), target);
     }
 };
 
