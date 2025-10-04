@@ -56,6 +56,11 @@ bool t0002_user::registerUser(CurrentContext &context,
         message = "LoginEMail already exists.";
         return false;
     }
+    if (password.size() == 0)
+    {
+        message = "Password is empty.";
+        return false;
+    }
     setfstname("");
     setsurname("");
     setvisible_name("");

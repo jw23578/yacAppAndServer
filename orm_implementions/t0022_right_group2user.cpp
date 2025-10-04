@@ -37,6 +37,6 @@ void t0022_right_group2user::fetchUserRightNumbers(CurrentContext &context,
     sql.addCompare("where", user_idORM().name(), "=", ExtUuid::uuidToString(userId));
     context.opi.addOnlyInsertDBWhere(false, sql);
     sql += std::string(")");
-    context.opi.addOnlyInsertDBWhere(true, sql);
+    context.opi.addOnlyInsertDBWhere(false, sql);
     context.opi.fetchValues(sql, t0023_right2rightgroup().right_numberORM().name(), rightNumbersSet);
 }

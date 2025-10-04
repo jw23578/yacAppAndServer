@@ -18,7 +18,7 @@ bool t0003_user_passwordhashes::login(CurrentContext &context,
     context.opi.fetchValues(sql, "login_ok", loginOks);
     if (!loginOks.size())
     {
-        message = "Password not set or wrong, please request a Logintoken";
+        message = "Password is not set.";
         return false;
     }
     if (loginOks.size() > 1)
@@ -26,7 +26,12 @@ bool t0003_user_passwordhashes::login(CurrentContext &context,
         message = "More than one matching login/password, that is definitely not correct";
         return false;
     }
-    return *loginOks.begin() == true;
+    bool result(*loginOks.begin() == true);
+    if (!result)
+    {
+        message = "Password is wrong.";
+    }
+    return result;
 }
 
 
