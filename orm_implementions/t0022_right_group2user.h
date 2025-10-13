@@ -41,6 +41,8 @@ public:
     void fetchUserRightNumbers(CurrentContext &context,
                                const ORMUuid &userId,
                                std::set<int> &rightNumbersSet);
+    bool adminExists(CurrentContext &context,
+                     const ORMString &adminGroupName);
 };
 
 #endif // T0022_RIGHT_GROUP2USER_H

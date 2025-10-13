@@ -12,6 +12,7 @@ class AppBaseObject : public YACBaseObject
 #endif
 
     MACRO_UUID_PROPERTY(app_id);
+    void setTheAppId(const CurrentContext &context);
 public:
     AppBaseObject(const RightNumber changeRight):YACBaseObject(changeRight)
     {

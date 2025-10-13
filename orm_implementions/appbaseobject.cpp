@@ -2,6 +2,15 @@
 #include "ormpersistenceinterface.h"
 
 
+void AppBaseObject::setTheAppId(const CurrentContext &context)
+{
+    if (!app_id.isNull() && app_id.get() != NullUuid)
+    {
+        return;
+    }
+    setapp_id(context.appId);
+}
+
 void AppBaseObject::erase(CurrentContext &context)
 {
     context.opi.deleteObject(*this, context.userId);
@@ -9,14 +18,14 @@ void AppBaseObject::erase(CurrentContext &context)
 
 void AppBaseObject::store(CurrentContext &context)
 {
-    setapp_id(context.appId);
+    setTheAppId(context);
     prepareFirstInsert();
     context.opi.insertObject(*this, context.userId);
 }
 
 void AppBaseObject::storeIfUnique(CurrentContext &context)
 {
-    setapp_id(context.appId);
+    setTheAppId(context);
     prepareFirstInsert();
     context.opi.insertIfNotSameDataExists(*this, context.userId);
 }

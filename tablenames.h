@@ -28,7 +28,6 @@ public:
     MACRO_ConstString(t0020_appointment_participants);
 
     MACRO_ConstString(t0021_right_group);
-    MACRO_ConstString(t0022_right_group2appuser);
     MACRO_ConstString(t0023_right2rightgroup);
 
     MACRO_ConstString(t0024_space);

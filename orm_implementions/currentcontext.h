@@ -1,7 +1,6 @@
 #ifndef CURRENTCONTEXT_H
 #define CURRENTCONTEXT_H
 
-#include "reducedsole.h"
 #include "ormpersistenceinterface.h"
 
 class CurrentContext
@@ -13,7 +12,7 @@ public:
     static const ORMString superUserSurname;
 
     ORMPersistenceInterface &opi;
-    const ORMUuid &appId;
+    const ORMUuid appId;
     ORMUuid userId;
     CurrentContext(ORMPersistenceInterface &opi,
                    const ORMUuid &appId,

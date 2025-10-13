@@ -1,4 +1,5 @@
 #include "t0022_right_group2user.h"
+#include "t0021_right_group.h"
 #include "t0023_right2rightgroup.h"
 
 bool t0022_right_group2user::removeUser(CurrentContext &context,
@@ -35,8 +36,27 @@ void t0022_right_group2user::fetchUserRightNumbers(CurrentContext &context,
     sql += ORMString(" in (select ") + right_group_idORM().name();
     sql += ORMString(" from ") + getORMName();
     sql.addCompare("where", user_idORM().name(), "=", ExtUuid::uuidToString(userId));
+    sql.addCompare("and", app_idORM().name(), "=", context.appId);
     context.opi.addOnlyInsertDBWhere(false, sql);
-    sql += std::string(")");
+    sql += ORMString(")");
     context.opi.addOnlyInsertDBWhere(false, sql);
     context.opi.fetchValues(sql, t0023_right2rightgroup().right_numberORM().name(), rightNumbersSet);
+}
+
+bool t0022_right_group2user::adminExists(CurrentContext &context, const ORMString &adminGroupName)
+{
+    SqlString sql;
+    sql.select(t0022_right_group2user().getORMName());
+    sql += ORMString(" where ") + right_group_idORM().name() + ORMString(" = (");
+    sql += ORMString("select ") + right_group_idORM().name() + ORMString(" from ") + t0021_right_group().getORMName();
+    sql.addCompare("where", t0021_right_group().nameORM().name(), "=", adminGroupName);
+    sql.addCompare("and", app_idORM().name(), "=", context.appId);
+    context.opi.addOnlyInsertDBWhere(false, sql);
+    sql += ORMString(" ) ");
+    sql.addCompare("and", app_idORM().name(), "=", context.appId);
+    context.opi.addOnlyInsertDBWhere(false, sql);
+    sql += ORMString(" limit 1");
+    size_t count(0);
+    context.opi.selectObject(sql, *this, count);
+    return count > 0;
 }
