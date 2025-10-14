@@ -5,7 +5,7 @@ t0001_apps t0001_apps::theCreatorApp;
 
 void t0001_apps::createDefaults(CurrentContext &context)
 {
-    CurrentContext localContext(context.opi, app_id, context.userId);
+    CurrentContext localContext(context.opi, app_idORM().get(), context.userId);
     if (!theSuperUser.load(localContext,
                            {{theSuperUser.fstnameORM().name(), context.superUserFstname},
                             {theSuperUser.surnameORM().name(), context.superUserSurname}}))
@@ -69,22 +69,24 @@ bool t0001_apps::userIsAppOwner(const ORMUuid &app_id,
     return true; */
 }
 
+#ifndef ORMQTTypes
 bool t0001_apps::saveApp(CurrentContext &context,
                          t0001_apps &app,
                          const ORMString &installation_code,
                          std::string &message)
 {
     bool appExists(false);
-    if (!userIsAppOwner(app.id, context.userId, message, appExists))
+    if (!userIsAppOwner(app.app_idORM().get(), context.userId, message, appExists))
     {
         return false;
     }
-    app.yacpck_base64 = context.opi.storeBlob(app.transfer_yacpck_base64, context.userId);
-    app.owner_id = context.userId;
-    app.installation_code_hash = installation_code;
+    app.yacpck_base64ORM().set(context.opi.storeBlob(app.transfer_yacpck_base64ORM().get(), context.userId));
+    app.owner_idORM().set(context.userId);
+    app.installation_code_hashORM().set(installation_code);
     app.store(context);
     return true;
 }
+#endif
 
 bool t0001_apps::fetchOneApp(CurrentContext &context,
                              const int current_installed_version,
@@ -97,7 +99,7 @@ bool t0001_apps::fetchOneApp(CurrentContext &context,
                   ", yacpck_base64 "
                   ", coalesce(installation_code_hash, '') = '' or installation_code_hash = crypt(:installation_code, installation_code_hash) as installation_code_ok "
                   "from t0001_apps ");
-    sql.addCompare("where", app_id.name(), "=", context.appId);
+    sql.addCompare("where", app_idORM().name(), "=", context.appId);
     context.opi.addOnlyInsertDBWhere(false, sql);
     MACRO_set(sql, installation_code);
 
@@ -109,12 +111,12 @@ bool t0001_apps::fetchOneApp(CurrentContext &context,
         message = "app not found";
         return false;
     }
-    if (!installation_code_ok)
+    if (!installation_code_okORM().get())
     {
         message = "wrong installation code";
         return false;
     }
-    if (app_version <= current_installed_version)
+    if (app_versionORM().get() <= current_installed_version)
     {
         message = "app version is up to date";
         return true;

@@ -4,7 +4,7 @@
 
 void AppBaseObject::setTheAppId(const CurrentContext &context)
 {
-    if (!app_id.isNull() && app_id.get() != NullUuid)
+    if (!app_idORM().isNull() && app_idORM().get() != NullUuid)
     {
         return;
     }

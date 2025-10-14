@@ -19,7 +19,6 @@ public:
     t0027_app_images():AppBaseObject(Rights::RN_everybody)
     {
         MACRO_ADD_PROPERTY_ADD_DETAIL(app_image_id, DetailID);
-        MACRO_ADD_INDEX_PROPERTY(app_id);
         MACRO_ADD_PROPERTY(image_oid);
         MACRO_ADD_PROPERTY(hash_value);
         MACRO_ADD_PROPERTY(position);

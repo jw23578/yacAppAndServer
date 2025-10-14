@@ -62,10 +62,12 @@ public:
                         std::string &errorMessage,
                         bool &appExists);
 
+#ifndef ORMQTTypes
     bool saveApp(CurrentContext &context,
                  t0001_apps &app,
                  const ORMString &installation_code,
                  std::string &message);
+#endif
 
     bool fetchOneApp(CurrentContext &context,
                      const int current_installed_version,
