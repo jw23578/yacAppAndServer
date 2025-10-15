@@ -12,6 +12,9 @@ HEADERS += \
   $$PWD/orm_implementions/t0006_appuser2group.h \
   $$PWD/orm_implementions/t0007_messages.h \
   $$PWD/orm_implementions/t0008_message_received.h \
+  $$PWD/orm_implementions/t0010_task.h \
+  $$PWD/orm_implementions/t0011_task_time.h \
+  $$PWD/orm_implementions/t0012_worktime.h \
   $$PWD/orm_implementions/t0015_user_devicetoken.h \
   $$PWD/orm_implementions/t0016_appointment_templates.h \
   $$PWD/orm_implementions/t0018_appointment.h \
@@ -50,6 +53,9 @@ SOURCES += \
   $$PWD/orm_implementions/t0006_appuser2group.cpp \
   $$PWD/orm_implementions/t0007_messages.cpp \
   $$PWD/orm_implementions/t0008_message_received.cpp \
+  $$PWD/orm_implementions/t0010_task.cpp \
+  $$PWD/orm_implementions/t0011_task_time.cpp \
+  $$PWD/orm_implementions/t0012_worktime.cpp \
   $$PWD/orm_implementions/t0015_user_devicetoken.cpp \
   $$PWD/orm_implementions/t0016_appointment_templates.cpp \
   $$PWD/orm_implementions/t0018_appointment.cpp \

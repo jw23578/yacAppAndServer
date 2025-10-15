@@ -7,6 +7,9 @@
 #include "t0006_appuser2group.h"
 #include "t0007_messages.h"
 #include "t0008_message_received.h"
+#include "t0010_task.h"
+#include "t0011_task_time.h"
+#include "t0012_worktime.h"
 #include "t0015_user_devicetoken.h"
 #include "t0016_appointment_templates.h"
 #include "t0018_appointment.h"
@@ -37,6 +40,9 @@ YACORMFactory::YACORMFactory():ORMFactory<YACBaseObject>()
     addGhost(new t0006_appuser2group);
     addGhost(new t0007_messages);
     addGhost(new t0008_message_received);
+    addGhost(new t0010_task);
+    addGhost(new t0011_task_time);
+    addGhost(new t0012_worktime);
     addGhost(new t0015_user_devicetoken);
     addGhost(new t0016_appointment_templates);
     addGhost(new t0018_appointment);

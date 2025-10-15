@@ -6,9 +6,6 @@
 class TableNames
 {
 public:
-    MACRO_ConstString(t0010_task);
-    MACRO_ConstString(t0011_task_time);
-    MACRO_ConstString(t0012_worktime);
     MACRO_ConstString(t0013_images);
     MACRO_ConstString(t0014_message_read);
     MACRO_ConstString(t0016_appointment_templates);
