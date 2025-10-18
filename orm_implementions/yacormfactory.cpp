@@ -7,6 +7,8 @@
 #include "t0006_appuser2group.h"
 #include "t0007_messages.h"
 #include "t0008_message_received.h"
+#include "t0009_largeobject.h"
+#include "t0010_largeobject2object.h"
 #include "t0010_task.h"
 #include "t0011_task_time.h"
 #include "t0012_worktime.h"
@@ -17,7 +19,6 @@
 #include "t0022_right_group2user.h"
 #include "t0023_right2rightgroup.h"
 #include "t0026_appuser_tag.h"
-#include "t0027_app_images.h"
 #include "t0028_message_images.h"
 #include "t0029_third_party_user_data.h"
 #include "t0030_documents.h"
@@ -40,6 +41,8 @@ YACORMFactory::YACORMFactory():ORMFactory<YACBaseObject>()
     addGhost(new t0006_appuser2group);
     addGhost(new t0007_messages);
     addGhost(new t0008_message_received);
+    addGhost(new t0009_largeobject);
+    addGhost(new t0010_largeobject2object);
     addGhost(new t0010_task);
     addGhost(new t0011_task_time);
     addGhost(new t0012_worktime);
@@ -50,7 +53,6 @@ YACORMFactory::YACORMFactory():ORMFactory<YACBaseObject>()
     addGhost(new t0022_right_group2user);
     addGhost(new t0023_right2rightgroup);
     addGhost(new t0026_appuser_tag);
-    addGhost(new t0027_app_images);
     addGhost(new t0028_message_images);
     addGhost(new t0029_third_party_user_data);
     addGhost(new t0030_documents);

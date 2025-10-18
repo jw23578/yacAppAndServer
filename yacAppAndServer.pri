@@ -12,6 +12,8 @@ HEADERS += \
   $$PWD/orm_implementions/t0006_appuser2group.h \
   $$PWD/orm_implementions/t0007_messages.h \
   $$PWD/orm_implementions/t0008_message_received.h \
+  $$PWD/orm_implementions/t0009_largeobject.h \
+  $$PWD/orm_implementions/t0010_largeobject2object.h \
   $$PWD/orm_implementions/t0010_task.h \
   $$PWD/orm_implementions/t0011_task_time.h \
   $$PWD/orm_implementions/t0012_worktime.h \
@@ -22,7 +24,6 @@ HEADERS += \
   $$PWD/orm_implementions/t0022_right_group2user.h \
   $$PWD/orm_implementions/t0023_right2rightgroup.h \
   $$PWD/orm_implementions/t0026_appuser_tag.h \
-  $$PWD/orm_implementions/t0027_app_images.h \
   $$PWD/orm_implementions/t0028_message_images.h \
   $$PWD/orm_implementions/t0029_third_party_user_data.h \
   $$PWD/orm_implementions/t0030_documents.h \
@@ -53,6 +54,8 @@ SOURCES += \
   $$PWD/orm_implementions/t0006_appuser2group.cpp \
   $$PWD/orm_implementions/t0007_messages.cpp \
   $$PWD/orm_implementions/t0008_message_received.cpp \
+  $$PWD/orm_implementions/t0009_largeobject.cpp \
+  $$PWD/orm_implementions/t0010_largeobject2object.cpp \
   $$PWD/orm_implementions/t0010_task.cpp \
   $$PWD/orm_implementions/t0011_task_time.cpp \
   $$PWD/orm_implementions/t0012_worktime.cpp \
@@ -63,7 +66,6 @@ SOURCES += \
   $$PWD/orm_implementions/t0022_right_group2user.cpp \
   $$PWD/orm_implementions/t0023_right2rightgroup.cpp \
   $$PWD/orm_implementions/t0026_appuser_tag.cpp \
-  $$PWD/orm_implementions/t0027_app_images.cpp \
   $$PWD/orm_implementions/t0028_message_images.cpp \
   $$PWD/orm_implementions/t0029_third_party_user_data.cpp \
   $$PWD/orm_implementions/t0030_documents.cpp \
