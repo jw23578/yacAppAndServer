@@ -93,7 +93,8 @@ bool t0001_apps::fetchOneApp(CurrentContext &context,
                              const ORMString &installation_code,
                              std::string &message)
 {
-    SqlString sql("select app_name "
+    SqlString sql("select app_id "
+                  ", app_name "
                   ", app_version "
                   ", json_yacapp "
                   ", yacpck_base64 "
@@ -135,7 +136,11 @@ size_t t0001_apps::getAllAPPs(CurrentContext &context, ORMVector<t0001_apps> &ta
                   ", app_info_url "
                   ", search_code "
                   ", installation_code_hash "
-                  ", array(select app_image_id from t0027_app_images where app_id = t0001.app_id order by position) as app_image_ids "
+                  ", array(select t0010.largeobject_id from t0010_largeobject2object t0010 "
+                  " left join t0009_largeobject t0009 on t0009.largeobject_id = t0010.largeobject_id "
+                  " where t0010.app_id = t0001.app_id "
+                  " and t0010.object_id = t0001.app_id "
+                  " order by t0010.position) as app_image_ids "
                   "from t0001_apps t0001 "
                   "where app_version is not null ");
     context.opi.addOnlyInsertDBWhere(false, sql);

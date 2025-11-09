@@ -4,6 +4,11 @@
 const ORMString CurrentContext::superUserFstname = "superUser";
 const ORMString CurrentContext::superUserSurname = "superUser";
 
+bool CurrentContext::ignoreAppId()
+{
+    return mIgnoreAppId;
+}
+
 CurrentContext::CurrentContext(ORMPersistenceInterface &opi,
                                const ORMUuid &appId,
                                const ORMUuid &userId):
@@ -12,4 +17,14 @@ CurrentContext::CurrentContext(ORMPersistenceInterface &opi,
     userId(userId)
 {
 
+}
+
+CurrentContext::IgnoreAppIdGuard::IgnoreAppIdGuard(CurrentContext &context):context(context)
+{
+    context.mIgnoreAppId = true;
+}
+
+CurrentContext::IgnoreAppIdGuard::~IgnoreAppIdGuard()
+{
+    context.mIgnoreAppId = false;
 }

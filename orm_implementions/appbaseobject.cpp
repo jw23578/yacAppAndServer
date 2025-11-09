@@ -33,11 +33,15 @@ void AppBaseObject::storeIfUnique(CurrentContext &context)
 bool AppBaseObject::load(CurrentContext &context,
                          const ORMUuid &id)
 {
-    size_t count(0);
+    if (context.ignoreAppId())
+    {
+        return context.opi.selectObject({{getIDProperty()->name(), ExtUuid::uuidToString(id)}},
+                                        *this);
+    }
     return context.opi.selectObject({{getIDProperty()->name(), ExtUuid::uuidToString(id)}},
                                     app_idORM().name(),
                                     ExtUuid::uuidToString(context.appId),
-                                    *this) && count == 1;
+                                    *this);
 }
 
 bool AppBaseObject::load(CurrentContext &context,

@@ -59,6 +59,9 @@ public:
     MACRO_ConstString(insertWorktimeBeginEnd);
     MACRO_ConstString(deleteWorktime);
 
+    MACRO_ConstString(tex2pdf);
+    MACRO_ConstString(checkIBAN);
+
     YACAPPServerMethodNames() {}
 };
 

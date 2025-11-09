@@ -11,10 +11,16 @@ class t0009_largeobject : public AppBaseObject
 public:
     enum LargeObjectType
     {
-        unknown = 0,
-        anyTmageType,
-        anyDocumentType
+        LOTunknown = 0,
+        LOTanyTmageType,
+        LOTanyDocumentType
     };
+    enum LargeObjectMeaning
+    {
+        LOMunknown = 0, // not allowed
+        LOMAppImage
+    };
+
 private:
     MACRO_UUID_PROPERTY(largeobject_id);
     MACRO_UUID_PROPERTY(database_blob_id);
@@ -23,6 +29,8 @@ private:
     MACRO_INT_PROPERTY(pixel_height);
     MACRO_STRING_PROPERTY(hash_value);
     MACRO_STRING_PROPERTY(transfer_base64);
+    MACRO_INT_PROPERTY(large_object_type);
+    MACRO_INT_PROPERTY(large_object_meaning);
 public:
     MACRO_CREATE_AND_GETORMNAME(t0009_largeobject)
     t0009_largeobject():AppBaseObject(Rights::RN_everybody)
@@ -32,6 +40,8 @@ public:
         MACRO_ADD_PROPERTY(byte_size);
         MACRO_ADD_PROPERTY(pixel_width);
         MACRO_ADD_PROPERTY(pixel_height);
+        MACRO_ADD_PROPERTY(large_object_type);
+        MACRO_ADD_PROPERTY(large_object_meaning);
 
         MACRO_ADD_TRANSFER_PROPERTY(transfer_base64);
     }
