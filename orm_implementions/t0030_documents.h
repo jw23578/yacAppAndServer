@@ -29,7 +29,6 @@ public:
     t0030_documents():AppBaseObject(Rights::RN_everybody)
     {
         MACRO_ADD_PROPERTY_ADD_DETAIL(document_id, DetailID);
-        MACRO_ADD_INDEX_PROPERTY(app_id);
         MACRO_ADD_PROPERTY(creater_id);
         MACRO_ADD_PROPERTY(document_blob_id);
         MACRO_ADD_PROPERTY(document_version);
